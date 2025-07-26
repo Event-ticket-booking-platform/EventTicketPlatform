@@ -12,3 +12,4 @@ D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\Ev
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Domain\obj\Debug\net8.0\EventService.Domain.pdb
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Domain\obj\Debug\net8.0\EventService.Domain.genruntimeconfig.cache
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Domain\obj\Debug\net8.0\ref\EventService.Domain.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Domain\obj\Debug\net8.0\EventService.Domain.sourcelink.json

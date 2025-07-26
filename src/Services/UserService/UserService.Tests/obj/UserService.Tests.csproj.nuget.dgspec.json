@@ -50,6 +50,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Extensions.Microsoft.Options": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "MNGDB.Extensions.Ledger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -65,6 +73,14 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.8.0, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
+            "MongoDB.Driver.Core.Extensions.DiagnosticSources": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Npgsql": {
               "target": "Package",

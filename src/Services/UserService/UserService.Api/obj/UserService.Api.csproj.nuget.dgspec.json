@@ -60,6 +60,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Extensions.Microsoft.Options": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "MNGDB.Extensions.Ledger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[8.0.5, )"
@@ -75,6 +83,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.7, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
+            "MongoDB.Driver.Core.Extensions.DiagnosticSources": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -165,6 +181,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Extensions.Microsoft.Options": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "MNGDB.Extensions.Ledger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -176,6 +200,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.7, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
+            "MongoDB.Driver.Core.Extensions.DiagnosticSources": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -252,6 +284,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Extensions.Microsoft.Options": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "MNGDB.Extensions.Ledger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -263,6 +303,14 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.7, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
+            "MongoDB.Driver.Core.Extensions.DiagnosticSources": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
@@ -343,6 +391,14 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Extensions.Microsoft.Options": {
+              "target": "Package",
+              "version": "[6.0.12, )"
+            },
+            "MNGDB.Extensions.Ledger": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.7, )"
@@ -362,6 +418,14 @@
             "Microsoft.Extensions.Configuration.Abstractions": {
               "target": "Package",
               "version": "[9.0.7, )"
+            },
+            "MongoDB.Driver": {
+              "target": "Package",
+              "version": "[3.4.2, )"
+            },
+            "MongoDB.Driver.Core.Extensions.DiagnosticSources": {
+              "target": "Package",
+              "version": "[2.1.0, )"
             },
             "Npgsql": {
               "target": "Package",

@@ -140,3 +140,13 @@ D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\Ev
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\EventService.Api.pdb
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\obj\Debug\net8.0\EventService.Api.genruntimeconfig.cache
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\obj\Debug\net8.0\ref\EventService.Api.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\obj\Debug\net8.0\EventService.Api.sourcelink.json
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\DnsClient.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\Extensions.Microsoft.Options.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\MongoDB.Driver.Extensions.Ledger.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\MongoDB.Bson.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\MongoDB.Driver.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\MongoDB.Driver.Core.Extensions.DiagnosticSources.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\SharpCompress.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\Snappier.dll
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\EventService\EventService.Api\bin\Debug\net8.0\ZstdSharp.dll
