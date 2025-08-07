@@ -5,14 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserService.Domain.Entities;
+using UserService.Application.Interfaces;
+
 
 namespace UserService.Infrastructure.Persistence
 {
-    public interface IUserRepository
-    {
-        Task AddAsync(User user);
-        Task<List<User>> GetAllAsync();
-    }
 
     public class UserRepository : IUserRepository
     {

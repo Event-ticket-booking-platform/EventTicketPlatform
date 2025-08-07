@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UserService.Infrastructure.Persistence;
+using UserService.Application.Interfaces;
+using UserService.Infrastructure.Messaging;
+
 
 namespace UserService.Infrastructure.DI
 {
@@ -17,6 +20,7 @@ namespace UserService.Infrastructure.DI
             services.AddDbContext<UserDbContext>(options =>
                 options.UseNpgsql(config.GetConnectionString("Postgres")));
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddSingleton<IKafkaProducer, KafkaProducer>();
             return services;
         }
     }

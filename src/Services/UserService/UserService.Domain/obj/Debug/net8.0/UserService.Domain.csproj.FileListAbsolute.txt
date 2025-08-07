@@ -7,6 +7,7 @@ D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\Us
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.AssemblyInfoInputs.cache
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.AssemblyInfo.cs
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.csproj.CoreCompileInputs.cache
+D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.sourcelink.json
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.dll
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\refint\UserService.Domain.dll
 D:\Acadamy\7 th Semi\Cloud Computing\project\EventTicketPlatform\src\Services\UserService\UserService.Domain\obj\Debug\net8.0\UserService.Domain.pdb

@@ -54,6 +54,10 @@
               "target": "Package",
               "version": "[4.0.3, )"
             },
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.11.0, )"
+            },
             "Extensions.Microsoft.Options": {
               "target": "Package",
               "version": "[6.0.12, )"
@@ -156,6 +160,10 @@
             "BCrypt.Net-Next": {
               "target": "Package",
               "version": "[4.0.3, )"
+            },
+            "Confluent.Kafka": {
+              "target": "Package",
+              "version": "[2.11.0, )"
             },
             "Extensions.Microsoft.Options": {
               "target": "Package",

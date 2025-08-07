@@ -4,6 +4,7 @@ using EventService.Infrastructure.DI;
 using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using MongoDB.Bson;
+using EventService.Infrastructure.Messaging;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -18,6 +19,8 @@ builder.Services.AddSwaggerGen();
 // Register Application and Infrastructure dependencies
 builder.Services.AddScoped<IEventService, EventService.Application.Services.EventService>();
 builder.Services.AddInfrastructure(builder.Configuration);
+
+builder.Services.AddHostedService<KafkaConsumer>();
 
 var app = builder.Build();
 
