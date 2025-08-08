@@ -102,6 +102,19 @@
             },
             {
               "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AQIAAD4AAAAAAAAAAAAAAEYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-08-08T19:23:30.127Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 5,
               "Title": "MongoDbSettings.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Settings\\MongoDbSettings.cs",
@@ -114,26 +127,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AQIAAEQAAAAAAAAAAAAqwF4AAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-08-08T17:19:52.625Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 0,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
-              "ViewState": "AQIAAAQAAAAAAAAAAAAqwB0AAAAsAAAA",
+              "ViewState": "AQIAAAgAAAAAAAAAAAAmwA4AAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-08-08T17:19:43.938Z",
               "EditorCaption": ""
@@ -146,7 +146,7 @@
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAQwCAAAAAtAAAA",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAmwBsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-08-08T17:19:34.44Z",
               "EditorCaption": ""
