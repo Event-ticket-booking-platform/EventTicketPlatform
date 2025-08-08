@@ -1,4 +1,5 @@
 ﻿version: "3.9"
+
 services:
   zookeeper:
     image: confluentinc/cp-zookeeper:7.3.0
@@ -16,10 +17,13 @@ services:
     container_name: kafka
     ports:
       - "9092:9092"
+      - "29092:29092"
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
     depends_on:
       - zookeeper
@@ -30,28 +34,36 @@ services:
     image: postgres:15
     container_name: postgres
     environment:
-      POSTGRES_DB: usersdb
+      POSTGRES_DB: userservice
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: 1234
     ports:
-      - "5432:5432"
+      - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
     networks:
       - kafka-network
 
   mongo:
-    image: mongo
+    image: mongo:latest
     container_name: mongodb
     ports:
-      - "27017:27017"
+      - "27018:27017"
+    volumes:
+      - mongo-data:/data/db
     networks:
       - kafka-network
 
   userservice:
     build:
-      context: ./UserService
+      context: ./src/Services/UserService/UserService.Api
+      dockerfile: Dockerfile
     container_name: userservice
     ports:
       - "5001:80"
+    environment:
+      - ConnectionStrings__DefaultConnection=Host=postgres;Port=5432;Database=userservice;Username=postgres;Password=1234
+      - Kafka__BootstrapServers=kafka:9092
     depends_on:
       - kafka
       - postgres
@@ -60,10 +72,14 @@ services:
 
   eventservice:
     build:
-      context: ./EventService
+      context: ./src/Services/EventService/EventService.Api
+      dockerfile: Dockerfile
     container_name: eventservice
     ports:
       - "5002:80"
+    environment:
+      - ConnectionStrings__MongoDB=mongodb://mongodb:27017
+      - Kafka__BootstrapServers=kafka:9092
     depends_on:
       - kafka
       - mongo
@@ -73,3 +89,7 @@ services:
 networks:
   kafka-network:
     driver: bridge
+
+volumes:
+  postgres-data:
+  mongo-data:

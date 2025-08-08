@@ -1,0 +1,78 @@
+﻿version: "3.9"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.0
+    container_name: zookeeper
+    ports:
+      - "2181:2181"
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    networks:
+      - kafka-network
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.0
+    container_name: kafka
+    ports:
+      - "9092:9092"
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    depends_on:
+      - zookeeper
+    networks:
+      - kafka-network
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5433:5432"  # local:container
+    environment:
+      POSTGRES_DB: usersdb
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    networks:
+      - kafka-network
+
+  mongo:
+    image: mongo
+    container_name: mongodb
+    ports:
+      - "27018:27017"  # local:container
+    networks:
+      - kafka-network
+
+  userservice:
+    build:
+      context: ../UserService
+      dockerfile: UserService.Api/Dockerfile
+    container_name: userservice
+    ports:
+      - "5001:80"
+    depends_on:
+      - kafka
+      - postgres
+    networks:
+      - kafka-network
+
+  eventservice:
+    build:
+      context: ../EventService
+      dockerfile: EventService.Api/Dockerfile
+    container_name: eventservice
+    ports:
+      - "5002:80"
+    depends_on:
+      - kafka
+      - mongo
+    networks:
+      - kafka-network
+
+networks:
+  kafka-network:
+    driver: bridge

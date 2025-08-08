@@ -3,6 +3,22 @@
   "WorkspaceRootPath": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{41C88C37-7170-425F-A8C5-89A88A5C90CB}|kafka-docker{41C88C37-7170-425F-A8C5-89A88A5C90CB}|D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{41C88C37-7170-425F-A8C5-89A88A5C90CB}|kafka-docker{41C88C37-7170-425F-A8C5-89A88A5C90CB}|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
@@ -11,100 +27,32 @@
       "RelativeMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|solutionrelative:src\\services\\eventservice\\eventservice.infrastructure\\settings\\mongodbsettings.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{41C88C37-7170-425F-A8C5-89A88A5C90CB}|kafka-docker{41C88C37-7170-425F-A8C5-89A88A5C90CB}|D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{41C88C37-7170-425F-A8C5-89A88A5C90CB}|kafka-docker{41C88C37-7170-425F-A8C5-89A88A5C90CB}|solutionrelative:docker-compose.yml||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\properties\\launchsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\userservice.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\userservice.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.infrastructure\\messaging\\kafkaconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|solutionrelative:src\\services\\eventservice\\eventservice.infrastructure\\messaging\\kafkaconsumer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\userservice.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\userservice.api.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.infrastructure\\eventservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|solutionrelative:src\\services\\eventservice\\eventservice.infrastructure\\eventservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\services\\userservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\messaging\\kafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\messaging\\kafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\interfaces\\ikafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\interfaces\\ikafkaproducer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\interfaces\\iuserrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\persistence\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\persistence\\userrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\userservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\userservice.infrastructure.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\userservice.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\userservice.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.domain\\userservice.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|solutionrelative:src\\services\\userservice\\userservice.domain\\userservice.domain.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\messaging\\kafkausercreatedmessage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\persistence\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\persistence\\userdbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.infrastructure\\repositories\\eventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -123,6 +71,10 @@
       "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\services\\ieventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\services\\eventservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\interfaces\\ieventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\interfaces\\ieventrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -133,30 +85,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\controllers\\eventcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\interfaces\\iuserservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.application\\dtos\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC399A63-42C3-4EDA-BA42-61A558AFB1D3}|src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj|solutionrelative:src\\services\\userservice\\userservice.application\\dtos\\registeruserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.domain\\enums\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|solutionrelative:src\\services\\userservice\\userservice.domain\\enums\\role.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F95469F5-8C0D-4402-839E-173B4E5C3307}|src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj|solutionrelative:src\\services\\userservice\\userservice.domain\\entities\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.application\\eventservice.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|",
-      "RelativeMoniker": "D:0:0:{F7F1301A-76C9-4BCF-9751-48DCB2A04408}|src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj|solutionrelative:src\\services\\eventservice\\eventservice.application\\eventservice.application.csproj||{FA3CD31E-987B-443A-9B81-186104E8DAC1}|"
     }
   ],
   "DocumentGroupContainers": [
@@ -166,7 +94,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 7,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -175,145 +103,221 @@
             {
               "$type": "Document",
               "DocumentIndex": 5,
-              "Title": "launchSettings.json",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Properties\\launchSettings.json",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Properties\\launchSettings.json",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Properties\\launchSettings.json",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Properties\\launchSettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAHAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-07T09:53:59.204Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "UserService.Api.http",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.http",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\UserService.Api.http",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.http",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\UserService.Api.http",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
-              "WhenOpened": "2025-08-07T09:53:40.352Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "docker-compose.yml",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
-              "RelativeDocumentMoniker": "docker-compose.yml",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
-              "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AQIAAA0AAAAAAAAAAAAwwCUAAAANAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
-              "WhenOpened": "2025-07-26T16:40:53.18Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Program.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Program.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Program.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:34:20.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-07T05:33:55.395Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
               "Title": "MongoDbSettings.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Settings\\MongoDbSettings.cs",
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\Settings\\MongoDbSettings.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Settings\\MongoDbSettings.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\Settings\\MongoDbSettings.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAABBAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T17:56:05.69Z",
+              "WhenOpened": "2025-08-08T16:56:56.438Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "docker-compose.yml",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
+              "RelativeDocumentMoniker": "docker-compose.yml",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
+              "RelativeToolTip": "docker-compose.yml",
+              "ViewState": "AQIAAEQAAAAAAAAAAAAqwF4AAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
+              "WhenOpened": "2025-08-08T17:19:52.625Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-07-25T18:11:01.835Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "KafkaConsumer.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAABQAAAAJAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T07:04:59.23Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-07T07:28:17.77Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
               "Title": "Dockerfile",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAqwB0AAAAsAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-07T07:27:05.396Z",
+              "WhenOpened": "2025-08-08T17:19:43.938Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwCAAAAAtAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-08T17:19:34.44Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-08T17:25:34.977Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "KafkaConsumer.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\Messaging\\KafkaConsumer.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAADwvxkAAAANAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:18:36.356Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-08T16:52:20.537Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "KafkaProducer.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAwwBcAAABPAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:17:07.482Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "KafkaUserCreatedMessage.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:18:19.154Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "IKafkaProducer.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:16:27.593Z"
+            },
+            {
+              "$type": "Document",
               "DocumentIndex": 10,
+              "Title": "KafkaUserCreatedMessage.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:16:15.994Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Program.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Program.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T17:14:22.508Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "EventRepository.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAAwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T16:56:41.493Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBkAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T16:56:18.318Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Event.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAA1AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T16:55:54.247Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "IEventService.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T16:55:28.335Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 17,
               "Title": "EventService.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\EventService.cs",
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Services\\EventService.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\EventService.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Services\\EventService.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAgwCUAAAAFAAAA",
+              "ViewState": "AQIAABAAAAAAAAAAAAAQwB8AAAAoAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T18:00:55.486Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T16:54:58.982Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 18,
+              "Title": "IEventRepository.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-08T16:54:01.438Z"
             },
             {
               "$type": "Document",
@@ -323,361 +327,33 @@
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Program.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Program.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Program.cs",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAswBkAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAADgAAAAXAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T05:49:49.795Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "UserService.Api",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
-              "ViewState": "AQIAABUAAAAAAAAAAAAAACQAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-07T06:28:03.888Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "EventService.Infrastructure.csproj",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAwwBsAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-25T17:57:51.721Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "KafkaUserCreatedMessage.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:42:53.615Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 15,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
-              "ViewState": "AQIAAAcAAAAAAAAAAAAvwBkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:31:34.068Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 16,
-              "Title": "UserService.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Services\\UserService.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Services\\UserService.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Services\\UserService.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Services\\UserService.cs",
-              "ViewState": "AQIAABMAAAAAAAAAAAAQwCcAAAAPAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T17:53:04.34Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 17,
-              "Title": "KafkaProducer.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\Messaging\\KafkaProducer.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAA4AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T17:28:19.185Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 18,
-              "Title": "IKafkaProducer.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IKafkaProducer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T06:51:43.183Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 21,
-              "Title": "UserService.Infrastructure",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAB8AAAACAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-07T06:16:14.316Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T16:51:46.385Z"
             },
             {
               "$type": "Document",
               "DocumentIndex": 19,
-              "Title": "IUserRepository.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserRepository.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserRepository.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserRepository.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T06:14:20.21Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 20,
-              "Title": "UserRepository.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserRepository.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserRepository.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserRepository.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAgAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:32:10.683Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 22,
-              "Title": "UserService.Application",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABwAAABSAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-07T05:40:50.327Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 23,
-              "Title": "UserService.Domain",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj",
-              "ViewState": "AQIAAAwAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-08-07T06:28:31.009Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 24,
-              "Title": "KafkaUserCreatedMessage.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Messaging\\KafkaUserCreatedMessage.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:41:26.109Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 25,
-              "Title": "UserDbContext.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserDbContext.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserDbContext.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserDbContext.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\Persistence\\UserDbContext.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAuwAoAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:32:01.654Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 26,
-              "Title": "EventRepository.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\Repositories\\EventRepository.cs",
-              "ViewState": "AQIAAA4AAAAAAAAAAAAQwBoAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T05:29:18.243Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 27,
-              "Title": "DependencyInjection.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
-              "ViewState": "AQIAAAoAAAAAAAAAAAAkwB0AAAAFAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T17:58:20.824Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 28,
-              "Title": "Event.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Domain\\Entities\\Event.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAAABUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T17:55:24.903Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 29,
-              "Title": "IEventService.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Services\\IEventService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T18:00:25.7Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 30,
-              "Title": "IEventRepository.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\Interfaces\\IEventRepository.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T05:19:38.115Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 31,
               "Title": "CreateEventDTO.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\DTOs\\CreateEventDTO.cs",
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\DTOs\\CreateEventDTO.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\DTOs\\CreateEventDTO.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\DTOs\\CreateEventDTO.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAFAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T17:59:50.405Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T16:53:27.202Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 20,
               "Title": "EventController.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Controllers\\EventController.cs",
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Controllers\\EventController.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Controllers\\EventController.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Controllers\\EventController.cs",
-              "ViewState": "AQIAABQAAAAAAAAAAAAkwCkAAAAAAAAA",
+              "ViewState": "AQIAABEAAAAAAAAAAAAYwCEAAAASAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-25T18:03:04.833Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 34,
-              "Title": "RegisterUserDTO.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\DTOs\\RegisterUserDTO.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\DTOs\\RegisterUserDTO.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\DTOs\\RegisterUserDTO.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\DTOs\\RegisterUserDTO.cs",
-              "ViewState": "AQIAAAEAAAAAAAAAAAAQwA8AAAAmAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:30:51.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 35,
-              "Title": "Role.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\Enums\\Role.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Domain\\Enums\\Role.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\Enums\\Role.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Domain\\Enums\\Role.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:30:37.822Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 33,
-              "Title": "IUserService.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserService.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserService.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserService.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Application\\Interfaces\\IUserService.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-07-26T05:23:09.738Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 36,
-              "Title": "User.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\Entities\\User.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Domain\\Entities\\User.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\Entities\\User.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Domain\\Entities\\User.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAuwBUAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:18:23.537Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 37,
-              "Title": "UserController.cs",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\controllers\\UserController.cs",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\controllers\\UserController.cs",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\controllers\\UserController.cs",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\controllers\\UserController.cs",
-              "ViewState": "AQIAAAUAAAAAAAAAAAAswBMAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-08-07T05:29:49.363Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 38,
-              "Title": "EventService.Application.csproj",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
-              "ViewState": "AQIAAAQAAAAAAAAAAABhwB4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000758|",
-              "WhenOpened": "2025-07-26T05:10:17.212Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-08-08T16:52:03.084Z"
             }
           ]
         }

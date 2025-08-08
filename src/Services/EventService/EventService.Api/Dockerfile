@@ -1,24 +1,33 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
-WORKDIR /app
-EXPOSE 80
-
+﻿# Stage 1: Build
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
+# Copy solution file (if exists)
+# COPY *.sln .
 
-COPY EventService.Api/*.csproj ./EventService.Api/
-COPY EventService.Application/*.csproj ./EventService.Application/
-COPY EventService.Domain/*.csproj ./EventService.Domain/
-COPY EventService.Infrastructure/*.csproj ./EventService.Infrastructure/
+# Copy main API project
+COPY ["src/Services/EventService/EventService.Api/EventService.Api.csproj", "EventService.Api/"]
+COPY ["src/Services/EventService/EventService.Application/EventService.Application.csproj", "EventService.Application/"]
+COPY ["src/Services/EventService/EventService.Domain/EventService.Domain.csproj", "EventService.Domain/"]
+COPY ["src/Services/EventService/EventService.Infrastructure/EventService.Infrastructure.csproj", "EventService.Infrastructure/"]
 
-RUN dotnet restore ./EventService.Api/EventService.Api.csproj
+# Restore NuGet packages
+RUN dotnet restore "EventService.Api/EventService.Api.csproj"
 
+# Copy everything else
 COPY . .
 
-WORKDIR /src/EventService.Api
-RUN dotnet publish -c Release -o /app/publish
+# Build
+WORKDIR "/src/EventService.Api"
+RUN dotnet build "EventService.Api.csproj" -c Release -o /app/build
 
-FROM base AS final
+# Stage 2: Publish
+FROM build AS publish
+RUN dotnet publish "EventService.Api.csproj" -c Release -o /app/publish
+
+# Stage 3: Runtime
+FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-COPY --from=build /app/publish .
+EXPOSE 80
+COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "EventService.Api.dll"]

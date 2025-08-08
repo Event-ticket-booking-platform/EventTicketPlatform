@@ -17,7 +17,7 @@ namespace UserService.Infrastructure.Messaging
 
         public KafkaProducer()
         {
-            var config = new ProducerConfig { BootstrapServers = "localhost:9092" };
+            var config = new ProducerConfig { BootstrapServers = "kafka:9092" };
             _producer = new ProducerBuilder<Null, string>(config).Build();
         }
 
