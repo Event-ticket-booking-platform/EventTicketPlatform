@@ -1,27 +1,23 @@
-﻿# Stage 1: Build
-FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
+﻿FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /src
 
-# Copy only what's needed (relative to context)
-COPY ../UserService.Api/UserService.Api.csproj ./UserService.Api/
-COPY ../UserService.Application/UserService.Application.csproj ./UserService.Application/
-COPY ../UserService.Domain/UserService.Domain.csproj ./UserService.Domain/
-COPY ../UserService.Infrastructure/UserService.Infrastructure.csproj ./UserService.Infrastructure/
+COPY Services/EventService/EventService.Api/EventService.Api.csproj Services/EventService/EventService.Api/
+COPY Services/EventService/EventService.Application/EventService.Application.csproj Services/EventService/EventService.Application/
+COPY Services/EventService/EventService.Domain/EventService.Domain.csproj Services/EventService/EventService.Domain/
+COPY Services/EventService/EventService.Infrastructure/EventService.Infrastructure.csproj Services/EventService/EventService.Infrastructure/
 
-RUN dotnet restore "UserService.Api/UserService.Api.csproj"
+RUN dotnet restore "Services/EventService/EventService.Api/EventService.Api.csproj"
 
-COPY .. .  # Copy everything in ../UserService folder
+COPY . .
 
-WORKDIR "/src/UserService.Api"
-RUN dotnet build "UserService.Api.csproj" -c Release -o /app/build
+WORKDIR /src/Services/EventService/EventService.Api
+RUN dotnet build "EventService.Api.csproj" -c Release -o /app/build
 
-# Stage 2: Publish
 FROM build AS publish
-RUN dotnet publish "UserService.Api.csproj" -c Release -o /app/publish
+RUN dotnet publish "EventService.Api.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
-# Stage 3: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
 EXPOSE 80
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "UserService.Api.dll"]
+ENTRYPOINT ["dotnet", "EventService.Api.dll"]
