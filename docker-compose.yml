@@ -1,0 +1,82 @@
+﻿version: "3.9"
+
+services:
+  zookeeper:
+    image: confluentinc/cp-zookeeper:7.3.0
+    container_name: zookeeper
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+      ZOOKEEPER_TICK_TIME: 2000
+    ports:
+      - "2181:2181"
+    healthcheck:
+      # no nc needed – uses built-in script
+      test: ["CMD", "bash", "-lc", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks: [kafka-network]
+    restart: unless-stopped
+
+  kafka:
+    image: confluentinc/cp-kafka:7.3.0
+    container_name: kafka
+    depends_on:
+      zookeeper:
+        condition: service_healthy
+    environment:
+      KAFKA_BROKER_ID: 1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "9092:9092"     # internal testing
+      - "29092:29092"   # host tools (UI, CLI)
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+    networks: [kafka-network]
+    restart: unless-stopped
+
+
+
+  userservice:
+    build:
+      context: ./src
+      dockerfile: Services/UserService/UserService.Api/Dockerfile
+    image: userservice:dev
+    container_name: userservice
+    depends_on:
+      kafka:
+        condition: service_healthy
+    
+    ports:
+      - "5001:80"
+    networks: [kafka-network]
+    restart: unless-stopped
+
+  eventservice:
+    build:
+      context: ./src
+      dockerfile: Services/EventService/EventService.Api/Dockerfile
+    image: eventservice:dev
+    container_name: eventservice
+    depends_on:
+      kafka:
+        condition: service_healthy
+    
+    ports:
+      - "5002:5000"
+    networks: [kafka-network]
+    restart: unless-stopped
+
+
+networks:
+  kafka-network:
+    driver: bridge
+
+
