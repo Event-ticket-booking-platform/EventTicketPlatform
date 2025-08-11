@@ -1,6 +1,7 @@
 ﻿using EventService.Application.DTOs;
 using EventService.Application.Services;
 using EventService.Domain.Entities;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EventService.Api.Controllers
@@ -24,18 +25,33 @@ namespace EventService.Api.Controllers
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<Event>> GetById(Guid id)
+        public async Task<ActionResult<Event>> GetById(string id)
         {
-            var evt = await _eventService.GetEventByIdAsync(id);
-            if (evt == null) return NotFound();
-            return Ok(evt);
+            if (!Guid.TryParse(id, out var gid))
+                return BadRequest("Invalid id format.");
+
+            var evt = await _eventService.GetEventByIdAsync(gid);
+            return evt is null ? NotFound() : Ok(evt);
         }
 
+
+        // [Authorize(Roles = "Admin")]
+        [Authorize(Policy = "AdminOnly")]
         [HttpPost]
-        public async Task<IActionResult> Create(CreateEventDTO dto)
+        public async Task<IActionResult> Create([FromBody] CreateEventDTO dto)
         {
-            await _eventService.CreateEventAsync(dto);
-            return Ok(new { message = "Event created successfully" });
+            var id = await _eventService.CreateEventAsync(dto);
+            // Debug: should print True
+            Console.WriteLine($"IsInRole(Admin) = {User.IsInRole("Admin")}");
+
+            return CreatedAtAction(nameof(GetById), new { id }, new { id });
         }
+
+
+        [Authorize]
+        [HttpGet("whoami")]
+        public IActionResult WhoAmI()
+             => Ok(User.Claims.Select(c => new { c.Type, c.Value }));
+
     }
 }

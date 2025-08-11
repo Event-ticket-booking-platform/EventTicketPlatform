@@ -1,0 +1,5 @@
+docker compose up -d --build
+
+http://localhost:5001/swagger/index.html
+
+http://localhost:5002/index.html

@@ -92,6 +92,10 @@ services:
       ASPNETCORE_ENVIRONMENT: Development
       ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=userservice;Username=postgres;Password=1234
       Kafka__BootstrapServers: kafka:9092
+      Jwt__Issuer: EventTicketPlatform
+      Jwt__Audience: EventTicketPlatform.Api
+      Jwt__Key: super-long-random-256-bit-secret-here-change-me
+      Jwt__ExpiresMinutes: 60
     ports:
       - "5001:80"
     networks: [kafka-network]
@@ -115,6 +119,10 @@ services:
       MongoDbSettings__DatabaseName: EventServiceDb
       MongoDbSettings__EventsCollectionName: Events
       Kafka__BootstrapServers: kafka:9092
+      Jwt__Issuer: EventTicketPlatform
+      Jwt__Audience: EventTicketPlatform.Api
+      Jwt__Key: super-long-random-256-bit-secret-here-change-me
+      Jwt__ExpiresMinutes: 60
     ports:
       - "5002:5000"
     networks: [kafka-network]

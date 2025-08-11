@@ -11,7 +11,8 @@ namespace EventService.Application.DTOs
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Location { get; set; } = null!;
-        public DateTime Date { get; set; }
+        public DateTime StartUtc { get; set; }
+        public DateTime EndUtc { get; set; }
         public string OrganizerId { get; set; } = null!;
     }
 }
