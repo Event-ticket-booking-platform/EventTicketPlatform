@@ -110,8 +110,10 @@ services:
         condition: service_healthy
     environment:
       ASPNETCORE_ENVIRONMENT: Development
-      URLS: http://0.0.0.0:5000
-      ConnectionStrings__MongoDB: mongodb://mongodb:27017/EventServiceDb
+      ASPNETCORE_URLS: http://0.0.0.0:5000
+      MongoDbSettings__ConnectionString: mongodb://mongo:27017
+      MongoDbSettings__DatabaseName: EventServiceDb
+      MongoDbSettings__EventsCollectionName: Events
       Kafka__BootstrapServers: kafka:9092
     ports:
       - "5002:5000"

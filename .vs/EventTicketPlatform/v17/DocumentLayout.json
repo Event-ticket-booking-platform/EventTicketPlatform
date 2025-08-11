@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+      "AbsoluteMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BDF37F93-5DBB-4B6B-9EE0-4DC65D47B416}|src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj|solutionrelative:src\\services\\eventservice\\eventservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
@@ -19,16 +23,24 @@
       "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
+      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{B1EA5E8B-0852-4CB3-9766-4C791E08DC5E}|src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj|solutionrelative:src\\services\\eventservice\\eventservice.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\di\\dependencyinjection.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.infrastructure\\migrations\\20250811035104_correctdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{35161EAB-DE19-42E3-9068-C6BE2A7C2329}|src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj|solutionrelative:src\\services\\userservice\\userservice.infrastructure\\migrations\\20250811035104_correctdb.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|d:\\acadamy\\7 th semi\\cloud computing\\project\\eventticketplatform\\src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{64DEAEAE-669D-4735-8749-BE3904240AD3}|src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj|solutionrelative:src\\services\\userservice\\userservice.api\\dockerfile||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -38,99 +50,138 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ViewState": "AQIAAA0AAAAAAAAAAAAQwCAAAABAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T04:20:22.817Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-11T04:43:09.597Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "DependencyInjection.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\DI\\DependencyInjection.cs",
+              "ViewState": "AQIAAAoAAAAAAAAAAAAuwBoAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T03:22:57.166Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-09T06:40:32.52Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
               "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Program.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Program.cs",
               "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Program.cs",
-              "ViewState": "AQIAABsAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "ViewState": "AQIAACQAAAAAAAAAAAAAADQAAABIAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T06:32:15.941Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-08-09T06:27:26.092Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Program.cs",
               "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Program.cs",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Program.cs",
               "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Program.cs",
-              "ViewState": "AQIAAFkAAAAAAAAAAAAAAHUAAAAAAAAA",
+              "ViewState": "AQIAAC8AAAAAAAAAAAAUwEAAAAAkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-08-09T05:47:43.84Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "docker-compose.yml",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
               "RelativeDocumentMoniker": "docker-compose.yml",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\docker-compose.yml",
               "RelativeToolTip": "docker-compose.yml",
-              "ViewState": "AQIAAGgAAAAAAAAAAAAiwHwAAAAIAAAA",
+              "ViewState": "AQIAAGAAAAAAAAAAAAAUwG0AAAAiAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003775|",
               "WhenOpened": "2025-08-09T04:35:20.072Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Dockerfile",
-              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
-              "WhenOpened": "2025-08-09T04:34:24.176Z",
+              "DocumentIndex": 8,
+              "Title": "20250811035104_correctdb.cs",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Migrations\\20250811035104_correctdb.cs",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Infrastructure\\Migrations\\20250811035104_correctdb.cs",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\Migrations\\20250811035104_correctdb.cs",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Infrastructure\\Migrations\\20250811035104_correctdb.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-08-11T03:51:05.525Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-08-09T06:27:26.092Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 4,
               "Title": "Dockerfile",
+              "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "RelativeDocumentMoniker": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "RelativeToolTip": "src\\Services\\EventService\\EventService.Api\\Dockerfile",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
+              "WhenOpened": "2025-08-09T04:34:24.176Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Dockerfile",
               "DocumentMoniker": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeDocumentMoniker": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "ToolTip": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\Dockerfile",
               "RelativeToolTip": "src\\Services\\UserService\\UserService.Api\\Dockerfile",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABwAAAAAAAAA",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAgwBcAAAAxAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001001|",
               "WhenOpened": "2025-08-09T04:34:04.351Z",
               "EditorCaption": ""

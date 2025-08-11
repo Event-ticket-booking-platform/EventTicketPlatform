@@ -17,8 +17,14 @@ namespace UserService.Infrastructure.DI
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
-            services.AddDbContext<UserDbContext>(options =>
-                options.UseNpgsql(config.GetConnectionString("Postgres")));
+            //services.AddDbContext<UserDbContext>(options =>
+            //    options.UseNpgsql(config.GetConnectionString("Postgres")));
+            var cs = config.GetConnectionString("DefaultConnection");
+            if (string.IsNullOrWhiteSpace(cs))
+                throw new InvalidOperationException("Missing ConnectionStrings:DefaultConnection");
+
+            services.AddDbContext<UserDbContext>(options => options.UseNpgsql(cs));
+
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddSingleton<IKafkaProducer, KafkaProducer>();
             return services;
