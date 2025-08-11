@@ -120,6 +120,92 @@ services:
     networks: [kafka-network]
     restart: unless-stopped
 
+  order_postgres:
+    image: postgres:15
+    container_name: order_postgres
+    environment:
+      POSTGRES_DB: orderservice
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d orderservice"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - kafka-network
+    volumes:
+      - ./src/Services/order_service/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - order_pgdata:/var/lib/postgresql/data1
+    restart: unless-stopped
+
+  order_service:
+    container_name: order_service
+    build:
+      context: .
+      dockerfile: ./src/Services/order_service/Dockerfile
+    depends_on:
+      order_postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://order_postgres:5432/orderservice
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8083:8083"
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+  payment_postgres:
+    image: postgres:15
+    container_name: payment_postgres
+    environment:
+      POSTGRES_DB: paymentservice
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5434:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d paymentservice"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - kafka-network
+    volumes:
+      - ./src/Services/payment_service/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+      - payment_pgdata:/var/lib/postgresql/data2
+    restart: unless-stopped
+
+  payment_service:
+    container_name: payment_service
+    build:
+      context: .
+      dockerfile: ./src/Services/payment_service/Dockerfile
+    depends_on:
+      payment_postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://payment_postgres:5432/paymentservice
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: 1234
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8082:8082"
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
 networks:
   kafka-network:
     driver: bridge
@@ -127,3 +213,5 @@ networks:
 volumes:
   postgres-data:
   mongo-data:
+  order_pgdata:
+  payment_pgdata:
