@@ -145,7 +145,7 @@ services:
   order_service:
     container_name: order_service
     build:
-      context: ./src/Services/order_service
+      context: .
       dockerfile: ./src/Services/order_service/Dockerfile
     depends_on:
       order_postgres:
@@ -188,7 +188,7 @@ services:
   payment_service:
     container_name: payment_service
     build:
-      context: ./src/Services/payment_service
+      context: .
       dockerfile: ./src/Services/payment_service/Dockerfile
     depends_on:
       payment_postgres:
