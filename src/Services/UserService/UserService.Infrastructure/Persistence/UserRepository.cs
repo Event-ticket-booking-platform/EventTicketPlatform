@@ -23,6 +23,8 @@ namespace UserService.Infrastructure.Persistence
         }
 
         public Task<List<User>> GetAllAsync() => _db.Users.ToListAsync();
+        public Task<User?> FindByUsernameOrEmailAsync(string uoe) =>
+             _db.Users.FirstOrDefaultAsync(u => u.Username == uoe || u.Email == uoe);
     }
 
 }

@@ -87,11 +87,17 @@ services:
         condition: service_healthy
       kafka:
         condition: service_healthy
+    env_file: .env
     environment:
       ASPNETCORE_URLS: http://0.0.0.0:80
       ASPNETCORE_ENVIRONMENT: Development
-      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=userservice;Username=postgres;Password=1234
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=${POSTGRES_DB};Username=${POSTGRES_USER};Password=${POSTGRES_PASSWORD}
       Kafka__BootstrapServers: kafka:9092
+      Jwt__Issuer: ${JWT_ISSUER}
+      Jwt__Audience: ${JWT_AUDIENCE}
+      Jwt__Key: ${JWT_KEY}
+      Jwt__ExpiresMinutes: ${JWT_EXPIRES_MINUTES}
+      Cors__AllowedOrigins: ${CORS_ALLOWED_ORIGINS}
     ports:
       - "5001:80"
     networks: [kafka-network]
@@ -115,6 +121,10 @@ services:
       MongoDbSettings__DatabaseName: EventServiceDb
       MongoDbSettings__EventsCollectionName: Events
       Kafka__BootstrapServers: kafka:9092
+      Jwt__Issuer: ${JWT_ISSUER}
+      Jwt__Audience: ${JWT_AUDIENCE}
+      Jwt__Key: ${JWT_KEY}
+      Jwt__ExpiresMinutes: ${JWT_EXPIRES_MINUTES}
     ports:
       - "5002:5000"
     networks: [kafka-network]
