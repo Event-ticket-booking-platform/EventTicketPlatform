@@ -134,9 +134,9 @@ services:
     image: postgres:15
     container_name: order_postgres
     environment:
-      POSTGRES_DB: orderservice
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ${ORDER_POSTGRES_DB}
+      POSTGRES_USER: ${ORDER_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${ORDER_POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     healthcheck:
@@ -157,16 +157,17 @@ services:
     build:
       context: .
       dockerfile: ./src/Services/order_service/Dockerfile
+    env_file: .env
     depends_on:
       order_postgres:
         condition: service_healthy
       kafka:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://order_postgres:5432/orderservice
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: 1234
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DATASOURCE_URL: ${ORDER_SERVICE_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${ORDER_SERVICE_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${ORDER_SERVICE_DATASOURCE_PASSWORD}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: ${ORDER_SERVICE_KAFKA_BOOTSTRAP_SERVERS}
     ports:
       - "8083:8083"
     networks:
@@ -177,9 +178,9 @@ services:
     image: postgres:15
     container_name: payment_postgres
     environment:
-      POSTGRES_DB: paymentservice
-      POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: ${PAYMENT_POSTGRES_DB}
+      POSTGRES_USER: ${PAYMENT_POSTGRES_USER}
+      POSTGRES_PASSWORD: ${PAYMENT_POSTGRES_PASSWORD}
     ports:
       - "5434:5432"
     healthcheck:
@@ -200,16 +201,18 @@ services:
     build:
       context: .
       dockerfile: ./src/Services/payment_service/Dockerfile
+    env_file: .env
     depends_on:
       payment_postgres:
         condition: service_healthy
       kafka:
         condition: service_healthy
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://payment_postgres:5432/paymentservice
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: 1234
-      SPRING_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+      SPRING_DATASOURCE_URL: ${PAYMENT_SERVICE_DATASOURCE_URL}
+      SPRING_DATASOURCE_USERNAME: ${PAYMENT_SERVICE_DATASOURCE_USERNAME}
+      SPRING_DATASOURCE_PASSWORD: ${PAYMENT_SERVICE_DATASOURCE_PASSWORD}
+      SPRING_KAFKA_BOOTSTRAP_SERVERS: ${PAYMENT_SERVICE_KAFKA_BOOTSTRAP_SERVERS}
+
     ports:
       - "8082:8082"
     networks:
