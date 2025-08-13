@@ -44,33 +44,19 @@ services:
 
 
 
-  userservice:
-    build:
-      context: ./src
-      dockerfile: Services/UserService/UserService.Api/Dockerfile
-    image: userservice:dev
-    container_name: userservice
-    depends_on:
-      kafka:
-        condition: service_healthy
-    
-    ports:
-      - "5001:80"
-    networks: [kafka-network]
-    restart: unless-stopped
 
-  eventservice:
+  notificationservice:
     build:
-      context: ./src
-      dockerfile: Services/EventService/EventService.Api/Dockerfile
-    image: eventservice:dev
-    container_name: eventservice
+      context: ./Notification.service.api
+      dockerfile: Dockerfile
+    image: notificationservice:dev
+    container_name: notificationservice
     depends_on:
       kafka:
         condition: service_healthy
     
     ports:
-      - "5002:5000"
+      - "5003:80"
     networks: [kafka-network]
     restart: unless-stopped
 
