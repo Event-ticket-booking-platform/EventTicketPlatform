@@ -9551,19 +9551,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\dilen\\.nuget\\packages\\": {}
+    "C:\\Users\\Tuan Faied\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\EventService.Tests.csproj",
+      "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\EventService.Tests.csproj",
       "projectName": "EventService.Tests",
-      "projectPath": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\EventService.Tests.csproj",
-      "packagesPath": "C:\\Users\\dilen\\.nuget\\packages\\",
-      "outputPath": "D:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\obj\\",
+      "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\EventService.Tests.csproj",
+      "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
+      "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Tests\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\dilen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -9571,7 +9576,6 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -9589,7 +9593,8 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      }
+      },
+      "SdkAnalysisLevel": "9.0.100"
     },
     "frameworks": {
       "net8.0": {
@@ -9680,7 +9685,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
