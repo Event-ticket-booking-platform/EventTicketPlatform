@@ -130,6 +130,26 @@ services:
     networks: [kafka-network]
     restart: unless-stopped
 
+  notification_service:
+    container_name: notification_service
+    build:
+      context: "D:/semester7/cloud_computing/Project/Notification-service/Notification.service.api"
+      dockerfile: Dockerfile
+    image: notification_service:dev
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+      Kafka__BootstrapServers: kafka:9092
+    
+    ports:
+      - "8081:8080"
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
   order_postgres:
     image: postgres:15
     container_name: order_postgres
@@ -156,7 +176,7 @@ services:
     container_name: order_service
     build:
       context: ./src/Services/order_service
-      dockerfile: ./src/Services/order_service/Dockerfile
+      dockerfile: Dockerfile
     env_file: .env
     depends_on:
       order_postgres:
@@ -200,7 +220,7 @@ services:
     container_name: payment_service
     build:
       context: ./src/Services/payment_service
-      dockerfile: ./src/Services/payment_service/Dockerfile
+      dockerfile: Dockerfile
     env_file: .env
     depends_on:
       payment_postgres:
