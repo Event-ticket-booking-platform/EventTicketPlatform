@@ -133,8 +133,8 @@ services:
   notification_service:
     container_name: notification_service
     build:
-      context: ./src/Services/Notification.service.api/Notification.service.api
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./src/Services/Notification.service.api/Notification.service.api/Dockerfile
     image: notification_service:dev
     depends_on:
       kafka:
