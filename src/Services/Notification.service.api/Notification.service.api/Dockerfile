@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /Notification.service.api
 
 # Copy csproj files first for better caching
-COPY src/Services/Notification.service.api/Notification.service.api/Notification.service.api.csproj .
+COPY Notification.service.api.csproj .
 
 # Restore dependencies
 RUN dotnet restore "Notification.service.api.csproj"
@@ -12,7 +12,7 @@ RUN dotnet restore "Notification.service.api.csproj"
 COPY . .
 
 # Build the project
-WORKDIR /Notification.service.api
+
 RUN dotnet build "Notification.service.api.csproj" -c Release -o /app/build
 
 # Stage 2: Publish
