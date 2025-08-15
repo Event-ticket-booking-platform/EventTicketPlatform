@@ -133,7 +133,7 @@ services:
   notification_service:
     container_name: notification_service
     build:
-      context: "D:/semester7/cloud_computing/Project/Notification-service/Notification.service.api"
+      context: ./src/Services/Notification.service.api/Notification.service.api
       dockerfile: Dockerfile
     image: notification_service:dev
     depends_on:
