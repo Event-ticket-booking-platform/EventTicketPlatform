@@ -175,8 +175,8 @@ services:
   order_service:
     container_name: order_service
     build:
-      context: ./src/Services/order_service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./src/Services/order_service/Dockerfile
     env_file: .env
     depends_on:
       order_postgres:
@@ -219,8 +219,8 @@ services:
   payment_service:
     container_name: payment_service
     build:
-      context: ./src/Services/payment_service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./src/Services/payment_service/Dockerfile
     env_file: .env
     depends_on:
       payment_postgres:
@@ -239,6 +239,48 @@ services:
       - kafka-network
     restart: unless-stopped
 
+  ticket_postgres:
+    image: postgres:15
+    container_name: ticket_postgres
+    environment:
+      POSTGRES_DB: ticketservice
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+    ports:
+      - "5435:5432"
+    volumes:
+      - ticket_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d ticketservice"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
+  ticket_service:
+    build:
+      context: ./src/Services/ticket-service
+      dockerfile: Dockerfile
+    container_name: ticket_service
+    depends_on:
+      ticket_postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+    env_file: .env
+    environment:
+      TICKET_SERVICE_DATASOURCE_URL: jdbc:postgresql://ticket_postgres:5432/ticketservice
+      TICKET_SERVICE_DATASOURCE_USERNAME: postgres
+      TICKET_SERVICE_DATASOURCE_PASSWORD: 1234
+      TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+    ports:
+      - "8084:8080"
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
 networks:
   kafka-network:
     driver: bridge
@@ -248,3 +290,4 @@ volumes:
   mongo-data:
   order_pgdata:
   payment_pgdata:
+  ticket_pgdata:
