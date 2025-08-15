@@ -3,7 +3,7 @@ FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 WORKDIR /Notification.service.api
 
 # Copy csproj files first for better caching
-COPY Notification.service.api.csproj .
+COPY src/Services/Notification.service.api/Notification.service.api/Notification.service.api.csproj .
 
 # Restore dependencies
 RUN dotnet restore "Notification.service.api.csproj"

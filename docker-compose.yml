@@ -261,8 +261,8 @@ services:
 
   ticket_service:
     build:
-      context: ./src/Services/ticket-service
-      dockerfile: Dockerfile
+      context: .
+      dockerfile: ./src/Services/ticket-service/Dockerfile
     container_name: ticket_service
     depends_on:
       ticket_postgres:

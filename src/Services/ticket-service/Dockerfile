@@ -16,6 +16,18 @@
 # # Run the Spring Boot app
 # ENTRYPOINT ["java", "-jar", "app.jar"]
 
-FROM openjdk:17
-COPY src/Services/ticket_service/target/ticket_service-0.0.1-SNAPSHOT.jar app.jar
+FROM maven:3.9.6-eclipse-temurin-17 AS build
+WORKDIR /app
+
+COPY src/Services/ticket-service/pom.xml .
+RUN mvn dependency:go-offline
+
+COPY src/Services/ticket-service/src ./src
+RUN mvn clean package -DskipTests
+
+FROM eclipse-temurin:17-jdk
+WORKDIR /app
+
+COPY --from=build /app/target/ticket-service-0.0.1-SNAPSHOT.jar app.jar
+
 ENTRYPOINT ["java", "-jar", "app.jar"]
