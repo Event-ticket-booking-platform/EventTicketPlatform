@@ -12,7 +12,17 @@ services:
     healthcheck:
       # no nc needed – uses built-in script
       # test: ["CMD", "bash", "-lc", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
-      test: ["CMD", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
+      # test: ["CMD", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
+      test:
+        [
+          "CMD",
+          "zookeeper-shell",
+          "localhost:2181",
+          "ls",
+          "/",
+          ">/dev/null",
+          "2>&1",
+        ]
       interval: 10s
       timeout: 5s
       retries: 20
@@ -37,10 +47,15 @@ services:
       - "29092:29092" # host tools (UI, CLI)
     healthcheck:
       # test: ["CMD", "bash", "-lc", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
+      # test:
+      #   [
+      #     "CMD",
+      #     "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
+      #   ]
       test:
         [
-          "CMD",
-          "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
+          "CMD-SHELL",
+          "/usr/bin/kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1 || exit 1",
         ]
       interval: 10s
       timeout: 5s
@@ -76,8 +91,13 @@ services:
       - mongo-data:/data/db
     healthcheck:
       # test: ["CMD", "bash", "-lc", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
+      # test:
+      #   ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
       test:
-        ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
+        [
+          "CMD-SHELL",
+          "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1",
+        ]
       interval: 5s
       timeout: 3s
       retries: 20
