@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "YagzKyDAEYE=",
+  "dgSpecHash": "V9ve2IiXkKw=",
   "success": true,
-  "projectFilePath": "D:\\semester7\\cloud_computing\\Project\\Notification-service\\Notification.service.api\\Notification.service.api.csproj",
+  "projectFilePath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\Notification.service.api\\Notification.service.api\\Notification.service.api.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Tuan Faied\\.nuget\\packages\\confluent.kafka\\2.11.0\\confluent.kafka.2.11.0.nupkg.sha512",
     "C:\\Users\\Tuan Faied\\.nuget\\packages\\librdkafka.redist\\2.11.0\\librdkafka.redist.2.11.0.nupkg.sha512",
