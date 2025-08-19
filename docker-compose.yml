@@ -12,10 +12,12 @@ services:
     healthcheck:
       # no nc needed – uses built-in script
       # test: ["CMD", "bash", "-lc", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
-      test: ["CMD", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
+      # test: ["CMD", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
+      test: ["CMD-SHELL", "zookeeper-shell localhost:2181 ls / || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 20
+      start_period: 20s
     networks: [kafka-network]
     restart: unless-stopped
 
@@ -28,6 +30,7 @@ services:
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092,PLAINTEXT_HOST://0.0.0.0:29092
       KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
@@ -37,14 +40,16 @@ services:
       - "29092:29092" # host tools (UI, CLI)
     healthcheck:
       # test: ["CMD", "bash", "-lc", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
-      test:
-        [
-          "CMD",
-          "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
-        ]
+      # test:
+      #   [
+      #     "CMD",
+      #     "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
+      #   ]
+      test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1 || exit 1"]
       interval: 10s
       timeout: 5s
       retries: 20
+      start_period: 30s
     networks: [kafka-network]
     restart: unless-stopped
 
@@ -76,11 +81,13 @@ services:
       - mongo-data:/data/db
     healthcheck:
       # test: ["CMD", "bash", "-lc", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
-      test:
-        ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
+      # test:
+      #   ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
+      test: ["CMD-SHELL", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' >/dev/null 2>&1 || exit 1"]
       interval: 5s
       timeout: 3s
       retries: 20
+      start_period: 15s
     networks: [kafka-network]
     restart: unless-stopped
 
