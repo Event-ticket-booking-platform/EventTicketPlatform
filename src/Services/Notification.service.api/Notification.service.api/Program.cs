@@ -41,16 +41,27 @@ namespace Notification.service.api
                 AutoOffsetReset = AutoOffsetReset.Earliest
             };
 
-            var messages = new List<object>();
+            // Store notifications per user
+            var userMessages = new Dictionary<Guid, List<dynamic>>();
 
             builder.Services.AddSingleton(config);
-            builder.Services.AddSingleton(messages);
+            builder.Services.AddSingleton(userMessages);
             builder.Services.AddHostedService<KafkaConsumerService>();
 
             var app = builder.Build();
 
             app.MapGet("/", () => Results.Ok(new { Service = "NotificationService", Version = "1.0" }));
-            app.MapGet("/notifications", (List<object> msgs) => Results.Ok(msgs));
+            // All notifications (admin/debug view)
+            app.MapGet("/notifications", (Dictionary<Guid, List<dynamic>> userMsgs) => Results.Ok(userMsgs));
+
+            // Notifications for a specific user
+            app.MapGet("/notifications/user/{userId:guid}", (Guid userId, Dictionary<Guid, List<dynamic>> userMsgs) =>
+            {
+                if (userMsgs.ContainsKey(userId))
+                    return Results.Ok(userMsgs[userId]);
+                return Results.NotFound(new { Message = "No notifications for this user" });
+            });
+
             app.MapGet("/health/kafka", () =>
             {
                 return Results.Ok(new { Status = "Kafka connection OK", Time = DateTime.UtcNow });

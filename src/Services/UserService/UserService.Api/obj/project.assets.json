@@ -4722,23 +4722,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Tuan Faied\\.nuget\\packages\\": {},
+    "C:\\Users\\DELL\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
+      "projectUniqueName": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
       "projectName": "UserService.Api",
-      "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
-      "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
-      "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\obj\\",
+      "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\UserService.Api.csproj",
+      "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+      "outputPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Api\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -4753,14 +4753,14 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj": {
-              "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj"
+            "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj": {
+              "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Application\\UserService.Application.csproj"
             },
-            "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj": {
-              "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj"
+            "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj": {
+              "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Domain\\UserService.Domain.csproj"
             },
-            "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj": {
-              "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj"
+            "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj": {
+              "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\Latest\\EventTicketPlatform\\src\\Services\\UserService\\UserService.Infrastructure\\UserService.Infrastructure.csproj"
             }
           }
         }
@@ -4775,7 +4775,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.100"
+      "SdkAnalysisLevel": "9.0.300"
     },
     "frameworks": {
       "net8.0": {
@@ -4861,7 +4861,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

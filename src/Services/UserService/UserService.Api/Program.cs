@@ -74,6 +74,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<UserDbContext>();
+    db.Database.Migrate();
     var conn = db.Database.GetDbConnection();
     Console.WriteLine(">>> Connected to DB: " + conn.ConnectionString);
     Console.WriteLine(">>> Can Connect?     : " + db.Database.CanConnect());
