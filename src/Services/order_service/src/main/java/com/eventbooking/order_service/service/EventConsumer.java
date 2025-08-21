@@ -2,7 +2,7 @@ package com.eventbooking.order_service.service;
 
 import com.eventbooking.order_service.dto.PaymentEvent;
 import com.eventbooking.order_service.dto.TicketExpiredEvent;
-import com.eventbooking.order_service.dto.TicketReservedEvent;
+import com.eventbooking.order_service.dto.TicketReserved;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,33 +15,36 @@ public class EventConsumer {
     private final ObjectMapper mapper;
 
     private final OrderService orderService;
+    private final EventProducer eventProducer;
 
     @Autowired
-    public EventConsumer(ObjectMapper mapper, OrderService orderService) {
+    public EventConsumer(ObjectMapper mapper, OrderService orderService, EventProducer eventProducer) {
         this.mapper = mapper;
         this.orderService = orderService;
+        this.eventProducer = eventProducer;
     }
 
     @KafkaListener(topics = "ticket.reserved", groupId = "order-service")
-    public void handleTicketReserved(String message) throws JsonProcessingException {
+    public void handleTicketReserved(String message) {
         try {
-            TicketReservedEvent event = mapper.readValue(message, TicketReservedEvent.class);
+            TicketReserved event = mapper.readValue(message, TicketReserved.class);
             System.out.println("####: Ticket Reserved Event: " + message);
 
-            if(isTicketReservedValid(event)) {
-                orderService.createOrder(event);
+            if(orderService.isTicketReservedValid(event)) {
+                orderService.createOrder(event, false);
                 System.out.printf("####: Order Processed from TicketReserved event: " + event);
             } else {
-                System.out.println("####: Invalid data: " + event); // TODO: Should we publish an event?
+                System.out.println("####: Invalid data: " + message);
+                eventProducer.sendOrderFailedEvent(message);
             }
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
+            eventProducer.sendOrderFailedEvent(message);
         }
-
     }
 
     @KafkaListener(topics = "payment.processed", groupId = "order-service")
-    public void handlePaymentSuccessful(String message) throws JsonProcessingException {
+    public void handlePaymentSuccessful(String message) {
         try {
             PaymentEvent event = mapper.readValue(message, PaymentEvent.class);
             System.out.println("####: Payment Processed Event: " + message);
@@ -50,7 +53,8 @@ public class EventConsumer {
                 orderService.handlePaymentProcessed(event);
                 System.out.println("####: Order Processed from Payment event: " + event);
             } else {
-                System.out.println("####: Invalid data: " + event); // TODO: Should we publish an event?
+                System.out.println("####: Invalid data: " + event);
+                eventProducer.sendPaymentFailedEvent(message);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -59,16 +63,17 @@ public class EventConsumer {
     }
 
     @KafkaListener(topics = "ticket.expired", groupId = "order-service")
-    public void handleTicketExpired(String message) throws JsonProcessingException {
+    public void handleTicketExpired(String message) {
         try {
             TicketExpiredEvent event = mapper.readValue(message, TicketExpiredEvent.class);
             System.out.println("Ticket Expired Event: " + message);
 
             if(isTicketExpiredValid(event)) {
-                orderService.handleTicketTicketExpired(event);
+                orderService.handleTicketExpired(event);
                 System.out.println("Order with order ID: " + event.getOrderId() + "got cancelled due to ticket expire");
             } else {
-                System.out.println("Invalid data: " + event); // TODO: Should we publish an event?
+                System.out.println("Invalid data: " + event);
+                eventProducer.sendTicketCancelFailedEvent(message);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -80,16 +85,8 @@ public class EventConsumer {
         return event.getTicketId() != null && !event.getTicketId().isEmpty()
                 && event.getOrderId() != null && !event.getOrderId().isEmpty()
                 && event.getUserId() != null && !event.getUserId().isEmpty()
-                && event.getExpirationTime() != null && !event.getExpirationTime().isEmpty()
+                && event.getExpirationTime() != null
                 && event.getReason() != null && !event.getReason().isEmpty();
-    }
-
-    private boolean isTicketReservedValid(TicketReservedEvent event) {
-        System.out.println("Validating");
-        return event.getTicketId() != null && !event.getTicketId().isEmpty()
-                && event.getUserId() != null && !event.getUserId().isEmpty()
-                && event.getEventId() != null && !event.getEventId().isEmpty() // TODO: Validate all fields
-                && event.getShowNumber() > 0;
     }
 
     private boolean isPaymentValid(PaymentEvent event) {
@@ -98,16 +95,4 @@ public class EventConsumer {
                 && event.getStatus() != null && !event.getStatus().isEmpty()
                 && event.getAmount() != null;
     }
-
-//    @KafkaListener(topics = "paymentConfirmed", groupId = "order-service")
-//    public void handlePaymentConfirmed(String message) throws JsonProcessingException {
-//        PaymentConfirmedEvent event = mapper.readValue(message, PaymentConfirmedEvent.class);
-//        System.out.println("Payment Confirmed Event: " + event);
-//    }
-//
-//    @KafkaListener(topics = "ticketReleased", groupId = "order-service")
-//    public void handleTicketReleased(String message) throws JsonProcessingException {
-//        TicketReleasedEvent event = mapper.readValue(message, TicketReleasedEvent.class);
-//        System.out.println("Ticket Released Event: " + event);
-//    }
 }

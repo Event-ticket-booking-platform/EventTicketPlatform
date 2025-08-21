@@ -1,11 +1,6 @@
 package com.eventbooking.order_service.service;
 
-//import com.eventbooking.order_service.dto.OrderEvent;
-//import lombok.RequiredArgsConstructor;
-import com.eventbooking.order_service.dto.ErrorEvent;
-import com.eventbooking.order_service.dto.OrderCancelledEvent;
-import com.eventbooking.order_service.dto.OrderEvent;
-import com.eventbooking.order_service.dto.TicketExpiredEvent;
+import com.eventbooking.order_service.dto.*;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,30 +10,10 @@ import org.springframework.stereotype.Service;
 @Service
 //@RequiredArgsConstructor
 public class EventProducer {
-
-    //    private final KafkaTemplate<String, OrderEvent> kafkaTemplate;
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
     private final ObjectMapper mapper = new ObjectMapper();
-
-//    @Autowired
-//    KafkaTemplate<String, OrderEvent> eventKafkaTemplate;
-
-//    public void sendOrderEvent(OrderEvent event) {
-//        kafkaTemplate.send("order.created", event);
-//    }
-
-//    public void sendOrderMessage(String message) {
-//        kafkaTemplate.send("order.created", message);
-//    }
-
-//    public void sendOrderEvent(OrderEvent event) throws JsonProcessingException {
-//        System.out.println("Sending order");
-//        ObjectMapper mapper = new ObjectMapper();
-//        String json = mapper.writeValueAsString(event);
-//        eventKafkaTemplate.send("orderEvent.created", event);
-//    }
 
     public void sendOrderCreatedEvent(OrderEvent event) throws JsonProcessingException {
         System.out.println("####: Sending order");
@@ -52,10 +27,15 @@ public class EventProducer {
         kafkaTemplate.send("order.successful", json); // For notification service
     }
 
-    public void sendOrderCancelledEvent(OrderCancelledEvent event) throws JsonProcessingException {
+    public void sendOrderCancelledEvent(OrderCancelledEvent event) throws JsonProcessingException { // For cancelling
         System.out.println("Cancelled order");
         String json = mapper.writeValueAsString(event);
         kafkaTemplate.send("order.cancelled", json);
+    }
+
+    public void sendOrderFailedEvent(String event) { // For failing
+        System.out.println("Failed order");
+        kafkaTemplate.send("order.failed", event);
     }
 
     public void sendOrderFailedEvent(OrderEvent event) throws JsonProcessingException {
@@ -69,14 +49,14 @@ public class EventProducer {
         String json = mapper.writeValueAsString(errorEvent);
         kafkaTemplate.send("error", json);
     }
-//
-//    public void sendPaymentRequestedEvent(PaymentRequestedEvent event) throws JsonProcessingException {
-//        String json = mapper.writeValueAsString(event);
-//        kafkaTemplate.send("payment.requested", json);
-//    }
-//
-//    public void sendTicketReleasedEvent(TicketReleasedEvent event) throws JsonProcessingException {
-//        String json = mapper.writeValueAsString(event);
-//        kafkaTemplate.send("ticket.released", json);
-//    }
+
+    public void sendPaymentFailedEvent(String message) {
+        System.out.println("Failed paymemt");
+        kafkaTemplate.send("payment.failed", message);
+    }
+
+    public void sendTicketCancelFailedEvent(String message) {
+        System.out.println("Failed ticket cancel");
+        kafkaTemplate.send("ticketCancel.failed", message);
+    }
 }
