@@ -17,7 +17,6 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
-    private final EventConsumer eventConsumer;
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@Valid @RequestBody TicketReserved request) {

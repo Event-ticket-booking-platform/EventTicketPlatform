@@ -1,7 +1,8 @@
 package com.eventbooking.payment_service.service;
 
 import com.eventbooking.payment_service.dto.OrderEvent;
-import com.eventbooking.payment_service.dto.PaymentEvent;
+import com.eventbooking.payment_service.dto.PaymentDto;
+import com.eventbooking.payment_service.exception.PaymentNotFoundException;
 import com.eventbooking.payment_service.model.Payment;
 import com.eventbooking.payment_service.repository.PaymentRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -46,7 +47,7 @@ public class PaymentService {
             payment.setStatus("PAYMENT_FAILED");
         }
 
-        PaymentEvent paymentEvent =new PaymentEvent(payment.getId(), payment.getOrderId(), payment.getStatus(), payment.getAmount());
+        PaymentDto paymentEvent =new PaymentDto(payment.getId(), payment.getOrderId(), payment.getStatus(), payment.getAmount());
 
         eventProducer.sendPaymentProcessedEvent(paymentEvent);
 
@@ -59,4 +60,25 @@ public class PaymentService {
         return new Random().nextBoolean();
     }
 
+    public PaymentDto getPaymentInfoById(Long paymentId) {
+        Payment payment = paymentRepository.findById(paymentId).orElseThrow(() -> new PaymentNotFoundException("Payment not found with ID: " + paymentId));
+
+        return new PaymentDto(
+                payment.getId(),
+                payment.getOrderId(),
+                payment.getStatus(),
+                payment.getAmount()
+        );
+    }
+
+    public PaymentDto getPaymentInfoByOrderId(String orderId) {
+        Payment payment = paymentRepository.findByOrderId(orderId).orElseThrow(() -> new PaymentNotFoundException("Payment not found with Order ID: " + orderId));
+
+        return new PaymentDto(
+                payment.getId(),
+                payment.getOrderId(),
+                payment.getStatus(),
+                payment.getAmount()
+        );
+    }
 }
