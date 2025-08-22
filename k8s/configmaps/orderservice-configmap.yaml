@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: order-service-config
+data:
+  ORDER_SERVICE_DATASOURCE_URL: jdbc:postgresql://order-postgres:5432/orderservice
+  ORDER_SERVICE_DATASOURCE_USERNAME: postgres
+  ORDER_POSTGRES_DB: orderservice
+  POSTGRES_DB: orderservice
+  ORDER_POSTGRES_USER: postgres
+  POSTGRES_USER: postgres
+  ORDER_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+

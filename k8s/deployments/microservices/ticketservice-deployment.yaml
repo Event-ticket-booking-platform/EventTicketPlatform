@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticket-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ticket-service
+  template:
+    metadata:
+      labels:
+        app: ticket-service
+    spec:
+      containers:
+        - name: ticket-service
+          image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/ticket_service:latest
+          envFrom:
+            - configMapRef:
+                name: ticket-service-config
+            - secretRef:
+                name: ticket-service-secret
+          # env:
+          #   - name: TICKET_SERVICE_DATASOURCE_URL
+          #     value: jdbc:postgresql://ticket-postgres:5432/ticketservice
+          #   - name: TICKET_SERVICE_DATASOURCE_USERNAME
+          #     value: postgres
+          #   - name: TICKET_SERVICE_DATASOURCE_PASSWORD
+          #     value: 1234
+          #   - name: TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS
+          #     value: kafka:9092
+          ports:
+            - containerPort: 8080

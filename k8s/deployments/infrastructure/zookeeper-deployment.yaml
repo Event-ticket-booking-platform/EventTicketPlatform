@@ -1,0 +1,115 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zookeeper
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: zookeeper
+  template:
+    metadata:
+      labels:
+        app: zookeeper
+    spec:
+      containers:
+      - name: zookeeper
+        image: bitnami/zookeeper:3.9
+        imagePullPolicy: IfNotPresent
+        ports:
+        - containerPort: 2181
+        - containerPort: 2888
+        - containerPort: 3888
+        env:
+        - name: ALLOW_ANONYMOUS_LOGIN
+          value: "yes"
+        - name: ZOO_4LW_COMMANDS_WHITELIST
+          value: "ruok,stat,srvr"
+        readinessProbe:
+          exec:
+            command: ["/bin/sh","-c","echo ruok | nc 127.0.0.1 2181 | grep imok"]
+          initialDelaySeconds: 10
+          periodSeconds: 10
+        livenessProbe:
+          exec:
+            command: ["/bin/sh","-c","echo srvr | nc 127.0.0.1 2181 | grep Mode"]
+          initialDelaySeconds: 20
+          periodSeconds: 20
+        volumeMounts:
+        - name: data
+          mountPath: /bitnami/zookeeper
+      volumes:
+      - name: data
+        emptyDir: {}
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: zookeeper
+#   labels:
+#     app: zookeeper
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: zookeeper
+#   template:
+#     metadata:
+#       labels:
+#         app: zookeeper
+#     spec:
+#       containers:
+#         - name: zookeeper
+#           image: confluentinc/cp-zookeeper:7.3.0
+#           ports:
+#             - containerPort: 2181
+#           env:
+#             - name: ZOOKEEPER_CLIENT_PORT
+#               value: "2181"
+#             - name: ZOOKEEPER_TICK_TIME
+#               value: "2000"
+#           readinessProbe:
+#             exec:
+#               command:
+#                 - sh
+#                 - -c
+#                 - "zookeeper-shell localhost:2181 ls / || exit 1"
+#             initialDelaySeconds: 20
+#             periodSeconds: 10
+#             timeoutSeconds: 5
+#             failureThreshold: 20
+#           livenessProbe:
+#             exec:
+#               command:
+#                 - sh
+#                 - -c
+#                 - "zookeeper-shell localhost:2181 ls / || exit 1"
+#             initialDelaySeconds: 30
+#             periodSeconds: 10
+#             timeoutSeconds: 5
+#             failureThreshold: 20
+
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: zookeeper
+# spec:
+#   replicas: 1
+#   selector:
+#     matchLabels:
+#       app: zookeeper
+#   template:
+#     metadata:
+#       labels:
+#         app: zookeeper
+#     spec:
+#       containers:
+#         - name: zookeeper
+#           image: confluentinc/cp-zookeeper:7.3.0
+#           ports:
+#             - containerPort: 2181
+#           env:
+#             - name: ZOOKEEPER_CLIENT_PORT
+#               value: "2181"
+#             - name: ZOOKEEPER_TICK_TIME
+#               value: "2000"

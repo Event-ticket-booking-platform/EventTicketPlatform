@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: payment-service-config
+data:
+  PAYMENT_SERVICE_DATASOURCE_URL: jdbc:postgresql://payment-postgres:5432/paymentservice
+  PAYMENT_SERVICE_DATASOURCE_USERNAME: postgres
+  PAYMENT_POSTGRES_DB: paymentservice
+  PAYMENT_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+  POSTGRES_DB: paymentservice
+  POSTGRES_USER: postgres
+  
+
+
+

@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-postgres
+  template:
+    metadata:
+      labels:
+        app: order-postgres
+    spec:
+      containers:
+        - name: order-postgres
+          image: postgres:15
+          envFrom:
+            - configMapRef:
+                name: order-service-config
+            - secretRef:
+                name: order-service-secret
+          # env:
+          #   - name: POSTGRES_DB
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: order-service-config
+          #         key: ORDER_POSTGRES_DB
+          #   - name: POSTGRES_USER
+          #     valueFrom:
+          #       configMapKeyRef:
+          #         name: order-service-config
+          #         key: ORDER_SERVICE_DATASOURCE_USERNAME
+          #   - name: POSTGRES_PASSWORD
+          #     valueFrom:
+          #       secretKeyRef:
+          #         name: order-service-secret
+          #         key: ORDER_POSTGRES_PASSWORD
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: order-pgdata
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: order-pgdata
+          emptyDir: {}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ticket-service-config
+data:
+  TICKET_SERVICE_DATASOURCE_URL: jdbc:postgresql://ticket-postgres:5432/ticketservice
+  TICKET_SERVICE_DATASOURCE_USERNAME: postgres
+  POSTGRES_DB: ticketservice
+  POSTGRES_USER: postgres
+  TICKET_SERVICE_DATASOURCE_USERNAME: postgres
+  TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
+
+

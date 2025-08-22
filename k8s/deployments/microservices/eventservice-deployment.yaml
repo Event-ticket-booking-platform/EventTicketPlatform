@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: eventservice
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: eventservice
+  template:
+    metadata:
+      labels:
+        app: eventservice
+    spec:
+      containers:
+      - name: eventservice
+        image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/event_service:latest
+        ports:
+        - containerPort: 5000
+        envFrom:
+        - configMapRef:
+            name: event-service-config
+        - secretRef:
+            name: event-service-secret
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 5000
+          initialDelaySeconds: 20
+          periodSeconds: 10
