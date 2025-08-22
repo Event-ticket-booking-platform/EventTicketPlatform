@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ticket-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ticket-postgres
+  template:
+    metadata:
+      labels:
+        app: ticket-postgres
+    spec:
+      containers:
+        - name: ticket-postgres
+          image: postgres:15
+          envFrom:
+            - configMapRef:
+                name: ticket-service-config
+            - secretRef:
+                name: ticket-service-secret
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: ticket-pgdata
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: ticket-pgdata
+          emptyDir: {}

@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notification-service
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: notification-service
+  template:
+    metadata:
+      labels:
+        app: notification-service
+    spec:
+      containers:
+        - name: notification-service
+          image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/notification_service:latest
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: Development
+            - name: ASPNETCORE_URLS
+              value: http://0.0.0.0:8080
+            - name: Kafka__BootstrapServers
+              value: kafka:9092
+          ports:
+            - containerPort: 8080

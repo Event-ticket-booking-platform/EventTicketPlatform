@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: order-postgres
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: order-postgres
+  template:
+    metadata:
+      labels:
+        app: order-postgres
+    spec:
+      containers:
+        - name: order-postgres
+          image: postgres:15
+          envFrom:
+            - configMapRef:
+                name: order-service-config
+            - secretRef:
+                name: order-service-secret
+          ports:
+            - containerPort: 5432
+          volumeMounts:
+            - name: order-pgdata
+              mountPath: /var/lib/postgresql/data
+      volumes:
+        - name: order-pgdata
+          emptyDir: {}
