@@ -20,22 +20,6 @@ spec:
                 name: order-service-config
             - secretRef:
                 name: order-service-secret
-          # env:
-          #   - name: POSTGRES_DB
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: order-service-config
-          #         key: ORDER_POSTGRES_DB
-          #   - name: POSTGRES_USER
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: order-service-config
-          #         key: ORDER_SERVICE_DATASOURCE_USERNAME
-          #   - name: POSTGRES_PASSWORD
-          #     valueFrom:
-          #       secretKeyRef:
-          #         name: order-service-secret
-          #         key: ORDER_POSTGRES_PASSWORD
           ports:
             - containerPort: 5432
           volumeMounts:

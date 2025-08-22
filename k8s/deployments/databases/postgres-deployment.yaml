@@ -22,13 +22,6 @@ spec:
             name: user-service-config
         - secretRef:
             name: user-service-secret
-        # env:
-        # - name: POSTGRES_DB
-        #   value: userservice
-        # - name: POSTGRES_USER
-        #   value: postgres
-        # - name: POSTGRES_PASSWORD
-        #   value: "1234"
         readinessProbe:
           exec:
             command:

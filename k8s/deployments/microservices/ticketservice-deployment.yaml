@@ -20,14 +20,5 @@ spec:
                 name: ticket-service-config
             - secretRef:
                 name: ticket-service-secret
-          # env:
-          #   - name: TICKET_SERVICE_DATASOURCE_URL
-          #     value: jdbc:postgresql://ticket-postgres:5432/ticketservice
-          #   - name: TICKET_SERVICE_DATASOURCE_USERNAME
-          #     value: postgres
-          #   - name: TICKET_SERVICE_DATASOURCE_PASSWORD
-          #     value: 1234
-          #   - name: TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS
-          #     value: kafka:9092
           ports:
             - containerPort: 8080

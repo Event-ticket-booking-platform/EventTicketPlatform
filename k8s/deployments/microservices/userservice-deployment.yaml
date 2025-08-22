@@ -22,10 +22,4 @@ spec:
             name: user-service-config
         - secretRef:
             name: user-service-secret
-        # readinessProbe:
-        #   httpGet:
-        #     path: /health
-        #     port: 80
-        #   initialDelaySeconds: 20
-        #   periodSeconds: 10
 

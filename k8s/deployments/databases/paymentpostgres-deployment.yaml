@@ -20,22 +20,6 @@ spec:
                 name: payment-service-config
             - secretRef:
                 name: payment-service-secret
-          # env:
-          #   - name: POSTGRES_DB
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: payment-service-config
-          #         key: PAYMENT_POSTGRES_DB
-          #   - name: POSTGRES_USER
-          #     valueFrom:
-          #       configMapKeyRef:
-          #         name: payment-service-config
-          #         key: PAYMENT_SERVICE_DATASOURCE_USERNAME
-          #   - name: POSTGRES_PASSWORD
-          #     valueFrom:
-          #       secretKeyRef:
-          #         name: payment-service-secret
-          #         key: PAYMENT_POSTGRES_PASSWORD
           ports:
             - containerPort: 5432
           volumeMounts:

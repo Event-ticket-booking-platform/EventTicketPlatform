@@ -20,13 +20,6 @@ spec:
                 name: ticket-service-config
             - secretRef:
                 name: ticket-service-secret
-          # env:
-          #   - name: POSTGRES_DB
-          #     value: ticketservice
-          #   - name: POSTGRES_USER
-          #     value: postgres
-          #   - name: POSTGRES_PASSWORD
-          #     value: 1234
           ports:
             - containerPort: 5432
           volumeMounts:
