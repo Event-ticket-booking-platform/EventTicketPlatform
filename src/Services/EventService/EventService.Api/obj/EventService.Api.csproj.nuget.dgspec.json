@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj": {}
+    "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj": {}
   },
   "projects": {
-    "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj": {
+    "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj",
+        "projectUniqueName": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj",
         "projectName": "EventService.Api",
-        "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj",
-        "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
-        "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\obj\\",
+        "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\EventService.Api.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Api\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -32,14 +32,14 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj"
               },
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
               },
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj"
               }
             }
           }
@@ -54,7 +54,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -114,7 +114,7 @@
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[6.4.0, )"
+              "version": "[9.0.3, )"
             },
             "System.IdentityModel.Tokens.Jwt": {
               "target": "Package",
@@ -140,24 +140,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
+    "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
+        "projectUniqueName": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
         "projectName": "EventService.Application",
-        "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
-        "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
-        "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\obj\\",
+        "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -172,8 +172,8 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
               }
             }
           }
@@ -188,7 +188,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -263,24 +263,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
+    "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj",
+        "projectUniqueName": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj",
         "projectName": "EventService.Domain",
-        "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj",
-        "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
-        "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\obj\\",
+        "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -307,7 +307,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -382,24 +382,24 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj": {
+    "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
+        "projectUniqueName": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
         "projectName": "EventService.Infrastructure",
-        "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Tuan Faied\\.nuget\\packages\\",
-        "outputPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\obj\\",
+        "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\EventService.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
+        "outputPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Tuan Faied\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -414,11 +414,11 @@
           "net8.0": {
             "targetAlias": "net8.0",
             "projectReferences": {
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Application\\EventService.Application.csproj"
               },
-              "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
-                "projectPath": "D:\\semester7\\cloud_computing\\Project\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
+              "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj": {
+                "projectPath": "E:\\Acadamy\\7 th Semi\\Cloud Computing\\project\\event last\\EventTicketPlatform\\src\\Services\\EventService\\EventService.Domain\\EventService.Domain.csproj"
               }
             }
           }
@@ -433,7 +433,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.100"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net8.0": {
@@ -512,7 +512,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.102/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.304/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

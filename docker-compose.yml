@@ -296,6 +296,30 @@ services:
     networks:
       - kafka-network
     restart: unless-stopped
+  
+  # >>> GATEWAY: added
+  gateway:
+    build:
+      context: .
+      dockerfile: ./src/Gateway.Api/Dockerfile
+    image: gateway:dev
+    container_name: api_gateway
+    depends_on:
+      userservice:
+        condition: service_started
+      eventservice:
+        condition: service_started
+    environment:
+      # Use same JWT settings as services
+      Jwt__Issuer: ${JWT_ISSUER}
+      Jwt__Audience: ${JWT_AUDIENCE}
+      Jwt__Key: ${JWT_KEY}
+      ASPNETCORE_URLS: http://0.0.0.0:8080
+    ports:
+      - "8080:8080"
+    networks: [kafka-network]
+    restart: unless-stopped
+  # <<< GATEWAY: added
 
 networks:
   kafka-network:
