@@ -1,0 +1,69 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION   = "us-west-1"
+        CLUSTER_NAME = "event-ticket-booking-system-cluster"
+        KUBE_CONFIG  = "${WORKSPACE}/.kube/config"
+        KUBECONFIG = "${WORKSPACE}/.kube/config" 
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'devOps-jenkins', url: 'https://github.com/Event-ticket-booking-platform/EventTicketPlatform.git'
+            }
+        }
+
+        stage('Configure kubectl') {
+            steps {
+                withCredentials([[ 
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh '''
+                        echo "Setting up kubeconfig for EKS..."
+                        
+
+                        aws eks update-kubeconfig \
+                            --region ${AWS_REGION} \
+                            --name ${CLUSTER_NAME} \
+                            --kubeconfig ${KUBE_CONFIG}
+
+                        kubectl cluster-info --kubeconfig ${KUBECONFIG}
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                withCredentials([[ 
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]){
+                    sh '''
+                        echo " Deploying Kubernetes Manifests..."
+                        chmod +x deploy.sh
+                        ./deploy.sh
+                    '''
+
+                }
+                
+            }
+        }
+    }
+
+    post {
+        success {
+            echo " Deployment to EKS completed successfully!"
+        }
+        failure {
+            echo " Deployment to EKS failed!"
+        }
+    }
+}
