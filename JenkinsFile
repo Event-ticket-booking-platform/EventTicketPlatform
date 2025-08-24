@@ -11,7 +11,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git branch: 'devOps-jenkins', url: 'https://github.com/Event-ticket-booking-platform/EventTicketPlatform.git'
+                git branch: 'devops-jenkins', url: 'https://github.com/Event-ticket-booking-platform/EventTicketPlatform.git'
             }
         }
 
