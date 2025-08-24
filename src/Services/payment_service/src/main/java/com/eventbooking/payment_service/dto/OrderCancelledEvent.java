@@ -1,4 +1,4 @@
-package com.eventbooking.order_service.dto;
+package com.eventbooking.payment_service.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,5 +14,5 @@ public class OrderCancelledEvent {
     private String userId;
     private String ticketId;
     private String cancelReason;  // e.g., "USER_CANCELLED" or "TICKET_EXPIRED"
-    private LocalDateTime timestamp;     // LocalDateTime string
+    private LocalDateTime timestamp;     // ISO 8601 format or LocalDateTime string
 }

@@ -1,10 +1,7 @@
 package com.eventbooking.order_service.service;
 
 import com.eventbooking.order_service.dto.*;
-import com.eventbooking.order_service.exception.EventSerializationException;
-import com.eventbooking.order_service.exception.OrderAlreadyExistsException;
-import com.eventbooking.order_service.exception.OrderAlreadyPaidException;
-import com.eventbooking.order_service.exception.OrderNotFoundException;
+import com.eventbooking.order_service.exception.*;
 import com.eventbooking.order_service.model.Order;
 import com.eventbooking.order_service.repository.OrderRepository;
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -33,11 +30,25 @@ public class OrderService {
                 );
 
         if(existingOrder.isPresent()) {
-            System.out.println("####: Order already exists");
-            if(throwOnDuplicate) {
-                throw new OrderAlreadyExistsException("Order already exists for ticket " + request.getTicketId());
+            if (!Objects.equals(existingOrder.get().getStatus(), "CANCELLED")) {
+                System.out.println("####: Order already exists");
+                if(throwOnDuplicate) {
+                    throw new OrderAlreadyExistsException("Order already exists for ticket " + request.getTicketId());
+                } else {
+                    OrderEvent orderEvent = new OrderEvent(
+                            existingOrder.get().getId().toString(),
+                            existingOrder.get().getPrice(),
+                            existingOrder.get().getStatus());
+                    eventProducer.sendOrderCreatedEvent(orderEvent);
+                    return existingOrder.get();
+                }
             } else {
-                return existingOrder.get();
+                if(throwOnDuplicate) {
+                    throw new OrderCancelledException("Order already cancelled");
+                } else {
+                    eventProducer.sendOrderAlreadyCancelledEvent(request);
+                    return existingOrder.get();
+                }
             }
         }
 
@@ -100,9 +111,10 @@ public class OrderService {
             }
 
         } else {
-            ErrorEvent errorEvent = new ErrorEvent("OrderNotFound", "Order ID " + event.getOrderId() + " not found for payment processing.", LocalDateTime.now());
-            eventProducer.sendErrorEvent(errorEvent);
+//            ErrorEvent errorEvent = new ErrorEvent("OrderNotFound", "Order ID " + event.getOrderId() + " not found for payment processing.", LocalDateTime.now());
+//            eventProducer.sendErrorEvent(errorEvent);
 
+            eventProducer.sendPaymentProcessingFailedEvent(String.valueOf(event));
             System.out.println("####: Order not found with Order ID: " + event.getOrderId());
         }
     }
@@ -110,7 +122,7 @@ public class OrderService {
     public void handleTicketExpired(TicketExpiredEvent event) throws JsonProcessingException {
         Optional<Order> orderOptional = orderRepository.findById(Long.parseLong(event.getOrderId()));
 
-        if(orderOptional.isPresent()) {
+        if(orderOptional.isPresent() && !Objects.equals(orderOptional.get().getStatus(), "PAID")) {
             Order order = orderOptional.get();
 
             order.setStatus("CANCELLED");
@@ -122,8 +134,9 @@ public class OrderService {
 
             System.out.println("Order " + order.getId() + " marked as CANCELED.");
         } else {
-            ErrorEvent errorEvent = new ErrorEvent("OrderNotFound", "Order ID " + event.getOrderId() + " not found for payment processing.", LocalDateTime.now());
-            eventProducer.sendErrorEvent(errorEvent);
+//            ErrorEvent errorEvent = new ErrorEvent("OrderNotFound", "Order ID " + event.getOrderId() + " not found for payment processing.", LocalDateTime.now());
+//            eventProducer.sendErrorEvent(errorEvent);
+            eventProducer.sendTicketCancelFailedEvent(event);
 
             System.out.println("Order not found with Order ID: " + event.getOrderId());
         }
@@ -168,4 +181,8 @@ public class OrderService {
     }
 
 
+    public void handleOrderCancelFailure(OrderCancelledEvent event) {
+        Optional<Order> optionalOrder = orderRepository.findById(Long.valueOf(event.getOrderId()));
+        optionalOrder.ifPresent(order -> order.setStatus("PAID"));
+    }
 }
