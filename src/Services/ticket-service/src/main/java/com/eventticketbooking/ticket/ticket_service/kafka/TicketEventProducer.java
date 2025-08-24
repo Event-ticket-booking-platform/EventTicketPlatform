@@ -2,31 +2,28 @@ package com.eventticketbooking.ticket.ticket_service.kafka;
 
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class TicketEventProducer {
-    // private static final String TOPIC = "ticket-reserved";
+    private static final String TOPIC = "ticket.reserved";
 
-    // private final KafkaTemplate<String, String> kafkaTemplate;
+    private final KafkaTemplate<String, String> kafkaTemplate;
+    private final ObjectMapper objectMapper;
 
-    // public TicketEventProducer(KafkaTemplate<String, String> kafkaTemplate) {
-    //     this.kafkaTemplate = kafkaTemplate;
-    // }
-
-    // public void sendMessage(String message) {
-    //     kafkaTemplate.send(TOPIC, message);
-    //     System.out.println("Sent message to Kafka: " + message);
-    // }
-    
-    private static final String TOPIC = "ticket-reserved";
-    private final KafkaTemplate<String, TicketReservedEvent> kafkaTemplate;
-
-    public TicketEventProducer(KafkaTemplate<String, TicketReservedEvent> kafkaTemplate) {
+    public TicketEventProducer(KafkaTemplate<String, String> kafkaTemplate, ObjectMapper objectMapper) {
         this.kafkaTemplate = kafkaTemplate;
+        this.objectMapper = objectMapper;
     }
 
     public void sendMessage(TicketReservedEvent event) {
-        kafkaTemplate.send(TOPIC, event);
-        System.out.println("Sent message to Kafka: " + event);
+        try {
+            String json = objectMapper.writeValueAsString(event);
+            kafkaTemplate.send(TOPIC, json);
+            System.out.println("Sent TicketReservedEvent to Kafka: " + json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

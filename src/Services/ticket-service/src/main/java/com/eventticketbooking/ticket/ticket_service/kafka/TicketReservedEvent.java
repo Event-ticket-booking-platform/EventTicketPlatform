@@ -9,8 +9,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TicketReservedEvent {
     private String ticketId;
-    private String eventId;
-    private String seatNumber;
     private String userId;
+    private String eventId;
+    private int quantity;
+    private double price;
     private int showNumber;
 }

@@ -9,7 +9,7 @@ import org.apache.kafka.clients.admin.NewTopic;
 public class KafkaConfig {
     @Bean
     public NewTopic ticketReservedTopic() {
-        return TopicBuilder.name("ticket-reserved")
+        return TopicBuilder.name("ticket.reserved")
                 .partitions(1)
                 .replicas(1)
                 .build();

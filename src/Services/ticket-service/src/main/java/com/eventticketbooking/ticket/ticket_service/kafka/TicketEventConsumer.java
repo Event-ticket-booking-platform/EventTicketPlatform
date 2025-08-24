@@ -9,23 +9,22 @@ import com.eventticketbooking.ticket.ticket_service.service.TicketService;
 
 @Service
 public class TicketEventConsumer {
-
-    // @KafkaListener(topics = "ticket-reserved", groupId = "ticket-service-group")
-    // public void consume(TicketReservedEvent event) {
-    //     System.out.println("Received ticket reservation event: " + event.getSeatNumber());
-    // }
-
     @Autowired
     private TicketService ticketService;
 
-    @KafkaListener(topics = "ticket-reserved", groupId = "ticket-service-group")
+    @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
     public void consume(TicketReservedEvent event) {
-        System.out.println("Received reservation event for seat: " + event.getSeatNumber());
+        System.out.println("Received reservation event for seat: " + event.getShowNumber());
         ticketService.reserveTicket(
                 Long.parseLong(event.getEventId()),
-                event.getSeatNumber(),
+                String.valueOf(event.getShowNumber()),
                 Long.parseLong(event.getUserId())
         );
+    }
+
+    @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
+    public void consumeRaw(String message) {
+    System.out.println("RAW Kafka message: " + message);
     }
 
     
