@@ -1,0 +1,96 @@
+pipeline {
+    agent any
+
+    environment {
+        AWS_REGION   = "us-west-1"
+        AWS_ACCOUNT  = "168370541191"   
+        REPO_PREFIX  = "${AWS_ACCOUNT}.dkr.ecr.${AWS_REGION}.amazonaws.com"
+        KUBE_CONFIG  = "${WORKSPACE}/.kube/config"
+        KUBECONFIG   = "${WORKSPACE}/.kube/config"
+    }
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'jenkins', url: 'https://github.com/Event-ticket-booking-platform/EventTicketPlatform.git'
+            }
+        }
+
+        stage('Login to ECR') {
+            steps {
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh '''
+                        echo " Logging in to ECR..."
+                        aws ecr get-login-password --region ${AWS_REGION} | docker login --username AWS --password-stdin ${REPO_PREFIX}
+                    '''
+                }
+            }
+        }
+
+        stage('Build & Push Images') {
+            steps {
+                sh '''
+                    echo " Building and pushing Docker images..."
+
+                    # Example for docker-compose build and push
+                    # Adjust service names to match your docker-compose.yml
+                    SERVICES="event_service order_service payment_service ticket_service user_service notification_service"
+
+                    for service in $SERVICES; do
+                        echo " Building $service..."
+                        docker-compose build $service
+
+                        echo "Tagging and pushing $service..."
+                        docker tag ${service}:latest ${REPO_PREFIX}/${service}:latest
+                        docker push ${REPO_PREFIX}/${service}:latest
+                    done
+                '''
+            }
+        }
+
+        stage('Configure kubectl') {
+            steps {
+                withCredentials([[
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh '''
+                        echo " Setting up kubeconfig for EKS..."
+                        mkdir -p $(dirname ${KUBE_CONFIG})
+
+                        aws eks update-kubeconfig \
+                            --region ${AWS_REGION} \
+                            --name event-ticket-booking-system-cluster \
+                            --kubeconfig ${KUBE_CONFIG}
+                    '''
+                }
+            }
+        }
+
+        stage('Deploy to EKS') {
+            steps {
+                sh '''
+                    echo "Deploying manifests to EKS..."
+                    chmod +x deploy.sh
+                    ./deploy.sh
+                '''
+            }
+        }
+    }
+
+    post {
+        success {
+            echo 'Build, push and deployment completed successfully!'
+        }
+        failure {
+            echo 'Pipeline failed!'
+        }
+    }
+}
