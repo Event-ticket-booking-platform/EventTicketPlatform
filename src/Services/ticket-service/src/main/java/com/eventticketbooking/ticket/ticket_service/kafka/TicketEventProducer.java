@@ -26,4 +26,14 @@ public class TicketEventProducer {
             e.printStackTrace();
         }
     }
+
+    public void sendTicketExpired(TicketExpiredEvent event) {
+        try {
+            String json = objectMapper.writeValueAsString(event);
+            kafkaTemplate.send("ticket.expired", json);
+            System.out.println("Sent TicketExpiredEvent to Kafka: " + json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 }
