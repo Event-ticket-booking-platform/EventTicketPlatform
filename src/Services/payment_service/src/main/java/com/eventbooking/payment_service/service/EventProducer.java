@@ -1,5 +1,6 @@
 package com.eventbooking.payment_service.service;
 
+import com.eventbooking.payment_service.dto.OrderCancelledEvent;
 import com.eventbooking.payment_service.dto.PaymentDto;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,5 +19,25 @@ public class EventProducer {
         System.out.println("####: Sending message");
         String json = mapper.writeValueAsString(event);
         kafkaTemplate.send("payment.processed", json);
+    }
+
+    public void sendOrderErrorEvent(String message) {
+        System.out.println("####: Invalid object");
+        kafkaTemplate.send("order.error", message);
+    }
+
+    public void sendOrderCancelErrorEvent(String message) {
+        System.out.println("####: Invalid object");
+        kafkaTemplate.send("orderCancel.error", message);
+    }
+
+    public void sendOrderCancelFailedEvent(OrderCancelledEvent event) throws JsonProcessingException {
+        String json = mapper.writeValueAsString(event);
+        kafkaTemplate.send("orderCancel.failed", json);
+    }
+
+    public void sendOrderCancelSuccessfulEvent(OrderCancelledEvent event) throws JsonProcessingException {
+        String json = mapper.writeValueAsString(event);
+        kafkaTemplate.send("orderCancel.successful", json);
     }
 }

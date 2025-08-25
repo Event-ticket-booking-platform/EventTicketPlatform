@@ -1,5 +1,6 @@
 package com.eventbooking.order_service.service;
 
+import com.eventbooking.order_service.dto.OrderCancelledEvent;
 import com.eventbooking.order_service.dto.PaymentEvent;
 import com.eventbooking.order_service.dto.TicketExpiredEvent;
 import com.eventbooking.order_service.dto.TicketReserved;
@@ -35,11 +36,11 @@ public class EventConsumer {
                 System.out.printf("####: Order Processed from TicketReserved event: " + event);
             } else {
                 System.out.println("####: Invalid data: " + message);
-                eventProducer.sendOrderFailedEvent(message);
+                eventProducer.sendOrderErrorEvent(message);
             }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
-            eventProducer.sendOrderFailedEvent(message);
+            eventProducer.sendOrderErrorEvent(message);
         }
     }
 
@@ -54,12 +55,12 @@ public class EventConsumer {
                 System.out.println("####: Order Processed from Payment event: " + event);
             } else {
                 System.out.println("####: Invalid data: " + event);
-                eventProducer.sendPaymentFailedEvent(message);
+                eventProducer.sendPaymentProcessingFailedEvent(message);
             }
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
+            eventProducer.sendPaymentProcessingFailedEvent(message);
         }
-
     }
 
     @KafkaListener(topics = "ticket.expired", groupId = "order-service")
@@ -73,12 +74,41 @@ public class EventConsumer {
                 System.out.println("Order with order ID: " + event.getOrderId() + "got cancelled due to ticket expire");
             } else {
                 System.out.println("Invalid data: " + event);
-                eventProducer.sendTicketCancelFailedEvent(message);
+                eventProducer.sendTicketCancelErrorEvent(message);
             }
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
+            eventProducer.sendTicketCancelErrorEvent(message);
         }
 
+    }
+
+    @KafkaListener(topics = "orderCancel.failed", groupId = "order-service")
+    public void handleOrderCancelFailedEvent(String message) {
+        try {
+            OrderCancelledEvent event = mapper.readValue(message, OrderCancelledEvent.class);
+            System.out.println("Order Cancel Failed Event: " + message);
+
+            if(isOrderCancelledValid(event)) {
+                orderService.handleOrderCancelFailure(event);
+            } else {
+                System.out.println("Invalid data: " + event);
+                eventProducer.sendOrderCancellingErrorEvent(message);
+            }
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            eventProducer.sendOrderCancellingErrorEvent(message);
+        }
+
+    }
+
+    private boolean isOrderCancelledValid(OrderCancelledEvent event) {
+        return event.getOrderId() != null && !event.getOrderId().isEmpty()
+                && event.getUserId() != null && !event.getUserId().isEmpty()
+                && event.getTicketId() != null && !event.getTicketId().isEmpty()
+                && event.getCancelReason() != null && !event.getCancelReason().isEmpty()
+                && event.getTimestamp() != null
+                ;
     }
 
     private boolean isTicketExpiredValid(TicketExpiredEvent event) {
