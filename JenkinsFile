@@ -37,8 +37,8 @@ pipeline {
                 sh '''
                     echo " Building and pushing Docker images..."
 
-                    docker compose build
-                    docker compose push
+                    docker-compose build
+                    docker-compose push
                 '''
             }
         }
