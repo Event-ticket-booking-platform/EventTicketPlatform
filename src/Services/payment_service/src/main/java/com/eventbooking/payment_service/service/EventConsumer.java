@@ -1,5 +1,6 @@
 package com.eventbooking.payment_service.service;
 
+import com.eventbooking.payment_service.dto.OrderCancelledEvent;
 import com.eventbooking.payment_service.dto.OrderEvent;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -10,10 +11,12 @@ import org.springframework.stereotype.Service;
 public class EventConsumer {
     private final ObjectMapper mapper;
     private final PaymentService paymentService;
+    private final EventProducer eventProducer;
 
-    public EventConsumer(ObjectMapper mapper, PaymentService paymentService) {
+    public EventConsumer(ObjectMapper mapper, PaymentService paymentService, EventProducer eventProducer) {
         this.mapper = mapper;
         this.paymentService = paymentService;
+        this.eventProducer = eventProducer;
     }
 
 //    @KafkaListener(topics = "order.created", groupId = "orders")
@@ -38,11 +41,36 @@ public class EventConsumer {
                 paymentService.createPayment(event);
                 System.out.println("####: Payment Processed from Order event: " + event);
             } else {
-                System.out.println("####: Invalid data: " + event); // TODO: Should we publish an event?
+                System.out.println("####: Invalid data: " + event);
+                eventProducer.sendOrderErrorEvent(message);
             }
 
-        } catch (Exception e) {
+        } catch (JsonProcessingException e) {
             e.printStackTrace();
+            eventProducer.sendOrderErrorEvent(message);
+
+        }
+
+    }
+
+    @KafkaListener(topics = "order.cancelled", groupId = "payment-service")
+    public void handleOrderCancelled(String message) throws JsonProcessingException {
+        try {
+            OrderCancelledEvent event = mapper.readValue(message, OrderCancelledEvent.class);
+            System.out.println("####: Order Created Event: " + message);
+
+            if(isOrderCancelledValid(event)) {
+                paymentService.cancelPayment(event);
+                System.out.println("####: Payment Processed from Order event: " + event);
+            } else {
+                System.out.println("####: Invalid data: " + event);
+                eventProducer.sendOrderCancelErrorEvent(message);
+            }
+
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+            eventProducer.sendOrderCancelErrorEvent(message);
+
         }
 
     }
@@ -53,5 +81,12 @@ public class EventConsumer {
                 && event.getStatus() != null && !event.getStatus().isEmpty(); // TODO: Validate all fields
     }
 
-
+    private boolean isOrderCancelledValid(OrderCancelledEvent event) {
+        return event.getOrderId() != null && !event.getOrderId().isEmpty()
+                && event.getUserId() != null && !event.getUserId().isEmpty()
+                && event.getTicketId() != null && !event.getTicketId().isEmpty()
+                && event.getCancelReason() != null && !event.getCancelReason().isEmpty()
+                && event.getTimestamp() != null
+                ;
+    }
 }
