@@ -40,34 +40,35 @@ public class TicketController {
         return ticketService.getAvailableTickets(eventId);
     }
 
-    // @PostMapping("/reserve")
-    // public Ticket reserveTicket(@RequestBody ReserveTicketRequest request) {
-    //     return ticketService.reserveTicket(request);
-    // }
-
-    // @PostMapping("/reserve")
-    // public String reserveTicket(@RequestBody String ticketInfo) {
-    //    ticketEventProducer.sendMessage(ticketInfo);
-    //     return "Ticket reserved event sent to Kafka!";
-    // }
 
     @PostMapping("/reserve")
-public String reserveTicket(@RequestBody ReserveTicketRequest request) {
+    public String reserveTicket(@RequestBody ReserveTicketRequest request) {
     if (!ticketService.isSeatAvailable(request.getEventId(), request.getSeatNumber())) {
         return "Seat is not available!";
     }
 
-    TicketReservedEvent event = new TicketReservedEvent(
-            null,
-            request.getEventId().toString(),
+    // reserve in DB first
+    Ticket ticket = ticketService.reserveTicket(
+            request.getEventId(),
             request.getSeatNumber(),
-            request.getUserId().toString(),
-            1
+            request.getUserId()
     );
+
+    // Build event for Order Service
+    TicketReservedEvent event = new TicketReservedEvent(
+            ticket.getId().toString(),
+            ticket.getUserId().toString(),
+            ticket.getEventId().toString(),
+            1,              // quantity (1 seat reserved)
+            100.0,          // price (TODO: set real price from DB)
+            1               // showNumber (can extend if multiple shows)
+    );
+
     ticketEventProducer.sendMessage(event);
 
     return "Reservation event sent to Kafka!";
-}
+    }
+
 
     
 }

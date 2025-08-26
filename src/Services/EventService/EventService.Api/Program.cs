@@ -8,6 +8,8 @@ using MongoDB.Bson.Serialization;
 using MongoDB.Bson.Serialization.Serializers;
 using System.Security.Claims;
 using System.Text;
+using Microsoft.OpenApi.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -33,23 +35,27 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
-    c.AddSecurityDefinition("Bearer", new()
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "EventService", Version = "v1" });
+
+    c.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
     {
         Name = "Authorization",
-        Type = Microsoft.OpenApi.Models.SecuritySchemeType.Http,
+        Type = SecuritySchemeType.Http,
         Scheme = "bearer",
         BearerFormat = "JWT",
-        In = Microsoft.OpenApi.Models.ParameterLocation.Header,
+        In = ParameterLocation.Header,
         Description = "Enter: Bearer {your JWT}"
     });
-    c.AddSecurityRequirement(new()
+    c.AddSecurityRequirement(new OpenApiSecurityRequirement
     {
-        {
-            new() { Reference = new() { Type = Microsoft.OpenApi.Models.ReferenceType.SecurityScheme, Id = "Bearer" } },
-            Array.Empty<string>()
-        }
+        { new OpenApiSecurityScheme { Reference = new OpenApiReference { Type = ReferenceType.SecurityScheme, Id = "Bearer" } }, Array.Empty<string>() }
     });
+
+    // Add gateway base path when needed
+    if (builder.Configuration.GetValue<bool>("Swagger:UseGatewayBasePath"))
+        c.AddServer(new OpenApiServer { Url = "/events" });
 });
+
 
 
 builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)

@@ -12,15 +12,11 @@ import com.eventticketbooking.ticket.ticket_service.repository.TicketRepository;
 @Service
 public class TicketServiceImpl implements TicketService {
     private final TicketRepository ticketRepository;
-    // private final TicketEventProducer ticketEventProducer;
+    private final TicketEventProducer ticketEventProducer;
 
-    // public TicketServiceImpl(TicketRepository ticketRepository, TicketEventProducer ticketEventProducer) {
-    //     this.ticketRepository = ticketRepository;
-    //     this.ticketEventProducer = ticketEventProducer;
-    // }
-
-     public TicketServiceImpl(TicketRepository ticketRepository) {
+    public TicketServiceImpl(TicketRepository ticketRepository, TicketEventProducer ticketEventProducer) {
         this.ticketRepository = ticketRepository;
+        this.ticketEventProducer = ticketEventProducer;
     }
 
      @Override
@@ -28,22 +24,7 @@ public class TicketServiceImpl implements TicketService {
         return ticketRepository.findByEventId(eventId);
     }
 
-    // @Override
-    // public Ticket reserveTicket(ReserveTicketRequest request) {
-    //     Ticket ticket = ticketRepository.findByEventIdAndSeatNumber(request.getEventId(), request.getSeatNumber())
-    //             .orElseThrow(() -> new RuntimeException("Seat not found for event"));
-
-    //     if (ticket.isReserved()) {
-    //         throw new RuntimeException("Seat already reserved");
-    //     }
-
-    //     ticket.setReserved(true);
-    //     ticket.setUserId(request.getUserId());
-    //     ticket.setReservedAt(LocalDateTime.now());
-    //     return ticketRepository.save(ticket);
-    // }
-
-        public Ticket reserveTicket(Long eventId, String seatNumber, Long userId) {
+    public Ticket reserveTicket(Long eventId, String seatNumber, Long userId) {
         Ticket ticket = ticketRepository.findByEventIdAndSeatNumber(eventId, seatNumber)
                 .orElseThrow(() -> new RuntimeException("Seat not found"));
 
@@ -54,12 +35,13 @@ public class TicketServiceImpl implements TicketService {
         ticket.setReserved(true);
         ticket.setUserId(userId);
         ticket.setReservedAt(LocalDateTime.now());
+        ticket.setOrderId(UUID.randomUUID().toString());
 
         return ticketRepository.save(ticket);
     }
 
 
-      @Override
+    @Override
      public List<Ticket> getAvailableTickets(Long eventId) {
         return ticketRepository.findByEventIdAndReservedFalse(eventId);
     }    
@@ -69,5 +51,45 @@ public class TicketServiceImpl implements TicketService {
         return ticketRepository.findByEventIdAndSeatNumber(eventId, seatNumber)
                 .map(ticket -> !ticket.isReserved())
                 .orElse(false);
+    }
+
+    @Override
+    public void confirmReservation(String orderId, String paymentId) {
+        List<Ticket> tickets = ticketRepository.findByOrderId(orderId);
+        for (Ticket ticket : tickets) {
+            ticket.setConfirmed(true);
+            ticket.setConfirmedAt(LocalDateTime.now());
+            ticketRepository.save(ticket);
+        }
+        System.out.println("Reservation confirmed for order: " + orderId);
+    }
+
+    @Override
+    public void releaseReservation(String orderId, String reason) {
+        List<Ticket> tickets = ticketRepository.findByOrderId(orderId);
+        for (Ticket ticket : tickets) {
+            ticket.setReserved(false);
+            ticket.setUserId(null);
+            ticket.setReservedAt(null);
+            ticket.setOrderId(null);
+            ticketRepository.save(ticket);
+        }
+        System.out.println("Released reservation for order: " + orderId + " Reason: " + reason);
+    }
+
+    @Scheduled(fixedRate = 60000) // every 1 minute
+    public void checkExpiredReservations() {
+        List<Ticket> expiredTickets = ticketRepository.findExpiredReservations();
+        for (Ticket ticket : expiredTickets) {
+            TicketExpiredEvent event = new TicketExpiredEvent(
+                String.valueOf(ticket.getId()),
+                ticket.getOrderId(),
+                String.valueOf(ticket.getUserId()),
+                LocalDateTime.now(),
+                "RESERVATION_TIMEOUT"
+            );
+            ticketEventProducer.sendTicketExpired(event);
+            releaseReservation(ticket.getOrderId(), "RESERVATION_TIMEOUT");
+        }
     }
 }

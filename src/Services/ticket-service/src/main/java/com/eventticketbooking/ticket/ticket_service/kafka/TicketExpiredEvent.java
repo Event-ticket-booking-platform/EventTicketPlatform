@@ -7,11 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TicketReservedEvent {
+public class TicketExpiredEvent {
     private String ticketId;
+    private String orderId;
     private String userId;
-    private String eventId;
-    private int quantity;
-    private double price;
-    private int showNumber;
+    private LocalDateTime expirationTime;
+    private String reason;
 }
