@@ -96,7 +96,7 @@ services:
     build:
       context: ./src
       dockerfile: Services/UserService/UserService.Api/Dockerfile
-    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/userservice:latest
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/user_service:latest
     container_name: userservice
     depends_on:
       postgres:
@@ -123,7 +123,7 @@ services:
     build:
       context: ./src
       dockerfile: Services/EventService/EventService.Api/Dockerfile
-    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/eventservice:latest
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/event_service:latest
     container_name: eventservice
     depends_on:
       mongo:
