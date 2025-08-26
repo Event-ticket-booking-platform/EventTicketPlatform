@@ -96,7 +96,7 @@ services:
     build:
       context: ./src
       dockerfile: Services/UserService/UserService.Api/Dockerfile
-    image: userservice:dev
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/userservice:latest
     container_name: userservice
     depends_on:
       postgres:
@@ -123,7 +123,7 @@ services:
     build:
       context: ./src
       dockerfile: Services/EventService/EventService.Api/Dockerfile
-    image: eventservice:dev
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/eventservice:latest
     container_name: eventservice
     depends_on:
       mongo:
@@ -151,7 +151,7 @@ services:
     build:
       context: ./src/Services/Notification.service.api/Notification.service.api
       dockerfile: Dockerfile
-    image: notification_service:dev
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/notification_service:latest
     depends_on:
       kafka:
         condition: service_healthy
@@ -194,6 +194,7 @@ services:
       context: .
       dockerfile: ./src/Services/order_service/Dockerfile
     env_file: .env
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/order_service:latest
     depends_on:
       order_postgres:
         condition: service_healthy
@@ -238,6 +239,7 @@ services:
       context: .
       dockerfile: ./src/Services/payment_service/Dockerfile
     env_file: .env
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/payment_service:latest
     depends_on:
       payment_postgres:
         condition: service_healthy
@@ -281,6 +283,7 @@ services:
       context: .
       dockerfile: ./src/Services/ticket-service/Dockerfile
     container_name: ticket_service
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/ticket_service:latest
     depends_on:
       ticket_postgres:
         condition: service_healthy
@@ -303,7 +306,7 @@ services:
     build:
       context: .
       dockerfile: ./src/Gateway.Api/Dockerfile
-    image: gateway:dev
+    image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/gateway:latest
     container_name: api_gateway
     depends_on:
       userservice:
