@@ -18,20 +18,18 @@ public class TicketEventProducer {
     }
 
     public void sendMessage(TicketReservedEvent event) {
-        try {
-            String json = objectMapper.writeValueAsString(event);
-            kafkaTemplate.send(TOPIC, json);
-            System.out.println("Sent TicketReservedEvent to Kafka: " + json);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        sendMessageToTopic(event, "ticket.reserved");
     }
 
     public void sendTicketExpired(TicketExpiredEvent event) {
+        sendMessageToTopic(event, "ticket.expired");
+    }
+
+     public void sendMessageToTopic(Object event, String topic) {
         try {
             String json = objectMapper.writeValueAsString(event);
-            kafkaTemplate.send("ticket.expired", json);
-            System.out.println("Sent TicketExpiredEvent to Kafka: " + json);
+            kafkaTemplate.send(topic, json);
+            System.out.println("Sent event to Kafka topic " + topic + ": " + json);
         } catch (Exception e) {
             e.printStackTrace();
         }

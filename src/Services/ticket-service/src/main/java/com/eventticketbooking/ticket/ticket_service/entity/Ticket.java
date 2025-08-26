@@ -32,6 +32,15 @@ public class Ticket {
     @Column(name = "reserved_at")
     private LocalDateTime reservedAt;
 
+    @Column(name = "order_id")
+    private String orderId;
+
+    @Column(nullable = false)
+    private boolean confirmed = false;
+
+    @Column(name = "confirmed_at")
+private LocalDateTime confirmedAt;
+
     // Getters and Setters
 
     public Long getId() {
@@ -80,6 +89,30 @@ public class Ticket {
 
     public void setReservedAt(LocalDateTime reservedAt) {
         this.reservedAt = reservedAt;
+    }
+
+    public String getOrderId() {
+    return orderId;
+    }
+
+    public void setOrderId(String orderId) {
+        this.orderId = orderId;
+    }
+
+    public boolean isConfirmed() {
+        return confirmed;
+    }
+
+    public void setConfirmed(boolean confirmed) {
+        this.confirmed = confirmed;
+    }
+
+    public LocalDateTime getConfirmedAt() {
+        return confirmedAt;
+    }
+
+    public void setConfirmedAt(LocalDateTime confirmedAt) {
+        this.confirmedAt = confirmedAt;
     }
 
     

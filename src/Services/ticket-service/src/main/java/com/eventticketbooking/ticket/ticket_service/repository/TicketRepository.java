@@ -8,6 +8,12 @@ import org.springframework.stereotype.Repository;
 
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
 
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import java.time.LocalDateTime;
+
+
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
