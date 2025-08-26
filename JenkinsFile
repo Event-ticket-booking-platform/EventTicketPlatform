@@ -38,6 +38,7 @@ pipeline {
                     echo " Building and pushing Docker images..."
 
                     docker-compose build
+                    echo " push images"
                     docker-compose push
                 '''
             }
