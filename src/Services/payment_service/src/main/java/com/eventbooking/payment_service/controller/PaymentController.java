@@ -2,20 +2,20 @@ package com.eventbooking.payment_service.controller;
 
 import com.eventbooking.payment_service.dto.PaymentDto;
 import com.eventbooking.payment_service.model.Payment;
+import com.eventbooking.payment_service.service.EventConsumer;
 import com.eventbooking.payment_service.service.PaymentService;
+import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/payments")
 @RequiredArgsConstructor
 public class PaymentController {
     private final PaymentService paymentService;
+    private final EventConsumer eventConsumer;
 
     @GetMapping("/{paymentId}")
     public ResponseEntity<PaymentDto> getPaymentInfoById(@PathVariable Long paymentId) {
@@ -28,4 +28,11 @@ public class PaymentController {
         PaymentDto payment = paymentService.getPaymentInfoByOrderId(orderId);
         return ResponseEntity.status(HttpStatus.OK).body(payment);
     }
+
+    //TESTING
+//    @PostMapping("/orderCancelling")
+//    public ResponseEntity orderCancelling(@RequestBody String request) throws JsonProcessingException {
+//        eventConsumer.handleOrderCancelled(request);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
 }

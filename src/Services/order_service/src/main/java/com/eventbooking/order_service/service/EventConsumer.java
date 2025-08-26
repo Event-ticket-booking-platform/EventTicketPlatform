@@ -71,13 +71,13 @@ public class EventConsumer {
 
             if(isTicketExpiredValid(event)) {
                 orderService.handleTicketExpired(event);
-                System.out.println("Order with order ID: " + event.getOrderId() + "got cancelled due to ticket expire");
             } else {
                 System.out.println("Invalid data: " + event);
                 eventProducer.sendTicketCancelErrorEvent(message);
             }
         } catch (JsonProcessingException e) {
             e.printStackTrace();
+            System.out.println("####: JsonProcessingException");
             eventProducer.sendTicketCancelErrorEvent(message);
         }
 

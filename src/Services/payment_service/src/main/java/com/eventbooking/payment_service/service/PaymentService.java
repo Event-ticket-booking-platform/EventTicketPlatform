@@ -44,9 +44,11 @@ public class PaymentService {
                     .amount(event.getAmount())
                     .timestamp(LocalDateTime.now())
                     .build();
+            paymentRepository.save(payment);
         }
 
         boolean isPaid = processPayment(payment);
+        System.out.println("####: Payment: " + payment);
 
         if(isPaid){
             payment.setStatus("PAYMENT_COMPLETED");
@@ -57,7 +59,7 @@ public class PaymentService {
             PaymentDto paymentEvent =new PaymentDto(payment.getId(), payment.getOrderId(), payment.getStatus(), payment.getAmount());
             eventProducer.sendPaymentProcessedEvent(paymentEvent);
         }
-        paymentRepository.save(payment);
+
 
 //        PaymentDto paymentEvent =new PaymentDto(payment.getId(), payment.getOrderId(), payment.getStatus(), payment.getAmount());
 //
@@ -93,7 +95,7 @@ public class PaymentService {
     }
 
     public void cancelPayment(OrderCancelledEvent event) throws JsonProcessingException {
-        Optional<Payment> paymentOptional = paymentRepository.findPaymentByPrderId(event.getOrderId());
+        Optional<Payment> paymentOptional = paymentRepository.findPaymentByOrderId(event.getOrderId());
         if(paymentOptional.isPresent()) {
             if(Objects.equals(paymentOptional.get().getStatus(), "PAID")) {
                 System.out.println("Already Paid for order.");

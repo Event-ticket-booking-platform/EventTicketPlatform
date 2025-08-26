@@ -13,7 +13,11 @@ public class EventProducer {
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
+
+    public EventProducer(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public void sendOrderCreatedEvent(OrderEvent event) throws JsonProcessingException { // an order was created
         System.out.println("####: Sending order");
@@ -51,7 +55,7 @@ public class EventProducer {
     }
 
     public void sendPaymentProcessingFailedEvent(String message) {
-        System.out.println("Failed payment");
+        System.out.println("####: Failed payment");
         kafkaTemplate.send("paymentProcessing.failed", message);
     }
 

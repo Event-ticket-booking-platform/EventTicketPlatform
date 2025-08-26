@@ -13,10 +13,14 @@ public class EventProducer {
     @Autowired
     KafkaTemplate<String, String> kafkaTemplate;
 
-    private final ObjectMapper mapper = new ObjectMapper();
+    private final ObjectMapper mapper;
+
+    public EventProducer(ObjectMapper mapper) {
+        this.mapper = mapper;
+    }
 
     public void sendPaymentProcessedEvent(PaymentDto event) throws JsonProcessingException {
-        System.out.println("####: Sending message");
+        System.out.println("####: Sending message: " + event);
         String json = mapper.writeValueAsString(event);
         kafkaTemplate.send("payment.processed", json);
     }
@@ -33,11 +37,13 @@ public class EventProducer {
 
     public void sendOrderCancelFailedEvent(OrderCancelledEvent event) throws JsonProcessingException {
         String json = mapper.writeValueAsString(event);
+        System.out.println("####: Order cancel failed");
         kafkaTemplate.send("orderCancel.failed", json);
     }
 
     public void sendOrderCancelSuccessfulEvent(OrderCancelledEvent event) throws JsonProcessingException {
         String json = mapper.writeValueAsString(event);
+        System.out.println("####: Order Cancel Successful");
         kafkaTemplate.send("orderCancel.successful", json);
     }
 }

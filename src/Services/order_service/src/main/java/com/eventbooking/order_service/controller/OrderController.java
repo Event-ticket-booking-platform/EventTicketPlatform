@@ -17,6 +17,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class OrderController {
     private final OrderService orderService;
+    private final EventConsumer eventConsumer;
 
     @PostMapping
     public ResponseEntity<Order> createOrder(@Valid @RequestBody TicketReserved request) {
@@ -44,7 +45,7 @@ public class OrderController {
         }
     }
 
-    @PostMapping("cancel/{orderId}")
+    @PostMapping("/cancel/{orderId}")
     public ResponseEntity<Order> cancelOrder(@PathVariable Long orderId) {
         Order order = orderService.handleOrderCancelled(orderId);
         if(order != null) {
@@ -53,4 +54,17 @@ public class OrderController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
         }
     }
+
+    // TESTING
+//    @PostMapping("/ticketReserving")
+//    public ResponseEntity ticketReserving(@RequestBody String request) {
+//        eventConsumer.handleTicketReserved(request);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
+//
+//    @PostMapping("/orderExpiring")
+//    public ResponseEntity orderExpiring(@RequestBody String request) {
+//        eventConsumer.handleTicketExpired(request);
+//        return ResponseEntity.status(HttpStatus.OK).build();
+//    }
 }
