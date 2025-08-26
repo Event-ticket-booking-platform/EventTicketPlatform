@@ -67,13 +67,21 @@ pipeline {
 
         stage('Deploy to EKS') {
             steps {
-                sh '''
-                    echo "Deploying manifests to EKS..."
-                    chmod +x deploy.sh
-                    ./deploy.sh
-                '''
+                withCredentials([[ 
+                    $class: 'AmazonWebServicesCredentialsBinding',
+                    credentialsId: 'aws-jenkins',
+                    accessKeyVariable: 'AWS_ACCESS_KEY_ID',
+                    secretKeyVariable: 'AWS_SECRET_ACCESS_KEY'
+                ]]) {
+                    sh '''
+                        echo "Deploying manifests to EKS..."
+                        chmod +x deploy.sh
+                        ./deploy.sh
+                    '''
+                }
             }
         }
+
     }
 
     post {
