@@ -2,12 +2,16 @@ package com.eventticketbooking.ticket.ticket_service.service;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Service;
+import org.springframework.scheduling.annotation.Scheduled;
 
 // import com.eventticketbooking.ticket.ticket_service.dto.ReserveTicketRequest;
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
 import com.eventticketbooking.ticket.ticket_service.repository.TicketRepository;
+import com.eventticketbooking.ticket.ticket_service.kafka.TicketEventProducer;
+import com.eventticketbooking.ticket.ticket_service.kafka.TicketExpiredEvent;
 
 @Service
 public class TicketServiceImpl implements TicketService {
@@ -79,17 +83,20 @@ public class TicketServiceImpl implements TicketService {
 
     @Scheduled(fixedRate = 60000) // every 1 minute
     public void checkExpiredReservations() {
-        List<Ticket> expiredTickets = ticketRepository.findExpiredReservations();
-        for (Ticket ticket : expiredTickets) {
-            TicketExpiredEvent event = new TicketExpiredEvent(
-                String.valueOf(ticket.getId()),
-                ticket.getOrderId(),
-                String.valueOf(ticket.getUserId()),
-                LocalDateTime.now(),
-                "RESERVATION_TIMEOUT"
-            );
-            ticketEventProducer.sendTicketExpired(event);
-            releaseReservation(ticket.getOrderId(), "RESERVATION_TIMEOUT");
-        }
+    LocalDateTime expiryTime = LocalDateTime.now().minusMinutes(15); 
+    List<Ticket> expiredTickets = ticketRepository.findExpiredReservations(expiryTime);
+
+    for (Ticket ticket : expiredTickets) {
+        TicketExpiredEvent event = new TicketExpiredEvent(
+            String.valueOf(ticket.getId()),
+            ticket.getOrderId(),
+            String.valueOf(ticket.getUserId()),
+            LocalDateTime.now(),
+            "RESERVATION_TIMEOUT"
+        );
+        ticketEventProducer.sendTicketExpired(event);
+        releaseReservation(ticket.getOrderId(), "RESERVATION_TIMEOUT");
     }
+}
+
 }

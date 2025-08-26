@@ -17,7 +17,16 @@ import com.eventticketbooking.ticket.ticket_service.dto.ReserveTicketRequest;
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
 import com.eventticketbooking.ticket.ticket_service.kafka.TicketEventProducer;
 import com.eventticketbooking.ticket.ticket_service.kafka.TicketReservedEvent;
+import com.eventticketbooking.ticket.ticket_service.kafka.PaymentEvent;
+import com.eventticketbooking.ticket.ticket_service.kafka.OrderCancelledEvent;
+import com.eventticketbooking.ticket.ticket_service.kafka.TicketExpiredEvent;
+
 import com.eventticketbooking.ticket.ticket_service.service.TicketService;
+
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
+
 
 @RestController
 @RequestMapping("/tickets")
@@ -39,7 +48,6 @@ public class TicketController {
     public List<Ticket> getAvailableTickets(@PathVariable Long eventId) {
         return ticketService.getAvailableTickets(eventId);
     }
-
 
     @PostMapping("/reserve")
     public String reserveTicket(@RequestBody ReserveTicketRequest request) {
@@ -69,6 +77,28 @@ public class TicketController {
     return "Reservation event sent to Kafka!";
     }
 
+    @PostMapping("/payment/processed")
+    public String paymentProcessed(@RequestBody PaymentEvent paymentEvent) {
+        ticketEventProducer.sendMessageToTopic(paymentEvent, "payment.processed");
+        return "Payment processed event sent!";
+    }
 
+    @PostMapping("/payment/failed")
+    public String paymentFailed(@RequestBody PaymentEvent paymentEvent) {
+        ticketEventProducer.sendMessageToTopic(paymentEvent, "payment.failed");
+        return "Payment failed event sent!";
+    }
+
+    @PostMapping("/order/canceled")
+    public String orderCancelled(@RequestBody OrderCancelledEvent event) {
+        ticketEventProducer.sendMessageToTopic(event, "order.canceled");
+        return "Order cancelled event sent!";
+    }
+
+    @PostMapping("/ticket/expired")
+    public String ticketExpired(@RequestBody TicketExpiredEvent event) {
+        ticketEventProducer.sendTicketExpired(event);
+        return "Ticket expired event sent!";
+    }
     
 }
