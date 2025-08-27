@@ -22,11 +22,14 @@ app.UseCors();
 // ----- Swagger UI aggregator -----
 app.UseSwaggerUI(c =>
 {
-    // These point to downstream services via the gateway
     c.SwaggerEndpoint("/users/swagger/v1/swagger.json", "UserService");
     c.SwaggerEndpoint("/events/swagger/v1/swagger.json", "EventService");
-    c.RoutePrefix = "swagger"; // available at /swagger
+    c.SwaggerEndpoint("/notification/swagger/v1/swagger.json", "NotificationService");
+    c.RoutePrefix = "swagger";
 });
+
+
+
 
 // ----- Proxy all requests to downstream services -----
 app.MapReverseProxy();

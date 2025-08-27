@@ -3,6 +3,8 @@ using Confluent.Kafka;
 using Notification.service.api.Handlers;
 using Notification.service.api.Kafka;
 using Notification.service.api.Services;
+using Microsoft.OpenApi.Models;
+
 
 namespace Notification.service.api
 {
@@ -47,6 +49,15 @@ namespace Notification.service.api
             builder.Services.AddSingleton(config);
             builder.Services.AddSingleton(userMessages);
             builder.Services.AddHostedService<KafkaConsumerService>();
+
+         builder.Services.AddSwaggerGen(c =>
+{
+    c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotificationService", Version = "v1" });
+    if (builder.Configuration.GetValue<bool>("Swagger:UseGatewayBasePath"))
+        c.AddServer(new OpenApiServer { Url = "/notification" });
+});
+
+
 
             var app = builder.Build();
 
