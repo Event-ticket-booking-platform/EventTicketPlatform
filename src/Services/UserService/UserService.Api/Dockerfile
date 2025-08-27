@@ -23,6 +23,6 @@ RUN dotnet publish "UserService.Api.csproj" -c Release -o /app/publish /p:UseApp
 # Stage 3: Runtime
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS final
 WORKDIR /app
-EXPOSE 80
+EXPOSE 2342
 COPY --from=publish /app/publish .
 ENTRYPOINT ["dotnet", "UserService.Api.dll"]
