@@ -311,6 +311,8 @@ services:
         condition: service_started
       notification_service: 
         condition: service_started 
+      order_service:               
+        condition: service_started
     environment:
       # Use same JWT settings as services
       Jwt__Issuer: ${JWT_ISSUER}
