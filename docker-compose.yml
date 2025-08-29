@@ -188,8 +188,8 @@ services:
       - order_pgdata:/var/lib/postgresql/data1
     restart: unless-stopped
 
-  order_service:
-    container_name: order_service
+  order-service:
+    container_name: order-service
     build:
       context: .
       dockerfile: ./src/Services/order_service/Dockerfile
@@ -233,8 +233,8 @@ services:
       - payment_pgdata:/var/lib/postgresql/data2
     restart: unless-stopped
 
-  payment_service:
-    container_name: payment_service
+  payment-service:
+    container_name: payment-service
     build:
       context: .
       dockerfile: ./src/Services/payment_service/Dockerfile
@@ -278,11 +278,11 @@ services:
       - kafka-network
     restart: unless-stopped
 
-  ticket_service:
+  ticket-service:
     build:
       context: .
       dockerfile: ./src/Services/ticket-service/Dockerfile
-    container_name: ticket_service
+    container_name: ticket-service
     image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/ticket_service:latest
     depends_on:
       ticket_postgres:
@@ -315,6 +315,12 @@ services:
         condition: service_started
       notification_service: 
         condition: service_started 
+      order-service: 
+        condition: service_started 
+      payment-service: 
+        condition: service_started 
+      ticket-service: 
+        condition: service_started 
     environment:
       # Use same JWT settings as services
       Jwt__Issuer: ${JWT_ISSUER}
@@ -322,7 +328,7 @@ services:
       Jwt__Key: ${JWT_KEY}
       ASPNETCORE_URLS: http://0.0.0.0:8080
     ports:
-      - "8080:8080"
+      - "9090:8080"
     networks: [kafka-network]
     restart: unless-stopped
   # <<< GATEWAY: added

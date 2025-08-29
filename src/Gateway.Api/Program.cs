@@ -25,6 +25,9 @@ app.UseSwaggerUI(c =>
     c.SwaggerEndpoint("/users/swagger/v1/swagger.json", "UserService");
     c.SwaggerEndpoint("/events/swagger/v1/swagger.json", "EventService");
     c.SwaggerEndpoint("/notification/swagger/v1/swagger.json", "NotificationService");
+    c.SwaggerEndpoint("/orders/swagger/v1/swagger.json", "OrderService");
+    c.SwaggerEndpoint("/payments/swagger/v1/swagger.json", "PaymentService");
+    c.SwaggerEndpoint("/tickets/swagger/v1/swagger.json", "TicketService");
     c.RoutePrefix = "swagger";
 });
 
