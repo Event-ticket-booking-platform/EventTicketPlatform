@@ -17,26 +17,26 @@ public class TicketEventConsumer {
     @Autowired
     private ObjectMapper objectMapper;
 
-    @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
-        public void consume(String message) {
-        try {
-            TicketReservedEvent event = objectMapper.readValue(message, TicketReservedEvent.class);
-            System.out.println("Received reservation event for seat: " + event.getShowNumber());
-            ticketService.reserveTicket(
-                Long.parseLong(event.getEventId()),
-                String.valueOf(event.getShowNumber()),
-                Long.parseLong(event.getUserId())
-            );
-        } catch(JsonProcessingException e) {
-            System.err.println("Failed to deserialize TicketReserved: " + message);
-            e.printStackTrace();
-        }
-    }
+    // @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
+    //     public void consume(String message) {
+    //     try {
+    //         TicketReservedEvent event = objectMapper.readValue(message, TicketReservedEvent.class);
+    //         System.out.println("Received reservation event for seat: " + event.getShowNumber());
+    //         ticketService.reserveTicket(
+    //             Long.parseLong(event.getEventId()),
+    //             String.valueOf(event.getShowNumber()),
+    //             Long.parseLong(event.getUserId())
+    //         );
+    //     } catch(JsonProcessingException e) {
+    //         System.err.println("Failed to deserialize TicketReserved: " + message);
+    //         e.printStackTrace();
+    //     }
+    // }
 
-    @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
-    public void consumeRaw(String message) {
-        System.out.println("RAW Kafka message: " + message);
-    }
+    // @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
+    // public void consumeRaw(String message) {
+    //     System.out.println("RAW Kafka message: " + message);
+    // }
 
     @KafkaListener(topics = "payment.processed", groupId = "ticket-service-group")
     public void consumePaymentProcessed(String message) {
