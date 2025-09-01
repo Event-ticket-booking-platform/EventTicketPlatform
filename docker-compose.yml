@@ -37,7 +37,8 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     ports:
-      - "9092:9092" # internal testing
+      # - "9092:9092" # internal testing
+      - "19092:9092"
       - "29092:29092" # host tools (UI, CLI)
     healthcheck:
       # test: ["CMD", "bash", "-lc", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
@@ -328,7 +329,7 @@ services:
       Jwt__Key: ${JWT_KEY}
       ASPNETCORE_URLS: http://0.0.0.0:8080
     ports:
-      - "9090:8080"
+      - "19090:8080"
     networks: [kafka-network]
     restart: unless-stopped
   # <<< GATEWAY: added
