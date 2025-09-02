@@ -14,7 +14,7 @@ namespace EventService.Infrastructure.Messaging
 {
     public class KafkaProducer : IKafkaProducer, IDisposable
     {
-        private readonly IProducer<Null, string> _producer;
+        private readonly IProducer<string, string> _producer;
         private readonly ILogger<KafkaProducer> _logger;
         private readonly string _defaultTopic;
 
@@ -29,10 +29,11 @@ namespace EventService.Infrastructure.Messaging
             {
                 BootstrapServers = bootstrap,
                 Acks = Acks.All,
-                MessageTimeoutMs = 5000
+                MessageTimeoutMs = 5000,
+                EnableIdempotence = true
             };
 
-            _producer = new ProducerBuilder<Null, string>(config).Build();
+            _producer = new ProducerBuilder<string, string>(config).Build();
         }
 
         public async Task PublishEventCreatedAsync(object message, string topic = "event-created")
@@ -42,13 +43,18 @@ namespace EventService.Infrastructure.Messaging
             // serialize your DTO (EventCreatedMessage, etc.)
             var payload = JsonSerializer.Serialize(message);
 
+            string? key = message?.GetType().GetProperty("EventId")?.GetValue(message)?.ToString();
             try
             {
-                var result = await _producer.ProduceAsync(t, new Message<Null, string> { Value = payload });
+                var result = await _producer.ProduceAsync(t, new Message<string, string>
+                {
+                    Key = key ?? Guid.NewGuid().ToString(),
+                    Value = payload
+                });
                 _logger.LogInformation("Kafka produced: topic={Topic} partition={Partition} offset={Offset}",
                     result.Topic, result.Partition, result.Offset);
             }
-            catch (ProduceException<Null, string> ex)
+            catch (ProduceException<string, string> ex)
             {
                 _logger.LogError(ex, "Kafka produce failed for topic {Topic}", t);
                 throw; // bubble up so the caller can handle if needed
