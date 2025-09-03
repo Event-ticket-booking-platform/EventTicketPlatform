@@ -12,10 +12,9 @@ import java.util.Optional;
 @Repository
 public interface OrderRepository extends JpaRepository<Order, Long> {
 
-    @Query("SELECT o FROM Order o WHERE o.userId = :userId AND o.eventId = :eventId AND o.ticketId = :ticketId")
+    @Query("SELECT o FROM Order o WHERE o.userId = :userId AND o.ticketId = :ticketId")
     Optional<Order> findExistingOrder(
             @Param("userId") String userId,
-            @Param("eventId") String eventId,
             @Param("ticketId") String ticketId
     );
 
