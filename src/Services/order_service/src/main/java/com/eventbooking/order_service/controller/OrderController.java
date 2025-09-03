@@ -19,11 +19,11 @@ public class OrderController {
     private final OrderService orderService;
     private final EventConsumer eventConsumer;
 
-    @PostMapping
-    public ResponseEntity<Order> createOrder(@Valid @RequestBody TicketReserved request) {
-        Order order = orderService.handleCreateOrder(request);
-        return ResponseEntity.status(HttpStatus.CREATED).body(order);
-    }
+//    @PostMapping
+//    public ResponseEntity<Order> createOrder(@Valid @RequestBody TicketReserved request) {
+//        Order order = orderService.handleCreateOrder(request);
+//        return ResponseEntity.status(HttpStatus.CREATED).body(order);
+//    }
 
     @GetMapping("/{orderId}")
     public ResponseEntity<Order> getById(@PathVariable Long orderId){
@@ -45,15 +45,15 @@ public class OrderController {
         }
     }
 
-    @PostMapping("/cancel/{orderId}")
-    public ResponseEntity<Order> cancelOrder(@PathVariable Long orderId) {
-        Order order = orderService.handleOrderCancelled(orderId);
-        if(order != null) {
-            return ResponseEntity.status(HttpStatus.CREATED).body(order);
-        } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
-        }
-    }
+//    @PostMapping("/cancel/{orderId}")
+//    public ResponseEntity<Order> cancelOrder(@PathVariable Long orderId) {
+//        Order order = orderService.handleOrderCancelled(orderId);
+//        if(order != null) {
+//            return ResponseEntity.status(HttpStatus.CREATED).body(order);
+//        } else {
+//            return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+//        }
+//    }
 
     // TESTING
 //    @PostMapping("/ticketReserving")
