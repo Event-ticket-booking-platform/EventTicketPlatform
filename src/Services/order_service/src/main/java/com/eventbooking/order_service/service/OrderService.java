@@ -25,7 +25,6 @@ public class OrderService {
         Optional<Order> existingOrder = orderRepository
                 .findExistingOrder(
                         request.getUserId(),
-                        request.getEventId(),
                         request.getTicketId()
                 );
 
@@ -54,7 +53,6 @@ public class OrderService {
 
         Order order = Order.builder()
                 .userId(request.getUserId())
-                .eventId(request.getEventId())
                 .ticketId(request.getTicketId())
                 .quantity(request.getQuantity())
                 .price(request.getPrice())
@@ -175,8 +173,7 @@ public class OrderService {
     public boolean isTicketReservedValid(TicketReserved event) {
         System.out.println("Validating");
         return event.getTicketId() != null && !event.getTicketId().isEmpty()
-                && event.getUserId() != null && !event.getUserId().isEmpty()
-                && event.getEventId() != null && !event.getEventId().isEmpty() // TODO: Validate all fields
+                && event.getUserId() != null && !event.getUserId().isEmpty() // TODO: Validate all fields
                 && event.getShowNumber() > 0;
     }
 

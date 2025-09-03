@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 public class TicketReserved {
     @NotEmpty private String ticketId;
     @NotEmpty private String userId;
-    @NotEmpty private String eventId;
     @Positive private int quantity;
     @Positive private double price;
     @Positive private int showNumber;
