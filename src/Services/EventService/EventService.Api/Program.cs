@@ -1,5 +1,6 @@
 ﻿using EventService.Application.Interfaces;
 using EventService.Application.Services;
+using EventService.Infrastructure.Messaging;
 using EventService.Infrastructure.DI;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
@@ -77,6 +78,7 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // DI
 builder.Services.AddScoped<IEventService, EventService.Application.Services.EventService>();
+builder.Services.AddSingleton<IKafkaProducer, EventService.Infrastructure.Messaging.KafkaProducer>();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAuthorization(options =>
 {

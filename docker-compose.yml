@@ -54,6 +54,28 @@ services:
       start_period: 30s
     networks: [kafka-network]
     restart: unless-stopped
+  
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8088:8088"
+    depends_on:
+      kafka:
+        condition: service_healthy
+    environment:
+      SERVER_PORT: 8088
+      # Name for the cluster inside the UI
+      KAFKA_CLUSTERS_0_NAME: local
+      # IMPORTANT: use the in-network address (container-to-container)
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      # Optional: enable topic creation from UI
+      KAFKA_CLUSTERS_0_READONLY: "false"
+    
+    networks:
+      - kafka-network
+    restart: unless-stopped
+
 
   postgres:
     image: postgres:15
@@ -297,7 +319,7 @@ services:
       TICKET_SERVICE_DATASOURCE_PASSWORD: 1234
       TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
-      - "8084:8080"
+      - "8084:8099"
     networks:
       - kafka-network
     restart: unless-stopped
