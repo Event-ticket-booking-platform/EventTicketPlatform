@@ -38,9 +38,10 @@ namespace Notification.service.api
 
             var config = new ConsumerConfig
             {
-                BootstrapServers = builder.Configuration["Kafka:BootstrapServers"],
+                BootstrapServers = builder.Configuration.GetValue<string>("Kafka:BootstrapServers") ?? "kafka:9092",
                 GroupId = "notification-service",
-                AutoOffsetReset = AutoOffsetReset.Earliest
+                AutoOffsetReset = AutoOffsetReset.Earliest,
+                EnableAutoCommit = true
             };
 
             // Store notifications per user
@@ -50,12 +51,12 @@ namespace Notification.service.api
             builder.Services.AddSingleton(userMessages);
             builder.Services.AddHostedService<KafkaConsumerService>();
 
-         builder.Services.AddSwaggerGen(c =>
-{
-    c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotificationService", Version = "v1" });
-    if (builder.Configuration.GetValue<bool>("Swagger:UseGatewayBasePath"))
-        c.AddServer(new OpenApiServer { Url = "/notification" });
-});
+            builder.Services.AddSwaggerGen(c =>
+                {
+                    c.SwaggerDoc("v1", new OpenApiInfo { Title = "NotificationService", Version = "v1" });
+                    if (builder.Configuration.GetValue<bool>("Swagger:UseGatewayBasePath"))
+                        c.AddServer(new OpenApiServer { Url = "/notification" });
+                });
 
 
 
@@ -84,7 +85,7 @@ namespace Notification.service.api
                 app.UseSwaggerUI();
             }
 
-            app.UseHttpsRedirection();
+            // app.UseHttpsRedirection();
 
             app.UseAuthorization();
 

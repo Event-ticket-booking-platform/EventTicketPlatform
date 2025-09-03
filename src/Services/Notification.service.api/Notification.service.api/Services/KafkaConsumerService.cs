@@ -23,12 +23,12 @@ public class KafkaConsumerService : BackgroundService
 
         consumer.Subscribe(new[]
         {
-            "event.created",
-            "user.created",
-            "order.successful",
-            "order.cancelled",
-            "order.failed",
-            "payment.processed",
+            "event-created",
+            "user-created",
+            "order-successful",
+            "order-cancelled",
+            "order-failed",
+            "payment-processed",
             "error"
         });
 
@@ -38,15 +38,33 @@ public class KafkaConsumerService : BackgroundService
             {
                 var cr = consumer.Consume(ct);
 
-                // Deserialize to dynamic object
-                var msg = JsonSerializer.Deserialize<Dictionary<string, object>>(cr.Message.Value);
+                Console.WriteLine($"[NotificationService] Consumed from {cr.Topic}: {cr.Message.Value}");
 
-                // Try to get UserId from payload
+                // Deserialize JSON message into a dictionary
+                var msg = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cr.Message.Value);
+
+                // Extract UserId (normalize various naming styles)
                 Guid userId = Guid.Empty;
-                if (msg != null && msg.ContainsKey("UserId"))
+
+                if (msg != null)
                 {
-                    Guid.TryParse(msg["UserId"]?.ToString(), out userId);
+                    if (msg.TryGetValue("UserId", out var userIdElement) && userIdElement.ValueKind == JsonValueKind.String)
+                    {
+                        Guid.TryParse(userIdElement.GetString(), out userId);
+                        Console.WriteLine($"[NotificationService] Extracted UserId: {userId}");
+                    }
+                    else if (msg.TryGetValue("Id", out var idElement) && idElement.ValueKind == JsonValueKind.String)
+                    {
+                        Guid.TryParse(idElement.GetString(), out userId);
+                        Console.WriteLine($"[NotificationService] Extracted Id: {userId}");
+                    }
+                    else if (msg.TryGetValue("User_Id", out var user_IdElement) && user_IdElement.ValueKind == JsonValueKind.String)
+                    {
+                        Guid.TryParse(user_IdElement.GetString(), out userId);
+                        Console.WriteLine($"[NotificationService] Extracted User_Id: {userId}");
+                    }
                 }
+
 
                 var jsonOutput = new
                 {
@@ -56,12 +74,22 @@ public class KafkaConsumerService : BackgroundService
                     Timestamp = DateTime.UtcNow
                 };
 
+                // Store user-specific messages
                 if (userId != Guid.Empty)
                 {
                     if (!_userMessages.ContainsKey(userId))
                         _userMessages[userId] = new List<dynamic>();
 
                     _userMessages[userId].Add(jsonOutput);
+                }
+                else
+                {
+                    // Store under a "global" user group for events without UserId
+                    var globalId = Guid.Empty;
+                    if (!_userMessages.ContainsKey(globalId))
+                        _userMessages[globalId] = new List<dynamic>();
+
+                    _userMessages[globalId].Add(jsonOutput);
                 }
             }
             catch (Exception ex)
