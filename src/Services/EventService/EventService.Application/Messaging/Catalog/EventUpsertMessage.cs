@@ -12,5 +12,6 @@ namespace EventService.Application.Messaging.Catalog
         public DateTime UpdatedAt { get; set; }
         public decimal TicketPrice { get; set; }
         public int Version { get; set; }
+        public string OrganizerId { get; set; } = null!;
     }
 }

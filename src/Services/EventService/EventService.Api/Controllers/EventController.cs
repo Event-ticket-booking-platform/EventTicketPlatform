@@ -7,6 +7,7 @@ using EventService.Infrastructure.Messaging;
 using EventService.Application.Messaging.Catalog;
 using EventService.Application.Interfaces;
 using System.Text.Json;
+using System.Security.Claims;
 
 
 namespace EventService.Api.Controllers
@@ -49,7 +50,16 @@ namespace EventService.Api.Controllers
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] CreateEventDTO dto)
         {
-            var id = await _eventService.CreateEventAsync(dto);
+            var userId =
+                User.FindFirst(ClaimTypes.NameIdentifier)?.Value ??
+                User.FindFirst("sub")?.Value ??
+                User.FindFirst("uid")?.Value ??
+                User.FindFirst("user_id")?.Value;
+
+            if (string.IsNullOrWhiteSpace(userId))
+                return Unauthorized("User id not found in token.");
+
+            var id = await _eventService.CreateEventAsync(dto, userId);
 
             _logger.LogInformation("IsInRole(Admin) = {IsAdmin}", User.IsInRole("Admin"));
 

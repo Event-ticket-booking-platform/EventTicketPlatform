@@ -26,7 +26,7 @@ namespace EventService.Application.Services
 
         public async Task<Event?> GetEventByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
 
-        public async Task<Guid> CreateEventAsync(CreateEventDTO dto)
+        public async Task<Guid> CreateEventAsync(CreateEventDTO dto, string userId)
         {
             if (dto.StartUtc >= dto.EndUtc)
             {
@@ -41,8 +41,8 @@ namespace EventService.Application.Services
                 Description = dto.Description,
                 Location = dto.Location,
                 Date = dto.StartUtc,
-                TicketPrice = dto.TicketPrice,
-                OrganizerId = dto.OrganizerId
+                OrganizerId = userId,
+                TicketPrice = dto.TicketPrice
             };
             await _repository.AddAsync(evt);
 
@@ -52,10 +52,10 @@ namespace EventService.Application.Services
                 EventId = evt.Id,
                 Title = evt.Title,
                 Location = evt.Location,
+                OrganizerId = userId,
                 StartUtc = dto.StartUtc,
                 EndUtc = dto.EndUtc,
                 TicketPrice = dto.TicketPrice,
-                OrganizerId = dto.OrganizerId,
                 CreatedUtc = DateTime.UtcNow
             });
             return evt.Id;
