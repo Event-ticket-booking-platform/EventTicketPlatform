@@ -46,20 +46,3 @@ CREATE TABLE IF NOT EXISTS tickets (
     user_id BIGINT NULL,
     UNIQUE (show_id, seat_number)
 );
-
--- Seed sample data
-INSERT INTO events (id, name, date) VALUES
-  (123, 'Event-kala-1', '2025-08-30')
-ON CONFLICT DO NOTHING;
-
-INSERT INTO seats (event_id, seat_number, is_available) VALUES
-  (123, 'A1', TRUE),
-  (123, 'A2', TRUE),
-  (123, 'A3', TRUE)
-ON CONFLICT DO NOTHING;
-
-INSERT INTO tickets (event_id, seat_number, reserved, confirmed) VALUES
-  (123, 'A1', FALSE, FALSE),
-  (123, 'A2', FALSE, FALSE),
-  (123, 'A3', FALSE, FALSE)
-ON CONFLICT DO NOTHING;
