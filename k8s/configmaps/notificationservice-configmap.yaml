@@ -1,8 +1,8 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: event-service-config
+  name: notificationservice-config
 data:
   ASPNETCORE_ENVIRONMENT: Development
-  ASPNETCORE_URLS: http://0.0.0.0:80
+  ASPNETCORE_URLS: http://0.0.0.0:2342
   Kafka__BootstrapServers: kafka:9092

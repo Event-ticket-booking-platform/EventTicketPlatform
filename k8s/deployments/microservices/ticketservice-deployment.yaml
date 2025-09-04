@@ -21,4 +21,4 @@ spec:
             - secretRef:
                 name: ticket-service-secret
           ports:
-            - containerPort: 8080
+            - containerPort: 8084
