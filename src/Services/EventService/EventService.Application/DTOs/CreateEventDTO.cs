@@ -14,5 +14,6 @@ namespace EventService.Application.DTOs
         public DateTime StartUtc { get; set; }
         public DateTime EndUtc { get; set; }
         public string OrganizerId { get; set; } = null!;
+        public decimal TicketPrice { get; set; }
     }
 }

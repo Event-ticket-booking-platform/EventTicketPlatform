@@ -14,6 +14,7 @@ namespace EventService.Application.Messaging
         public DateTime StartUtc { get; set; }
         public DateTime EndUtc { get; set; }
         public string OrganizerId { get; set; }
+        public decimal TicketPrice { get; set; }
         public DateTime CreatedUtc { get; set; }
     }
 }

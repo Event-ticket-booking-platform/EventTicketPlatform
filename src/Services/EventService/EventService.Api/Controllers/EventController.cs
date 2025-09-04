@@ -73,6 +73,7 @@ namespace EventService.Api.Controllers
                 StartsAt = created.Date,
                 EndsAt = created.Date,
                 UpdatedAt = DateTime.UtcNow,
+                TicketPrice = created.TicketPrice,
                 Version = 1
             };
 
