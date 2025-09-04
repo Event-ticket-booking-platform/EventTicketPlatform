@@ -47,14 +47,18 @@ services:
       #     "CMD",
       #     "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
       #   ]
-      test: ["CMD-SHELL", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1 || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1 || exit 1",
+        ]
       interval: 10s
       timeout: 5s
       retries: 20
       start_period: 30s
     networks: [kafka-network]
     restart: unless-stopped
-  
+
   kafka-ui:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui
@@ -71,11 +75,10 @@ services:
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
       # Optional: enable topic creation from UI
       KAFKA_CLUSTERS_0_READONLY: "false"
-    
+
     networks:
       - kafka-network
     restart: unless-stopped
-
 
   postgres:
     image: postgres:15
@@ -107,7 +110,11 @@ services:
       # test: ["CMD", "bash", "-lc", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
       # test:
       #   ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
-      test: ["CMD-SHELL", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' >/dev/null 2>&1 || exit 1"]
+      test:
+        [
+          "CMD-SHELL",
+          "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' >/dev/null 2>&1 || exit 1",
+        ]
       interval: 5s
       timeout: 3s
       retries: 20
@@ -319,11 +326,11 @@ services:
       TICKET_SERVICE_DATASOURCE_PASSWORD: 1234
       TICKET_SERVICE_KAFKA_BOOTSTRAP_SERVERS: kafka:9092
     ports:
-      - "8084:8099"
+      - "8084:8084"
     networks:
       - kafka-network
     restart: unless-stopped
-  
+
   # >>> GATEWAY: added
   gateway:
     build:
@@ -336,14 +343,14 @@ services:
         condition: service_started
       eventservice:
         condition: service_started
-      notification_service: 
-        condition: service_started 
-      order-service: 
-        condition: service_started 
-      payment-service: 
-        condition: service_started 
-      ticket-service: 
-        condition: service_started 
+      notification_service:
+        condition: service_started
+      order-service:
+        condition: service_started
+      payment-service:
+        condition: service_started
+      ticket-service:
+        condition: service_started
     environment:
       # Use same JWT settings as services
       Jwt__Issuer: ${JWT_ISSUER}
