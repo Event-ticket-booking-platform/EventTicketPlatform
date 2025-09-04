@@ -169,8 +169,8 @@ services:
     networks: [kafka-network]
     restart: unless-stopped
 
-  notification_service:
-    container_name: notification_service
+  notificationservice:
+    container_name: notificationservice
     build:
       context: ./src/Services/Notification.service.api/Notification.service.api
       dockerfile: Dockerfile
@@ -184,7 +184,7 @@ services:
       Kafka__BootstrapServers: kafka:9092
 
     ports:
-      - "8081:2342"
+      - "2342:2342"
     networks:
       - kafka-network
     restart: unless-stopped
@@ -336,7 +336,7 @@ services:
         condition: service_started
       eventservice:
         condition: service_started
-      notification_service: 
+      notificationservice: 
         condition: service_started 
       order-service: 
         condition: service_started 

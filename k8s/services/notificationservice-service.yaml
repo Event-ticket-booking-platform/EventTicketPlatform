@@ -7,6 +7,6 @@ spec:
     app: notification-service
   ports:
     - protocol: TCP
-      port: 8080
+      port: 2342
       targetPort: 2342
   type: ClusterIP
