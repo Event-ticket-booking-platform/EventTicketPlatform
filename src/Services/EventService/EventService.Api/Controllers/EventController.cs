@@ -104,6 +104,13 @@ namespace EventService.Api.Controllers
             return CreatedAtAction(nameof(GetById), new { id }, new { id });
         }
 
+        [HttpGet("count")]
+        public async Task<ActionResult<object>> GetTotal()
+        {
+            var total = await _eventService.GetTotalEventsAsync();
+            return Ok(new { total });
+        }
+
 
         [Authorize]
         [HttpGet("whoami")]

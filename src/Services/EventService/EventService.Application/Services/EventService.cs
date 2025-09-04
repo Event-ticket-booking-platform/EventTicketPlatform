@@ -60,5 +60,7 @@ namespace EventService.Application.Services
             });
             return evt.Id;
         }
+
+        public async Task<long> GetTotalEventsAsync() => await _repository.CountAsync();
     }
 }

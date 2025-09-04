@@ -14,5 +14,6 @@ namespace EventService.Application.Services
         Task<List<Event>> GetAllEventsAsync();
         Task<Event?> GetEventByIdAsync(Guid id);
         Task<Guid> CreateEventAsync(CreateEventDTO dto);
+        Task<long> GetTotalEventsAsync();
     }
 }
