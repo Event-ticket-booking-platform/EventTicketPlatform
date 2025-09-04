@@ -354,6 +354,8 @@ services:
       - "19090:8080"
     networks: [kafka-network]
     restart: unless-stopped
+    volumes:
+      - ./src/Gateway.Api/appsettings.json:/app/appsettings.json:ro
   # <<< GATEWAY: added
 
 networks:
