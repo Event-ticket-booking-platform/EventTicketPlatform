@@ -23,13 +23,26 @@ public class KafkaConsumerService : BackgroundService
 
         consumer.Subscribe(new[]
         {
-            "event.created",
-            "user.created",
+            "event-created",
+            "user-created",
+            "order.created",
             "order.successful",
             "order.cancelled",
-            "order.failed",
+            "ticketReserve.error",
+            "order-failed",
+            "paymentProcessing.failed",
+            "ticketCancel.failed",
+            "ticketCancel.error",
+            "orderCancelling.error",
+            "orderAlready.cancelled",
+            "error",
             "payment.processed",
-            "error"
+            "order.error",
+            "orderCancel.error",
+            "orderCancel.failed",
+            "orderCancel.successful",
+            "ticket.reserved",
+            "ticket.expired"
         });
 
         while (!ct.IsCancellationRequested)
@@ -38,14 +51,39 @@ public class KafkaConsumerService : BackgroundService
             {
                 var cr = consumer.Consume(ct);
 
-                // Deserialize to dynamic object
-                var msg = JsonSerializer.Deserialize<Dictionary<string, object>>(cr.Message.Value);
+                Console.WriteLine($"[NotificationService] Consumed from {cr.Topic}: {cr.Message.Value}");
 
-                // Try to get UserId from payload
                 Guid userId = Guid.Empty;
-                if (msg != null && msg.ContainsKey("UserId"))
+                Dictionary<string, JsonElement>? msg = null;
+
+                // Try to parse as JSON first
+                try
                 {
-                    Guid.TryParse(msg["UserId"]?.ToString(), out userId);
+                    msg = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cr.Message.Value);
+
+                    if (msg != null)
+                    {
+                        if (msg.TryGetValue("UserId", out var userIdElement) && userIdElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(userIdElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted UserId: {userId}");
+                        }
+                        else if (msg.TryGetValue("Id", out var idElement) && idElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(idElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted Id: {userId}");
+                        }
+                        else if (msg.TryGetValue("User_Id", out var user_IdElement) && user_IdElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(user_IdElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted User_Id: {userId}");
+                        }
+                    }
+                }
+                catch (JsonException)
+                {
+                    // Not a JSON payload → fallback to raw string
+                    Console.WriteLine("[NotificationService] Non-JSON message, storing as plain string");
                 }
 
                 var jsonOutput = new
@@ -53,16 +91,16 @@ public class KafkaConsumerService : BackgroundService
                     Topic = cr.Topic,
                     Message = cr.Message.Value,
                     UserId = userId,
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.UtcNow,
+                    IsJson = msg != null
                 };
 
-                if (userId != Guid.Empty)
-                {
-                    if (!_userMessages.ContainsKey(userId))
-                        _userMessages[userId] = new List<dynamic>();
+                // Store user-specific messages
+                var key = userId != Guid.Empty ? userId : Guid.Empty;
+                if (!_userMessages.ContainsKey(key))
+                    _userMessages[key] = new List<dynamic>();
 
-                    _userMessages[userId].Add(jsonOutput);
-                }
+                _userMessages[key].Add(jsonOutput);
             }
             catch (Exception ex)
             {

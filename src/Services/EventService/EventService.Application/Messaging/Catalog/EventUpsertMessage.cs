@@ -10,6 +10,7 @@ namespace EventService.Application.Messaging.Catalog
         public DateTime StartsAt { get; set; }
         public DateTime EndsAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public decimal TicketPrice { get; set; }
         public int Version { get; set; }
     }
 }

@@ -10,33 +10,32 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class TicketEventConsumer {
-    @Autowired
-    private TicketService ticketService;
-
+    @Autowired private TicketService ticketService;
+    @Autowired private ObjectMapper objectMapper;
     
-    @Autowired
-    private ObjectMapper objectMapper;
 
-    // @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
-    //     public void consume(String message) {
-    //     try {
-    //         TicketReservedEvent event = objectMapper.readValue(message, TicketReservedEvent.class);
-    //         System.out.println("Received reservation event for seat: " + event.getShowNumber());
-    //         ticketService.reserveTicket(
-    //             Long.parseLong(event.getEventId()),
-    //             String.valueOf(event.getShowNumber()),
-    //             Long.parseLong(event.getUserId())
-    //         );
-    //     } catch(JsonProcessingException e) {
-    //         System.err.println("Failed to deserialize TicketReserved: " + message);
-    //         e.printStackTrace();
-    //     }
-    // }
+    @KafkaListener(topics = "event-created")
+    public void consumeEventCreated(String message) {
+        try {
+            EventCreatedEvent event = objectMapper.readValue(message, EventCreatedEvent.class);
+            System.out.println("Received new event: " + event.getTitle());
+            ticketService.createEventWithSeats(event);
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
-    // @KafkaListener(topics = "ticket.reserved", groupId = "ticket-service-group")
-    // public void consumeRaw(String message) {
-    //     System.out.println("RAW Kafka message: " + message);
-    // }
+
+    @KafkaListener(topics = "ticket.reserve.requested", groupId = "ticket-service-group")
+    public void consumeTicketReserveRequested(String message) {
+        try {
+            TicketReserveRequestedEvent event = objectMapper.readValue(message, TicketReserveRequestedEvent.class);
+            ticketService.reserveSeats(event);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
 
     @KafkaListener(topics = "payment.processed", groupId = "ticket-service-group")
     public void consumePaymentProcessed(String message) {

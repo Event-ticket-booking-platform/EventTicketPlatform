@@ -61,6 +61,28 @@ namespace EventService.Infrastructure.Messaging
             }
         }
 
+         public async Task PublishRawStringAsync(string payload, string topic = "event-created")
+        {
+            var t = string.IsNullOrWhiteSpace(topic) ? _defaultTopic : topic;
+
+            try
+            {
+                var result = await _producer.ProduceAsync(t, new Message<string, string>
+                {
+                    Key = Guid.NewGuid().ToString(), // no EventId, just a random key
+                    Value = payload
+                });
+
+                _logger.LogInformation("Kafka produced RAW: topic={Topic} partition={Partition} offset={Offset} payload={Payload}",
+                    result.Topic, result.Partition, result.Offset, payload);
+            }
+            catch (ProduceException<string, string> ex)
+            {
+                _logger.LogError(ex, "Kafka RAW produce failed for topic {Topic}", t);
+                throw;
+            }
+        }
+
         public void Dispose() => _producer?.Dispose();
     }
 }

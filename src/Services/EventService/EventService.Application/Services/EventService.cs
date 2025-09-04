@@ -32,6 +32,8 @@ namespace EventService.Application.Services
             {
                 throw new ArgumentException("StartUtc must be before EndUtc.");
             }
+            if (dto.TicketPrice < 0)
+                throw new ArgumentException("TicketPrice cannot be negative.");
             var evt = new Event
             {
                 Id = Guid.NewGuid(),
@@ -39,6 +41,7 @@ namespace EventService.Application.Services
                 Description = dto.Description,
                 Location = dto.Location,
                 Date = dto.StartUtc,
+                TicketPrice = dto.TicketPrice,
                 OrganizerId = dto.OrganizerId
             };
             await _repository.AddAsync(evt);
@@ -51,10 +54,13 @@ namespace EventService.Application.Services
                 Location = evt.Location,
                 StartUtc = dto.StartUtc,
                 EndUtc = dto.EndUtc,
+                TicketPrice = dto.TicketPrice,
                 OrganizerId = dto.OrganizerId,
                 CreatedUtc = DateTime.UtcNow
             });
             return evt.Id;
         }
+
+        public async Task<long> GetTotalEventsAsync() => await _repository.CountAsync();
     }
 }

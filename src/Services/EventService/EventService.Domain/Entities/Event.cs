@@ -17,5 +17,6 @@ namespace EventService.Domain.Entities
         public string Location { get; set; } = null!;
         public DateTime Date { get; set; }
         public string OrganizerId { get; set; } = null!;
+        public decimal TicketPrice { get; set; }
     }
 }

@@ -9,5 +9,6 @@ namespace EventService.Application.Interfaces
     public interface IKafkaProducer
     {
         Task PublishEventCreatedAsync(object message, string topic = "event-created");
+        Task PublishRawStringAsync(string payload, string topic = "event-created");
     }
 }

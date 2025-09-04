@@ -12,5 +12,6 @@ namespace EventService.Application.Interfaces
         Task<List<Event>> GetAllAsync();
         Task<Event?> GetByIdAsync(Guid id);
         Task AddAsync(Event evt);
+        Task<long> CountAsync();
     }
 }

@@ -25,6 +25,7 @@ public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
     // Needed for confirm/release
     List<Ticket> findByOrderId(String orderId);
+    List<Ticket> findByEventIdAndShowIdAndSeatNumberIn(Long eventId, Long showId, List<String> seatNumbers);
 
     // Needed for expiration check
     @Query("SELECT t FROM Ticket t WHERE t.reserved = true AND t.confirmed = false AND t.reservedAt < :expiryTime")
