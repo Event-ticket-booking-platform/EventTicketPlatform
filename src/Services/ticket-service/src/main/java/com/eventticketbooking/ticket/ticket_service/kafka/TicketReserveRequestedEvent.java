@@ -1,7 +1,6 @@
 package com.eventticketbooking.ticket.ticket_service.kafka;
 
 import java.util.List;
-
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -9,7 +8,7 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class TicketReservedEvent { 
+public class TicketReserveRequestedEvent {
     private String orderId;
     private Long eventId;
     private Long showId;
