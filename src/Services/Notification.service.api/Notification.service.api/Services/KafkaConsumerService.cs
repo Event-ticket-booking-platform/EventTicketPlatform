@@ -25,11 +25,24 @@ public class KafkaConsumerService : BackgroundService
         {
             "event-created",
             "user-created",
-            "order-successful",
-            "order-cancelled",
+            "order.created",
+            "order.successful",
+            "order.cancelled",
+            "ticketReserve.error",
             "order-failed",
-            "payment-processed",
-            "error"
+            "paymentProcessing.failed",
+            "ticketCancel.failed",
+            "ticketCancel.error",
+            "orderCancelling.error",
+            "orderAlready.cancelled",
+            "error",
+            "payment.processed",
+            "order.error",
+            "orderCancel.error",
+            "orderCancel.failed",
+            "orderCancel.successful",
+            "ticket.reserved",
+            "ticket.expired"
         });
 
         while (!ct.IsCancellationRequested)
@@ -40,57 +53,54 @@ public class KafkaConsumerService : BackgroundService
 
                 Console.WriteLine($"[NotificationService] Consumed from {cr.Topic}: {cr.Message.Value}");
 
-                // Deserialize JSON message into a dictionary
-                var msg = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cr.Message.Value);
-
-                // Extract UserId (normalize various naming styles)
                 Guid userId = Guid.Empty;
+                Dictionary<string, JsonElement>? msg = null;
 
-                if (msg != null)
+                // Try to parse as JSON first
+                try
                 {
-                    if (msg.TryGetValue("UserId", out var userIdElement) && userIdElement.ValueKind == JsonValueKind.String)
+                    msg = JsonSerializer.Deserialize<Dictionary<string, JsonElement>>(cr.Message.Value);
+
+                    if (msg != null)
                     {
-                        Guid.TryParse(userIdElement.GetString(), out userId);
-                        Console.WriteLine($"[NotificationService] Extracted UserId: {userId}");
-                    }
-                    else if (msg.TryGetValue("Id", out var idElement) && idElement.ValueKind == JsonValueKind.String)
-                    {
-                        Guid.TryParse(idElement.GetString(), out userId);
-                        Console.WriteLine($"[NotificationService] Extracted Id: {userId}");
-                    }
-                    else if (msg.TryGetValue("User_Id", out var user_IdElement) && user_IdElement.ValueKind == JsonValueKind.String)
-                    {
-                        Guid.TryParse(user_IdElement.GetString(), out userId);
-                        Console.WriteLine($"[NotificationService] Extracted User_Id: {userId}");
+                        if (msg.TryGetValue("UserId", out var userIdElement) && userIdElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(userIdElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted UserId: {userId}");
+                        }
+                        else if (msg.TryGetValue("Id", out var idElement) && idElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(idElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted Id: {userId}");
+                        }
+                        else if (msg.TryGetValue("User_Id", out var user_IdElement) && user_IdElement.ValueKind == JsonValueKind.String)
+                        {
+                            Guid.TryParse(user_IdElement.GetString(), out userId);
+                            Console.WriteLine($"[NotificationService] Extracted User_Id: {userId}");
+                        }
                     }
                 }
-
+                catch (JsonException)
+                {
+                    // Not a JSON payload → fallback to raw string
+                    Console.WriteLine("[NotificationService] Non-JSON message, storing as plain string");
+                }
 
                 var jsonOutput = new
                 {
                     Topic = cr.Topic,
                     Message = cr.Message.Value,
                     UserId = userId,
-                    Timestamp = DateTime.UtcNow
+                    Timestamp = DateTime.UtcNow,
+                    IsJson = msg != null
                 };
 
                 // Store user-specific messages
-                if (userId != Guid.Empty)
-                {
-                    if (!_userMessages.ContainsKey(userId))
-                        _userMessages[userId] = new List<dynamic>();
+                var key = userId != Guid.Empty ? userId : Guid.Empty;
+                if (!_userMessages.ContainsKey(key))
+                    _userMessages[key] = new List<dynamic>();
 
-                    _userMessages[userId].Add(jsonOutput);
-                }
-                else
-                {
-                    // Store under a "global" user group for events without UserId
-                    var globalId = Guid.Empty;
-                    if (!_userMessages.ContainsKey(globalId))
-                        _userMessages[globalId] = new List<dynamic>();
-
-                    _userMessages[globalId].Add(jsonOutput);
-                }
+                _userMessages[key].Add(jsonOutput);
             }
             catch (Exception ex)
             {
