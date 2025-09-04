@@ -15,12 +15,8 @@ spec:
       containers:
         - name: notification-service
           image: 168370541191.dkr.ecr.us-west-1.amazonaws.com/notification_service:latest
-          env:
-            - name: ASPNETCORE_ENVIRONMENT
-              value: Development
-            - name: ASPNETCORE_URLS
-              value: http://0.0.0.0:8080
-            - name: Kafka__BootstrapServers
-              value: kafka:9092
+          envFrom:
+          - configMapRef:
+              name: notificationservice-config
           ports:
-            - containerPort: 8080
+            - containerPort: 2342
