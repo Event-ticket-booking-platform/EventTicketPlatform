@@ -4,7 +4,7 @@ metadata:
   name: event-service-config
 data:
   ASPNETCORE_ENVIRONMENT: Development
-  ASPNETCORE_URLS: http://0.0.0.0:80
+  ASPNETCORE_URLS: http://0.0.0.0:5000
   MongoDbSettings__ConnectionString: mongodb://mongo:27017
   MongoDbSettings__DatabaseName: EventServiceDb
   MongoDbSettings__EventsCollectionName: Events
