@@ -1,7 +1,13 @@
 package com.eventticketbooking.ticket.ticket_service.service;
 
+import com.eventticketbooking.ticket.ticket_service.entity.EventShow;
+import com.eventticketbooking.ticket.ticket_service.entity.Seat;
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
+import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
 import com.eventticketbooking.ticket.ticket_service.kafka.*;
+import com.eventticketbooking.ticket.ticket_service.repository.EventShowRepository;
+import com.eventticketbooking.ticket.ticket_service.repository.SeatRepository;
+import com.eventticketbooking.ticket.ticket_service.repository.TicketEventRepository;
 import com.eventticketbooking.ticket.ticket_service.repository.TicketRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,12 +15,22 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.util.List;
 
 @Service
 public class TicketService {
     @Autowired
     private TicketRepository ticketRepository;
+
+    @Autowired
+    private EventShowRepository eventShowRepository;
+
+    @Autowired 
+    private SeatRepository seatRepository;
+
+    @Autowired 
+    private TicketEventRepository ticketEventRepository;
 
     @Autowired
     private KafkaTemplate<String, String> kafkaTemplate;
@@ -133,9 +149,43 @@ public class TicketService {
         try {
             String json = objectMapper.writeValueAsString(event);
             kafkaTemplate.send(topic, json);
-            System.out.println("📤 Published " + topic + " event");
+            System.out.println("Published " + topic + " event");
         } catch (Exception e) {
             throw new RuntimeException("Failed to publish " + topic, e);
+        }
+    }
+
+    @Transactional
+    public void createEventWithSeats(EventCreatedEvent event) {
+        TicketEvent ticketEvent = new TicketEvent();
+        ticketEvent.setTitle(event.getTitle());
+        ticketEvent.setDescription(event.getDescription());
+        ticketEvent.setLocation(event.getLocation());
+        ticketEvent.setStartUtc(event.getStartUtc());
+        ticketEvent.setEndUtc(event.getEndUtc());
+        ticketEvent.setOrganizerId(event.getOrganizerId());
+        ticketEvent = ticketEventRepository.save(ticketEvent);
+
+        EventShow show = new EventShow();
+        show.setEvent(ticketEvent);
+        show.setShowNumber(1);
+        show.setStartTime(LocalDateTime.ofInstant(event.getStartUtc(), ZoneId.systemDefault()));
+        show.setEndTime(LocalDateTime.ofInstant(event.getEndUtc(), ZoneId.systemDefault()));
+        show = eventShowRepository.save(show);
+
+        for (int i = 1; i <= 20; i++) {
+            String seatNumber = "A" + i;
+
+            Seat seat = new Seat();
+            seat.setShow(show);
+            seat.setSeatNumber(seatNumber);
+            seatRepository.save(seat);
+
+            Ticket ticket = new Ticket();
+            ticket.setEventId(ticketEvent.getId());
+            ticket.setShowId(show.getId());
+            ticket.setSeatNumber(seatNumber);
+            ticketRepository.save(ticket);
         }
     }
     

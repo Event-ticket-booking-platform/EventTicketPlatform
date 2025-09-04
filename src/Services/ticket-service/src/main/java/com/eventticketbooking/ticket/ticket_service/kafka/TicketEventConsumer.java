@@ -1,8 +1,5 @@
 package com.eventticketbooking.ticket.ticket_service.kafka;
 
-import java.time.LocalDateTime;
-import java.time.ZoneId;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
@@ -10,21 +7,9 @@ import org.springframework.stereotype.Service;
 import com.eventticketbooking.ticket.ticket_service.service.TicketService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.eventticketbooking.ticket.ticket_service.entity.EventShow;
-import com.eventticketbooking.ticket.ticket_service.entity.Seat;
-import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
-import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
-import com.eventticketbooking.ticket.ticket_service.repository.EventShowRepository;
-import com.eventticketbooking.ticket.ticket_service.repository.SeatRepository;
-import com.eventticketbooking.ticket.ticket_service.repository.TicketEventRepository;
-import com.eventticketbooking.ticket.ticket_service.repository.TicketRepository;
 
 @Service
 public class TicketEventConsumer {
-    @Autowired private TicketEventRepository ticketEventRepository;
-    @Autowired private EventShowRepository eventShowRepository;
-    @Autowired private SeatRepository seatRepository;
-    @Autowired private TicketRepository ticketRepository;
     @Autowired private TicketService ticketService;
     @Autowired private ObjectMapper objectMapper;
     
@@ -34,37 +19,8 @@ public class TicketEventConsumer {
         try {
             EventCreatedEvent event = objectMapper.readValue(message, EventCreatedEvent.class);
             System.out.println("Received new event: " + event.getTitle());
-
-            TicketEvent ticketEvent = new TicketEvent();
-            ticketEvent.setTitle(event.getTitle());
-            ticketEvent.setDescription(event.getDescription());
-            ticketEvent.setLocation(event.getLocation());
-            ticketEvent.setStartUtc(event.getStartUtc());
-            ticketEvent.setEndUtc(event.getEndUtc());
-            ticketEvent.setOrganizerId(event.getOrganizerId());
-            ticketEvent = ticketEventRepository.save(ticketEvent);
-
-            EventShow show = new EventShow();
-            show.setEvent(ticketEvent);
-            show.setShowNumber(1);
-            show.setStartTime(LocalDateTime.ofInstant(event.getStartUtc(), ZoneId.systemDefault()));
-            show.setEndTime(LocalDateTime.ofInstant(event.getEndUtc(), ZoneId.systemDefault()));
-            show = eventShowRepository.save(show);
-
-            for (int i = 1; i <= 20; i++) {
-                String seatNumber = "A" + i;
-
-                Seat seat = new Seat();
-                seat.setShow(show);
-                seat.setSeatNumber(seatNumber);
-                seatRepository.save(seat);
-
-                Ticket ticket = new Ticket();
-                ticket.setEventId(ticketEvent.getId());
-                ticket.setShowId(show.getId());
-                ticket.setSeatNumber(seatNumber);
-                ticketRepository.save(ticket);
-            }
+            ticketService.createEventWithSeats(event);
+            
         } catch (Exception e) {
             e.printStackTrace();
         }

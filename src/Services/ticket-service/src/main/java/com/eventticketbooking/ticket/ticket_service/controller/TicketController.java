@@ -4,6 +4,8 @@ package com.eventticketbooking.ticket.ticket_service.controller;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
 import com.eventticketbooking.ticket.ticket_service.kafka.PaymentEvent;
+import com.eventticketbooking.ticket.ticket_service.kafka.EventCreatedEvent;
 import com.eventticketbooking.ticket.ticket_service.kafka.OrderCancelledEvent;
 import com.eventticketbooking.ticket.ticket_service.kafka.TicketExpiredEvent;
 
@@ -71,6 +74,26 @@ public class TicketController {
         ticketService.handleTicketExpired(event);
         return "Ticket expired event handled!";
     }
+
+    @PostMapping("/test-new-event")
+    public ResponseEntity<String> createTestEvent(@RequestBody EventCreatedEvent event) {
+        try {
+            ticketService.createEventWithSeats(event);
+            return ResponseEntity.ok("Test event created successfully with seats & tickets!");
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                                 .body("Failed to create test event: " + e.getMessage());
+        }
+    }
+    // {
+    //     "title": "Test Concert",
+    //     "description": "A special test event",
+    //     "location": "Colombo Stadium",
+    //     "startUtc": "2025-09-10T14:00:00Z",
+    //     "endUtc": "2025-09-10T17:00:00Z",
+    //     "organizerId": 101
+    // }   
     
     
 }
