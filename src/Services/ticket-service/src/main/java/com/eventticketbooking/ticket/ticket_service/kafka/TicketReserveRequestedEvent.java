@@ -22,7 +22,7 @@ public class TicketReserveRequestedEvent {
     private Instant createdUtc;
 
     // Reservation details
-    private Integer requestedSeats;  // how many seats the user wants
+    private Integer seatCount;  // how many seats the user wants
     private String userId;
 
 }
