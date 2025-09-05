@@ -55,8 +55,8 @@ public class OrderService {
         Order order = Order.builder()
                 .userId(request.getUserId())
                 .ticketId(request.getTicketId())
-                .quantity(request.getQuantity())
-                .price(request.getPrice())
+                .quantity(request.getSeatCount())
+                .price(request.getTicketPrice())
                 .status("PENDING")
                 .createdAt(LocalDateTime.now())
                 .build();
