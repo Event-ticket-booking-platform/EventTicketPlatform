@@ -63,10 +63,8 @@ namespace EventService.Api.Controllers
 
             _logger.LogInformation("IsInRole(Admin) = {IsAdmin}", User.IsInRole("Admin"));
 
-            // ✅ FIX: FIRST load the created event...
             var created = await _eventService.GetEventByIdAsync(id);
 
-            // ...THEN check for null (previously this check came before the declaration)
             if (created is null)
             {
                 _logger.LogError("Created event {EventId} could not be loaded back from store.", id);
@@ -79,7 +77,7 @@ namespace EventService.Api.Controllers
                 Title = created.Title,
                 Description = created.Description,
                 Location = created.Location,
-                Status = "PUBLISHED",   // or DRAFT based on your workflow
+                Status = "PUBLISHED",   
                 StartsAt = created.Date,
                 EndsAt = created.Date,
                 UpdatedAt = DateTime.UtcNow,
@@ -87,20 +85,14 @@ namespace EventService.Api.Controllers
                 Version = 1
             };
 
-            // ✅ FIX: JsonSerializer requires using System.Text.Json;
             var json = JsonSerializer.Serialize(msg);
             _logger.LogInformation("Publishing EventUpsertMessage to {Topic}: {Payload}",
                 KafkaTopics.EventCatalogUpsert, json);
 
             try
             {
-                //Json format
-                // await _kafka.PublishEventCreatedAsync(msg, KafkaTopics.EventCatalogUpsert);
-                // String format
-                // Build a raw string
             var payload = $"EventId={created.Id}; Title={created.Title}; Location={created.Location}; Date={created.Date}";
 
-            // Send using raw string publisher
             await _kafka.PublishRawStringAsync(payload, KafkaTopics.EventCatalogUpsert);
 
                 _logger.LogInformation("Published EventUpsertMessage for EventId {EventId}", msg.EventId);

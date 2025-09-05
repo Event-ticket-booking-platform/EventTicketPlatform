@@ -8,7 +8,6 @@ using UserService.Domain.Entities;
 
 namespace UserService.Api.controllers
 {
-    // UserService.Api/Controllers/AuthController.cs
     [ApiController]
     [Route("api/auth")]
     public class AuthController : ControllerBase

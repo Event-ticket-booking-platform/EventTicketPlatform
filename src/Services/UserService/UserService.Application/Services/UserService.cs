@@ -42,11 +42,7 @@ namespace UserService.Application.Services
         }
 
         public Task<List<User>> GetAllAsync() => _repo.GetAllAsync();
-
-         // Get user by Id
         public Task<User?> GetByIdAsync(Guid id) => _repo.GetByIdAsync(id);
-
-        // Get user by Username
         public Task<User?> GetByUsernameAsync(string username) => _repo.GetByUsernameAsync(username);
     }
 

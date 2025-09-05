@@ -2,11 +2,9 @@ using Yarp.ReverseProxy;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// ----- YARP: load routes/clusters from appsettings -----
 builder.Services.AddReverseProxy()
     .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 
-// ----- CORS -----
 builder.Services.AddCors(o =>
 {
     o.AddDefaultPolicy(p => p

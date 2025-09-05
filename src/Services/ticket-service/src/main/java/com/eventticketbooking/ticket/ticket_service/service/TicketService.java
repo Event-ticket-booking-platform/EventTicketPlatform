@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -56,26 +55,23 @@ public class TicketService {
     TicketEvent ticketEvent = ticketEventRepository.findById(String.valueOf(event.getEventId()))
             .orElseThrow(() -> new RuntimeException("Event not found"));
 
-    // Generate tickets for the requested seats
+    // Generate ticket for the requested seats
+    Ticket ticket = new Ticket();
+    ticket.setEventId(ticketEvent.getId());
+    ticket.setSeatCount(event.getSeatCount());   // save seat count
+    ticket.setPrice(event.getTicketPrice()); // total price
+    ticket.setReserved(true);
+    ticket.setUserId(event.getUserId());
+    ticket.setReservedAt(LocalDateTime.now());
 
-    List<Long> ticketIds = new ArrayList<>();
-
-    int startingSeatNumber = ticketEvent.getTotalSeats() + 1;
-    for (int i = 0; i < event.getSeatCount(); i++) {
-        Ticket ticket = new Ticket();
-        ticket.setEventId(ticketEvent.getId());
-        ticket.setSeatNumber(startingSeatNumber + i);
-        ticket.setPrice(event.getTicketPrice());
-        ticketRepository.save(ticket);
-        ticketIds.add(ticket.getId()); 
-    }
+    ticketRepository.save(ticket);
 
     // Update total seats
     ticketEvent.setTotalSeats(ticketEvent.getTotalSeats() + event.getSeatCount());
     ticketEventRepository.save(ticketEvent);
 
-     TicketReservedEvent reservedEvent = new TicketReservedEvent(
-            ticketIds,   
+    TicketReservedEvent reservedEvent = new TicketReservedEvent(
+            ticket.getId(),
             event.getEventId(),
             event.getUserId(),
             event.getTicketPrice(),

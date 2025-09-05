@@ -15,12 +15,11 @@ CREATE TABLE IF NOT EXISTS events (
 CREATE TABLE IF NOT EXISTS tickets (
     id BIGSERIAL PRIMARY KEY,
     event_id VARCHAR(255) NOT NULL REFERENCES events(id) ON DELETE CASCADE,
-    seat_number INT NOT NULL,
+    seat_count INT NOT NULL,   
     reserved BOOLEAN NOT NULL DEFAULT FALSE,
     reserved_at TIMESTAMP NULL,
     confirmed BOOLEAN NOT NULL DEFAULT FALSE,
     confirmed_at TIMESTAMP NULL,
-    user_id BIGINT NULL,
-    order_id VARCHAR(255) NULL,
-    UNIQUE(event_id, seat_number)
+    user_id VARCHAR(255) NULL,
+    price DECIMAL(10,2) NOT NULL
 );

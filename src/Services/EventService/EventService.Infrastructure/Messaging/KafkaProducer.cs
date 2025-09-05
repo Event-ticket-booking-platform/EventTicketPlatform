@@ -40,7 +40,6 @@ namespace EventService.Infrastructure.Messaging
         {
             var t = string.IsNullOrWhiteSpace(topic) ? _defaultTopic : topic;
 
-            // serialize your DTO (EventCreatedMessage, etc.)
             var payload = JsonSerializer.Serialize(message);
 
             string? key = message?.GetType().GetProperty("EventId")?.GetValue(message)?.ToString();
@@ -57,7 +56,7 @@ namespace EventService.Infrastructure.Messaging
             catch (ProduceException<string, string> ex)
             {
                 _logger.LogError(ex, "Kafka produce failed for topic {Topic}", t);
-                throw; // bubble up so the caller can handle if needed
+                throw; 
             }
         }
 
@@ -69,7 +68,7 @@ namespace EventService.Infrastructure.Messaging
             {
                 var result = await _producer.ProduceAsync(t, new Message<string, string>
                 {
-                    Key = Guid.NewGuid().ToString(), // no EventId, just a random key
+                    Key = Guid.NewGuid().ToString(),
                     Value = payload
                 });
 

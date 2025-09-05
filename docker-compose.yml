@@ -10,9 +10,6 @@ services:
     ports:
       - "2181:2181"
     healthcheck:
-      # no nc needed – uses built-in script
-      # test: ["CMD", "bash", "-lc", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
-      # test: ["CMD", "zookeeper-shell localhost:2181 ls / >/dev/null 2>&1"]
       test: ["CMD-SHELL", "zookeeper-shell localhost:2181 ls / || exit 1"]
       interval: 10s
       timeout: 5s
@@ -37,16 +34,9 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_DELETE_TOPIC_ENABLE: "true"
     ports:
-      # - "9092:9092" # internal testing
       - "19092:9092"
-      - "29092:29092" # host tools (UI, CLI)
+      - "29092:29092" 
     healthcheck:
-      # test: ["CMD", "bash", "-lc", "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1"]
-      # test:
-      #   [
-      #     "CMD",
-      #     "kafka-topics --bootstrap-server localhost:9092 --list >/dev/null 2>&1",
-      #   ]
       test:
         [
           "CMD-SHELL",
@@ -69,11 +59,8 @@ services:
         condition: service_healthy
     environment:
       SERVER_PORT: 8088
-      # Name for the cluster inside the UI
       KAFKA_CLUSTERS_0_NAME: local
-      # IMPORTANT: use the in-network address (container-to-container)
       KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
-      # Optional: enable topic creation from UI
       KAFKA_CLUSTERS_0_READONLY: "false"
 
     networks:
@@ -103,13 +90,10 @@ services:
     image: mongo:7
     container_name: mongodb
     ports:
-      - "27019:27017" # changed host port to avoid 27018 conflicts
+      - "27019:27017" 
     volumes:
       - mongo-data:/data/db
     healthcheck:
-      # test: ["CMD", "bash", "-lc", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
-      # test:
-      #   ["CMD", "mongosh --quiet --eval 'db.runCommand({ ping: 1 })' || exit 1"]
       test:
         [
           "CMD-SHELL",
@@ -353,7 +337,6 @@ services:
         condition: service_started 
 
     environment:
-      # Use same JWT settings as services
       Jwt__Issuer: ${JWT_ISSUER}
       Jwt__Audience: ${JWT_AUDIENCE}
       Jwt__Key: ${JWT_KEY}

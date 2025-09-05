@@ -45,7 +45,6 @@ namespace EventService.Infrastructure.Messaging
                     {
                         _logger.LogInformation($"👤 Consumed User: {message.Username} | Email: {message.Email} | Role: {message.Role}");
 
-                        // TODO: Save or validate OrganizerId, etc.
                     }
                 }
                 catch (ConsumeException ex)
@@ -53,7 +52,7 @@ namespace EventService.Infrastructure.Messaging
                     _logger.LogError($"❌ Kafka consume error: {ex.Error.Reason}");
                 }
 
-                await Task.Delay(100, stoppingToken); // avoid tight loop
+                await Task.Delay(100, stoppingToken); 
             }
         }
     }
