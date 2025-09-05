@@ -1,6 +1,6 @@
 package com.eventticketbooking.ticket.ticket_service.kafka;
 
-import java.util.List;
+import java.time.Instant;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -10,8 +10,19 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 public class TicketReserveRequestedEvent {
     private String orderId;
-    private Long eventId;
-    private Long showId;
-    private List<String> seatNumbers;
+
+    // Event details
+    private String eventId;          // keep it as String if it comes that way from Kafka
+    private String title;
+    private String location;
+    private Instant startUtc;
+    private Instant endUtc;
+    private String organizerId;
+    private Double ticketPrice;
+    private Instant createdUtc;
+
+    // Reservation details
+    private Integer requestedSeats;  // how many seats the user wants
     private String userId;
+
 }

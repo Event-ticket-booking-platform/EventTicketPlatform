@@ -1,12 +1,8 @@
 package com.eventticketbooking.ticket.ticket_service.service;
 
-import com.eventticketbooking.ticket.ticket_service.entity.EventShow;
-import com.eventticketbooking.ticket.ticket_service.entity.Seat;
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
 import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
 import com.eventticketbooking.ticket.ticket_service.kafka.*;
-import com.eventticketbooking.ticket.ticket_service.repository.EventShowRepository;
-import com.eventticketbooking.ticket.ticket_service.repository.SeatRepository;
 import com.eventticketbooking.ticket.ticket_service.repository.TicketEventRepository;
 import com.eventticketbooking.ticket.ticket_service.repository.TicketRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -14,22 +10,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 import java.util.List;
 
 @Service
 public class TicketService {
-    @Autowired
+     @Autowired
     private TicketRepository ticketRepository;
 
     @Autowired
-    private EventShowRepository eventShowRepository;
-
-    @Autowired 
-    private SeatRepository seatRepository;
-
-    @Autowired 
     private TicketEventRepository ticketEventRepository;
 
     @Autowired
@@ -46,78 +36,58 @@ public class TicketService {
         return ticketRepository.findByEventIdAndReservedFalse(eventId);
     }
 
-    @Transactional
+   @Transactional
     public void reserveSeats(TicketReserveRequestedEvent event) {
-        List<Ticket> tickets = ticketRepository
-                .findByEventIdAndShowIdAndSeatNumberIn(event.getEventId(), event.getShowId(), event.getSeatNumbers());
+    // Find event
+    TicketEvent ticketEvent = ticketEventRepository.findById(Long.valueOf(event.getEventId()))
+            .orElseThrow(() -> new RuntimeException("Event not found"));
 
-        for (Ticket ticket : tickets) {
-            if (ticket.isReserved()) {
-                throw new RuntimeException("Seat already reserved: " + ticket.getSeatNumber());
-            }
-            ticket.setReserved(true);
-            ticket.setUserId(event.getUserId());
-            ticket.setReservedAt(LocalDateTime.now());
-        }
-
-        ticketRepository.saveAll(tickets);
-
-        // Publish "ticket.reserved"
-        try {
-            TicketReservedEvent reservedEvent = new TicketReservedEvent();
-            reservedEvent.setOrderId(event.getOrderId());
-            reservedEvent.setEventId(event.getEventId());
-            reservedEvent.setShowId(event.getShowId());
-            reservedEvent.setSeatNumbers(event.getSeatNumbers());
-            reservedEvent.setUserId(event.getUserId());
-
-            String json = objectMapper.writeValueAsString(reservedEvent);
-            kafkaTemplate.send("ticket.reserved", json);
-            System.out.println("Published ticket.reserved for orderId=" + event.getOrderId());
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to publish ticket.reserved", e);
-        }
+    // Generate tickets for the requested seats
+    int startingSeatNumber = ticketEvent.getTotalSeats() + 1;
+    for (int i = 0; i < event.getRequestedSeats(); i++) {
+        Ticket ticket = new Ticket();
+        ticket.setEventId(ticketEvent.getId());
+        ticket.setSeatNumber(startingSeatNumber + i);
+        ticket.setPrice(event.getTicketPrice());
+        ticketRepository.save(ticket);
     }
+
+    // Update total seats
+    ticketEvent.setTotalSeats(ticketEvent.getTotalSeats() + event.getRequestedSeats());
+    ticketEventRepository.save(ticketEvent);
+
+    // Publish reserved event
+    publishToKafka("ticket.reserved", event);
+}
 
 
     @Transactional
     public void confirmReservation(String orderId, String paymentId) {
-        List<Ticket> tickets = ticketRepository.findByOrderId(orderId); 
-      
+        List<Ticket> tickets = ticketRepository.findByOrderId(orderId);
+        if (tickets.isEmpty()) return;
 
-        if (tickets.isEmpty()) {
-            throw new RuntimeException("No reserved tickets found for orderId: " + orderId);
-        }
-
-        for (Ticket ticket : tickets) {
-            if (!ticket.isReserved()) {
-                throw new RuntimeException("Ticket is not reserved: " + ticket.getSeatNumber());
-            }
+        tickets.forEach(ticket -> {
             ticket.setConfirmed(true);
             ticket.setConfirmedAt(LocalDateTime.now());
-        }
+        });
 
         ticketRepository.saveAll(tickets);
-        System.out.println("Confirmed reservation for orderId=" + orderId + ", paymentId=" + paymentId);
+        System.out.println("Confirmed reservation for orderId=" + orderId);
     }
 
     @Transactional
     public void releaseReservation(String orderId, String reason) {
-        // Find tickets by orderId (or by userId depending on your schema)
         List<Ticket> tickets = ticketRepository.findByOrderId(orderId);
+        if (tickets.isEmpty()) return;
 
-        if (tickets.isEmpty()) {
-            System.out.println("No tickets found to release for orderId=" + orderId);
-            return;
-        }
-
-        for (Ticket ticket : tickets) {
+        tickets.forEach(ticket -> {
             ticket.setReserved(false);
+            ticket.setConfirmed(false);
             ticket.setUserId(null);
             ticket.setReservedAt(null);
-            ticket.setConfirmed(false);
             ticket.setConfirmedAt(null);
-        }
+            ticket.setOrderId(null);
+        });
 
         ticketRepository.saveAll(tickets);
         System.out.println("Released tickets for orderId=" + orderId + ", reason=" + reason);
@@ -143,49 +113,31 @@ public class TicketService {
         publishToKafka("ticket.expired", event);
     }
 
-    // ---------------- Helper ----------------
-
-    private void publishToKafka(String topic, Object event) {
-        try {
-            String json = objectMapper.writeValueAsString(event);
-            kafkaTemplate.send(topic, json);
-            System.out.println("Published " + topic + " event");
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to publish " + topic, e);
-        }
-    }
-
     @Transactional
-    public void createEventWithSeats(EventCreatedEvent event) {
+    public void createEvent(TicketEvent event) {
         TicketEvent ticketEvent = new TicketEvent();
+        ticketEvent.setId(event.getId());
         ticketEvent.setTitle(event.getTitle());
         ticketEvent.setDescription(event.getDescription());
         ticketEvent.setLocation(event.getLocation());
         ticketEvent.setStartUtc(event.getStartUtc());
         ticketEvent.setEndUtc(event.getEndUtc());
         ticketEvent.setOrganizerId(event.getOrganizerId());
-        ticketEvent = ticketEventRepository.save(ticketEvent);
 
-        EventShow show = new EventShow();
-        show.setEvent(ticketEvent);
-        show.setShowNumber(1);
-        show.setStartTime(LocalDateTime.ofInstant(event.getStartUtc(), ZoneId.systemDefault()));
-        show.setEndTime(LocalDateTime.ofInstant(event.getEndUtc(), ZoneId.systemDefault()));
-        show = eventShowRepository.save(show);
+        // totalSeats will be initialized to 0 by default from the entity
+        ticketEvent.setTotalSeats(0);
 
-        for (int i = 1; i <= 20; i++) {
-            String seatNumber = "A" + i;
+        ticketEventRepository.save(ticketEvent);
+    }
 
-            Seat seat = new Seat();
-            seat.setShow(show);
-            seat.setSeatNumber(seatNumber);
-            seatRepository.save(seat);
 
-            Ticket ticket = new Ticket();
-            ticket.setEventId(ticketEvent.getId());
-            ticket.setShowId(show.getId());
-            ticket.setSeatNumber(seatNumber);
-            ticketRepository.save(ticket);
+
+    private void publishToKafka(String topic, Object event) {
+        try {
+            String json = objectMapper.writeValueAsString(event);
+            kafkaTemplate.send(topic, json);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
     

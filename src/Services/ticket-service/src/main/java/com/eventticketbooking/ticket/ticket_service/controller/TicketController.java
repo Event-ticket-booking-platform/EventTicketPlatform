@@ -1,99 +1,83 @@
 package com.eventticketbooking.ticket.ticket_service.controller;
 
-// package main.java.com.eventticketbooking.ticket.ticket_service.controller;
-
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.eventticketbooking.ticket.ticket_service.entity.Ticket;
-import com.eventticketbooking.ticket.ticket_service.kafka.PaymentEvent;
-import com.eventticketbooking.ticket.ticket_service.kafka.EventCreatedEvent;
-import com.eventticketbooking.ticket.ticket_service.kafka.OrderCancelledEvent;
-import com.eventticketbooking.ticket.ticket_service.kafka.TicketExpiredEvent;
-
+import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
+import com.eventticketbooking.ticket.ticket_service.kafka.*;
 import com.eventticketbooking.ticket.ticket_service.service.TicketService;
+
 
 @RestController
 @RequestMapping("/tickets")
 public class TicketController {
+    
     private final TicketService ticketService;
 
     public TicketController(TicketService ticketService) {
         this.ticketService = ticketService;
     }
 
+    // Get all tickets for an event
     @GetMapping("/event/{eventId}")
-    public List<Ticket> getTicketsByEventId(@PathVariable Long eventId) {
+    public List<Ticket> getTicketsByEvent(@PathVariable Long eventId) {
         return ticketService.getTicketsByEvent(eventId);
     }
 
-    @GetMapping("/event/{eventId}/available")
-    public List<Ticket> getAvailableTickets(@PathVariable Long eventId) {
-        return ticketService.getAvailableTickets(eventId);
+    // Reserve seats
+    @PostMapping("/reserve")
+    public ResponseEntity<String> reserveTicket(@RequestBody TicketReserveRequestedEvent request) {
+        try {
+            ticketService.reserveSeats(request);
+            return ResponseEntity.ok("Seats reserved successfully! TicketReservedEvent published.");
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Failed to reserve seats: " + e.getMessage());
+        }
     }
 
-    // @PostMapping("/reserve")
-    // public String reserveTicket(@RequestBody ReserveTicketRequest request) {
-    //     boolean reserved = ticketService.reserveAndPublishEvent(
-    //             request.getEventId(),
-    //             request.getSeatNumber(),
-    //             request.getUserId()
-    //     );
-
-    //     return reserved ? "Reservation event sent to Kafka!" : "Seat is not available!";
-    // }
-
+    // Handle payment processed
     @PostMapping("/payment/processed")
     public String paymentProcessed(@RequestBody PaymentEvent paymentEvent) {
         ticketService.handlePaymentProcessed(paymentEvent);
         return "Payment processed event handled!";
     }
 
+    // Handle payment failed
     @PostMapping("/payment/failed")
     public String paymentFailed(@RequestBody PaymentEvent paymentEvent) {
         ticketService.handlePaymentFailed(paymentEvent);
         return "Payment failed event handled!";
     }
 
+    // Handle order cancelled
     @PostMapping("/order/canceled")
     public String orderCancelled(@RequestBody OrderCancelledEvent event) {
         ticketService.handleOrderCancelled(event);
         return "Order cancelled event handled!";
     }
 
+    // Handle ticket expired
     @PostMapping("/ticket/expired")
     public String ticketExpired(@RequestBody TicketExpiredEvent event) {
         ticketService.handleTicketExpired(event);
         return "Ticket expired event handled!";
     }
 
-    @PostMapping("/test-new-event")
-    public ResponseEntity<String> createTestEvent(@RequestBody EventCreatedEvent event) {
+    /// Create test event
+    @PostMapping("/event/create")
+    public ResponseEntity<String> createEvent(@RequestBody TicketEvent event) {
         try {
-            ticketService.createEventWithSeats(event);
-            return ResponseEntity.ok("Test event created successfully with seats & tickets!");
+            ticketService.createEvent(event);
+            return ResponseEntity.ok("Event created successfully with zero seats!");
         } catch (Exception e) {
-            e.printStackTrace();
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                                 .body("Failed to create test event: " + e.getMessage());
+                    .body("Failed to create event: " + e.getMessage());
         }
     }
-    // {
-    //     "title": "Test Concert",
-    //     "description": "A special test event",
-    //     "location": "Colombo Stadium",
-    //     "startUtc": "2025-09-10T14:00:00Z",
-    //     "endUtc": "2025-09-10T17:00:00Z",
-    //     "organizerId": 101
-    // }   
     
     
 }
