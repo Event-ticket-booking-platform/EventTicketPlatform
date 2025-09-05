@@ -94,6 +94,15 @@ public class TicketController {
     //     "endUtc": "2025-09-10T17:00:00Z",
     //     "organizerId": 101
     // }   
-    
+
+    @GetMapping("/sold/total")
+    public long getTotalSoldTickets() {
+        return ticketService.getTotalSoldTickets();
+    }
+
+    @GetMapping("/event/{eventId}/sold")
+    public long getSoldTicketsByEvent(@PathVariable Long eventId) {
+        return ticketService.getSoldTicketsByEvent(eventId);
+    }
     
 }
