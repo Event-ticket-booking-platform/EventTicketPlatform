@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Service;
 
+import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
 import com.eventticketbooking.ticket.ticket_service.service.TicketService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,9 +18,9 @@ public class TicketEventConsumer {
     @KafkaListener(topics = "event-created")
     public void consumeEventCreated(String message) {
         try {
-            EventCreatedEvent event = objectMapper.readValue(message, EventCreatedEvent.class);
+            TicketEvent event = objectMapper.readValue(message, TicketEvent.class);
             System.out.println("Received new event: " + event.getTitle());
-            ticketService.createEventWithSeats(event);
+            ticketService.createEvent(event);
             
         } catch (Exception e) {
             e.printStackTrace();

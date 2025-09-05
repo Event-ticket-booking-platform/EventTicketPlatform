@@ -10,8 +10,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
 
+import lombok.Getter;
+import lombok.Setter;
+
 @Entity
 @Table(name = "tickets", uniqueConstraints = @UniqueConstraint(columnNames = {"event_id", "seat_number"}))
+@Getter
+@Setter
 public class Ticket {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -21,7 +26,7 @@ public class Ticket {
     private Long eventId;
 
     @Column(name = "seat_number", nullable = false)
-    private String seatNumber;
+    private Integer seatNumber;
 
     @Column(nullable = false)
     private boolean reserved = false;
@@ -41,90 +46,6 @@ public class Ticket {
     @Column(name = "confirmed_at")
     private LocalDateTime confirmedAt;
 
-    @Column(name = "show_id", nullable = false)
-    private Long showId;
-
-    // Getters and Setters
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getEventId() {
-        return eventId;
-    }
-
-    public void setEventId(Long eventId) {
-        this.eventId = eventId;
-    }
-
-    public String getSeatNumber() {
-        return seatNumber;
-    }
-
-    public void setSeatNumber(String seatNumber) {
-        this.seatNumber = seatNumber;
-    }
-
-    public boolean isReserved() {
-        return reserved;
-    }
-
-    public void setReserved(boolean reserved) {
-        this.reserved = reserved;
-    }
-
-    public String getUserId() {
-        return userId;
-    }
-
-    public void setUserId(String userId) {
-        this.userId = userId;
-    }
-
-    public LocalDateTime getReservedAt() {
-        return reservedAt;
-    }
-
-    public void setReservedAt(LocalDateTime reservedAt) {
-        this.reservedAt = reservedAt;
-    }
-
-    public String getOrderId() {
-    return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public boolean isConfirmed() {
-        return confirmed;
-    }
-
-    public void setConfirmed(boolean confirmed) {
-        this.confirmed = confirmed;
-    }
-
-    public LocalDateTime getConfirmedAt() {
-        return confirmedAt;
-    }
-
-    public void setConfirmedAt(LocalDateTime confirmedAt) {
-        this.confirmedAt = confirmedAt;
-    }
-
-    public Long getShowId() { 
-        return showId; 
-    }
-
-    public void setShowId(Long showId) { 
-        this.showId = showId; 
-    }
-
-    
+    @Column(name ="price")
+    private Double price;
 }
