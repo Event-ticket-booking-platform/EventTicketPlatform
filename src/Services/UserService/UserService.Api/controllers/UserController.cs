@@ -20,6 +20,26 @@ namespace UserService.Api.controllers
 
         [HttpGet]
         public async Task<IActionResult> GetAll() => Ok(await _service.GetAllAsync());
+
+        [HttpGet("{id:guid}")]
+        public async Task<IActionResult> GetById(Guid id)
+        {
+            var user = await _service.GetByIdAsync(id);
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
+        }
+
+        [HttpGet("by-username/{username}")]
+        public async Task<IActionResult> GetByUsername(string username)
+        {
+            var user = await _service.GetByUsernameAsync(username);
+            if (user == null)
+                return NotFound();
+
+            return Ok(user);
+    }
     }
 
 }

@@ -27,5 +27,11 @@ public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
     @Query("SELECT t FROM Ticket t WHERE t.reserved = true AND t.confirmed = false AND t.reservedAt < :expiryTime")
     List<Ticket> findExpiredReservations(@Param("expiryTime") LocalDateTime expiryTime);
+
+    // Count confirmed tickets (sold tickets)
+    long countByConfirmedTrue();
+
+    // Count sold tickets for a specific event
+    long countByEventIdAndConfirmedTrue(Long eventId);
     
 }

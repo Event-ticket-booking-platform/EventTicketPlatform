@@ -36,6 +36,16 @@ public class TicketService {
         return ticketRepository.findByEventIdAndReservedFalse(eventId);
     }
 
+    // Get total sold tickets across all events
+    public long getTotalSoldTickets() {
+        return ticketRepository.countByConfirmedTrue();
+    }
+
+    // Get sold tickets for a specific event
+    public long getSoldTicketsByEvent(Long eventId) {
+        return ticketRepository.countByEventIdAndConfirmedTrue(eventId);
+    }
+
    @Transactional
     public void reserveSeats(TicketReserveRequestedEvent event) {
     // Find event

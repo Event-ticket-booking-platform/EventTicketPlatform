@@ -78,6 +78,23 @@ public class TicketController {
                     .body("Failed to create event: " + e.getMessage());
         }
     }
-    
+    // {
+    //     "title": "Test Concert",
+    //     "description": "A special test event",
+    //     "location": "Colombo Stadium",
+    //     "startUtc": "2025-09-10T14:00:00Z",
+    //     "endUtc": "2025-09-10T17:00:00Z",
+    //     "organizerId": 101
+    // }   
+
+    @GetMapping("/sold/total")
+    public long getTotalSoldTickets() {
+        return ticketService.getTotalSoldTickets();
+    }
+
+    @GetMapping("/event/{eventId}/sold")
+    public long getSoldTicketsByEvent(@PathVariable Long eventId) {
+        return ticketService.getSoldTicketsByEvent(eventId);
+    }
     
 }

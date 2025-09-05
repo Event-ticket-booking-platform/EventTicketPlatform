@@ -25,6 +25,13 @@ namespace UserService.Infrastructure.Persistence
         public Task<List<User>> GetAllAsync() => _db.Users.ToListAsync();
         public Task<User?> FindByUsernameOrEmailAsync(string uoe) =>
              _db.Users.FirstOrDefaultAsync(u => u.Username == uoe || u.Email == uoe);
+
+        // Get user by Id
+        public Task<User?> GetByIdAsync(Guid id) =>
+            _db.Users.FirstOrDefaultAsync(u => u.Id == id);
+
+        public Task<User?> GetByUsernameAsync(string username) =>
+            _db.Users.FirstOrDefaultAsync(u => u.Username == username);
     }
 
 }

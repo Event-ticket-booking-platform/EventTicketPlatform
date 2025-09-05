@@ -12,6 +12,10 @@ namespace UserService.Application.Interfaces
     {
         Task<Guid> RegisterAsync(RegisterUserDTO dto);
         Task<List<User>> GetAllAsync();
+
+        // New methods
+        Task<User?> GetByIdAsync(Guid id);
+        Task<User?> GetByUsernameAsync(string username);
     }
 
 }
