@@ -98,7 +98,7 @@ public class TicketController {
     }
 
     @GetMapping("/event/{eventId}/sold")
-    public long getSoldTicketsByEvent(@PathVariable Long eventId) {
+    public long getSoldTicketsByEvent(@PathVariable String eventId) {
         return ticketService.getSoldTicketsByEvent(eventId);
     }
     
