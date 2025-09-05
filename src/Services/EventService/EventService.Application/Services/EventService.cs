@@ -24,9 +24,9 @@ namespace EventService.Application.Services
 
         public async Task<List<Event>> GetAllEventsAsync() => await _repository.GetAllAsync();
 
-        public async Task<Event?> GetEventByIdAsync(Guid id) => await _repository.GetByIdAsync(id);
+        public async Task<Event?> GetEventByIdAsync(string id) => await _repository.GetByIdAsync(id);
 
-        public async Task<Guid> CreateEventAsync(CreateEventDTO dto, string userId)
+        public async Task<string> CreateEventAsync(CreateEventDTO dto, string userId)
         {
             if (dto.StartUtc >= dto.EndUtc)
             {
@@ -36,7 +36,7 @@ namespace EventService.Application.Services
                 throw new ArgumentException("TicketPrice cannot be negative.");
             var evt = new Event
             {
-                Id = Guid.NewGuid(),
+               Id = Guid.NewGuid().ToString(),
                 Title = dto.Title,
                 Description = dto.Description,
                 Location = dto.Location,

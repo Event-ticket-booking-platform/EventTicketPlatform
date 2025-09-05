@@ -8,7 +8,7 @@ namespace EventService.Application.Messaging
 {
     public class KafkaUserCreatedMessage
     {
-        public Guid Id { get; set; }
+        public string Id { get; set; }
         public string Username { get; set; } = null!;
         public string Email { get; set; } = null!;
         public string Role { get; set; } = null!;

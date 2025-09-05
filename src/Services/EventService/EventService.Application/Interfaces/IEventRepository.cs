@@ -10,7 +10,7 @@ namespace EventService.Application.Interfaces
     public interface IEventRepository
     {
         Task<List<Event>> GetAllAsync();
-        Task<Event?> GetByIdAsync(Guid id);
+        Task<Event?> GetByIdAsync(string id);
         Task AddAsync(Event evt);
         Task<long> CountAsync();
     }

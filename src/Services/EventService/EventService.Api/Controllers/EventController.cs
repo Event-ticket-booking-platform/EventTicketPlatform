@@ -37,10 +37,7 @@ namespace EventService.Api.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetById(string id)
         {
-            if (!Guid.TryParse(id, out var gid))
-                return BadRequest("Invalid id format.");
-
-            var evt = await _eventService.GetEventByIdAsync(gid);
+            var evt = await _eventService.GetEventByIdAsync(id);  
             return evt is null ? NotFound() : Ok(evt);
         }
 

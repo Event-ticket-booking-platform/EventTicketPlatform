@@ -10,8 +10,9 @@ namespace EventService.Domain.Entities
 {
     public class Event
     {
+        [BsonId] 
         [BsonRepresentation(BsonType.String)]
-        public Guid Id { get; set; } = Guid.NewGuid();
+        public string Id { get; set; } = Guid.NewGuid().ToString();
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Location { get; set; } = null!;

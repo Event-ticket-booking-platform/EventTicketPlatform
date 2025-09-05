@@ -12,8 +12,8 @@ namespace EventService.Application.Services
     public interface IEventService
     {
         Task<List<Event>> GetAllEventsAsync();
-        Task<Event?> GetEventByIdAsync(Guid id);
-        Task<Guid> CreateEventAsync(CreateEventDTO dto, string userId);
+        Task<Event?> GetEventByIdAsync(string id);
+        Task<string> CreateEventAsync(CreateEventDTO dto, string userId);
         Task<long> GetTotalEventsAsync();
     }
 }

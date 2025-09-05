@@ -2,7 +2,7 @@ namespace EventService.Application.Messaging.Catalog
 {
     public class EventUpsertMessage
     {
-        public Guid EventId { get; set; }
+        public string EventId { get; set; }
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Location { get; set; } = null!;

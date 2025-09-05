@@ -26,7 +26,7 @@ namespace EventService.Infrastructure.Repositories
         }
 
         public async Task<List<Event>> GetAllAsync() => await _events.Find(_ => true).ToListAsync();
-        public async Task<Event?> GetByIdAsync(Guid id) => await _events.Find(e => e.Id == id).FirstOrDefaultAsync();
+        public async Task<Event?> GetByIdAsync(string id) => await _events.Find(e => e.Id == id).FirstOrDefaultAsync();
         public async Task AddAsync(Event evt) => await _events.InsertOneAsync(evt);
         public async Task<long> CountAsync() =>
             await _events.CountDocumentsAsync(Builders<Event>.Filter.Empty);

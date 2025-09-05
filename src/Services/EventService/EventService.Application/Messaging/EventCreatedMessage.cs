@@ -8,7 +8,7 @@ namespace EventService.Application.Messaging
 {
     public class EventCreatedMessage
     {
-        public Guid EventId { get; set; }
+        public string EventId { get; set; }
         public string Title { get; set; }
         public string Location { get; set; }
         public DateTime StartUtc { get; set; }
