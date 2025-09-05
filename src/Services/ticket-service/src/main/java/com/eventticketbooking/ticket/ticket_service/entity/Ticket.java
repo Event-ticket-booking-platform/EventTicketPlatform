@@ -25,8 +25,8 @@ public class Ticket {
     @Column(name = "event_id", nullable = false)
     private String eventId;
 
-    @Column(name = "seat_number", nullable = false)
-    private Integer seatNumber;
+    @Column(name = "seat_count", nullable = false)
+    private Integer seatCount; 
 
     @Column(nullable = false)
     private boolean reserved = false;
