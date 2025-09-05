@@ -173,8 +173,7 @@ public class OrderService {
     public boolean isTicketReservedValid(TicketReserved event) {
         System.out.println("Validating");
         return event.getTicketId() != null && !event.getTicketId().isEmpty()
-                && event.getUserId() != null && !event.getUserId().isEmpty() // TODO: Validate all fields
-                && event.getShowNumber() > 0;
+                && event.getUserId() != null && !event.getUserId().isEmpty();
     }
 
 
