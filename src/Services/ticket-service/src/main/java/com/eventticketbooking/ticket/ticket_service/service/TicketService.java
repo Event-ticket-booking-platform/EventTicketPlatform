@@ -29,6 +29,9 @@ public class TicketService {
     @Autowired
     private ObjectMapper objectMapper;
 
+    @Autowired
+    private TicketEventProducer ticketEventProducer;
+
     public List<Ticket> getTicketsByEvent(Long eventId) {
         return ticketRepository.findByEventId(eventId);
     }
@@ -80,7 +83,7 @@ public class TicketService {
     );
 
     // Publish reserved event
-    publishToKafka("ticket.reserved", reservedEvent);
+    ticketEventProducer.sendTicketReserved(reservedEvent);
 }
 
 
@@ -133,7 +136,8 @@ public class TicketService {
 
     public void handleTicketExpired(TicketExpiredEvent event) {
         releaseReservation(event.getOrderId(), "TICKET_EXPIRED");
-        publishToKafka("ticket.expired", event);
+        // publishToKafka("ticket.expired", event);
+        ticketEventProducer.sendTicketExpired(event);
     }
 
     @Transactional

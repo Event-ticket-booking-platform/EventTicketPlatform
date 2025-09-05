@@ -14,7 +14,7 @@ public class TicketEventProducer {
         this.objectMapper = objectMapper;
     }
 
-    public void sendMessage(TicketReservedEvent event) {
+    public void sendTicketReserved(TicketReservedEvent event) {
         sendMessageToTopic(event, "ticket.reserved");
     }
 
