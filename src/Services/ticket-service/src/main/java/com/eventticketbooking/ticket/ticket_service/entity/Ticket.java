@@ -23,7 +23,7 @@ public class Ticket {
     private Long id;
 
     @Column(name = "event_id", nullable = false)
-    private Long eventId;
+    private String eventId;
 
     @Column(name = "seat_number", nullable = false)
     private Integer seatNumber;
