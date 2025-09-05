@@ -32,11 +32,11 @@ public class TicketService {
     @Autowired
     private TicketEventProducer ticketEventProducer;
 
-    public List<Ticket> getTicketsByEvent(Long eventId) {
+    public List<Ticket> getTicketsByEvent(String eventId) {
         return ticketRepository.findByEventId(eventId);
     }
 
-    public List<Ticket> getAvailableTickets(Long eventId) {
+    public List<Ticket> getAvailableTickets(String eventId) {
         return ticketRepository.findByEventIdAndReservedFalse(eventId);
     }
 

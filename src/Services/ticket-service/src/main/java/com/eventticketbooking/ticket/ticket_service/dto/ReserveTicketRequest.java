@@ -4,14 +4,14 @@ import lombok.Data;
 
 @Data
 public class ReserveTicketRequest {
-    private Long eventId;
+    private String eventId;
     private String seatNumber;  
     private Long userId;
 
-    public Long getEventId() {
+    public String getEventId() {
         return eventId;
     }
-    public void setEventId(Long eventId) {
+    public void setEventId(String eventId) {
         this.eventId = eventId;
     }
 
