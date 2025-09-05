@@ -14,5 +14,4 @@ public class TicketReserved {
     @NotEmpty private String userId;
     @Positive private int quantity;
     @Positive private double price;
-    @Positive private int showNumber;
 }
