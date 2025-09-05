@@ -36,6 +36,7 @@ public class OrderService {
                 } else {
                     OrderEvent orderEvent = new OrderEvent(
                             existingOrder.get().getId().toString(),
+                            existingOrder.get().getUserId(),
                             existingOrder.get().getPrice(),
                             existingOrder.get().getStatus());
                     eventProducer.sendOrderCreatedEvent(orderEvent);
@@ -62,7 +63,7 @@ public class OrderService {
 
         orderRepository.save(order);
 
-        OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getPrice(), order.getStatus());
+        OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getUserId(), order.getPrice(), order.getStatus());
         eventProducer.sendOrderCreatedEvent(orderEvent);
 
         System.out.println("####: Order " + order.getId() + " created.");
@@ -92,7 +93,7 @@ public class OrderService {
 
                 orderRepository.save(order);
 
-                OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getPrice(), order.getStatus());
+                OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getUserId(), order.getPrice(), order.getStatus());
                 eventProducer.sendOrderSuccessfulEvent(orderEvent);
 
                 System.out.println("####: Order " + order.getId() + " marked as PAID.");
@@ -102,7 +103,7 @@ public class OrderService {
 
                 orderRepository.save(order);
 
-                OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getPrice(), order.getStatus());
+                OrderEvent orderEvent = new OrderEvent(order.getId().toString(), order.getUserId(), order.getPrice(), order.getStatus());
                 eventProducer.sendOrderFailedEvent(orderEvent);
 
                 System.out.println("####: Order " + order.getId() + " marked as FAILED.");
@@ -173,7 +174,8 @@ public class OrderService {
     public boolean isTicketReservedValid(TicketReserved event) {
         System.out.println("Validating");
         return event.getTicketId() != null && !event.getTicketId().isEmpty()
-                && event.getUserId() != null && !event.getUserId().isEmpty();
+                && event.getUserId() != null && !event.getUserId().isEmpty()
+                && event.getEventId() != null && !event.getEventId().isEmpty();
     }
 
 
