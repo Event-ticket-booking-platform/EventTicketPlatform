@@ -32,6 +32,6 @@ public interface TicketRepository extends JpaRepository<Ticket,Long> {
     long countByConfirmedTrue();
 
     // Count sold tickets for a specific event
-    long countByEventIdAndConfirmedTrue(Long eventId);
+    long countByEventIdAndConfirmedTrue(String eventId);
     
 }

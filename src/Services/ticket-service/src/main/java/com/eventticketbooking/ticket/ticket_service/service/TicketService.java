@@ -46,7 +46,7 @@ public class TicketService {
     }
 
     // Get sold tickets for a specific event
-    public long getSoldTicketsByEvent(Long eventId) {
+    public long getSoldTicketsByEvent(String eventId) {
         return ticketRepository.countByEventIdAndConfirmedTrue(eventId);
     }
 
