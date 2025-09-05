@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 public class TicketEvent {
     @Id
-    private Long id;
+    private String id;
 
     @Column(nullable = false)
     private String title;

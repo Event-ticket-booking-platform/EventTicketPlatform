@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.eventticketbooking.ticket.ticket_service.entity.TicketEvent;
 
 @Repository
-public interface TicketEventRepository extends JpaRepository<TicketEvent, Long> {
+public interface TicketEventRepository extends JpaRepository<TicketEvent, String> {
 }

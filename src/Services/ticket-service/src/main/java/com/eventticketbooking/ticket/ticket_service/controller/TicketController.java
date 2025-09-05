@@ -1,6 +1,7 @@
 package com.eventticketbooking.ticket.ticket_service.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -69,10 +70,14 @@ public class TicketController {
 
     /// Create test event
     @PostMapping("/event/create")
-    public ResponseEntity<String> createEvent(@RequestBody TicketEvent event) {
+    public ResponseEntity<?> createEvent(@RequestBody TicketEvent event) {
         try {
             ticketService.createEvent(event);
-            return ResponseEntity.ok("Event created successfully!");
+            // return ResponseEntity.ok("Event created successfully!");
+            return ResponseEntity.ok(Map.of(
+                "message", "Event created successfully!",
+                "event", event
+        ));
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to create event: " + e.getMessage());

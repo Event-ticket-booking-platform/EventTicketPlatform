@@ -2,7 +2,7 @@ DROP TABLE IF EXISTS tickets CASCADE;
 DROP TABLE IF EXISTS events CASCADE;
 
 CREATE TABLE IF NOT EXISTS events (
-    id BIGINT PRIMARY KEY,  -- Provided via message
+    id VARCHAR(255) PRIMARY KEY,  -- Provided via message
     title VARCHAR(255) NOT NULL,
     description TEXT,
     location VARCHAR(255),

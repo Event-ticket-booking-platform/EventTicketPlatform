@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -49,10 +50,13 @@ public class TicketService {
    @Transactional
     public void reserveSeats(TicketReserveRequestedEvent event) {
     // Find event
-    TicketEvent ticketEvent = ticketEventRepository.findById(Long.valueOf(event.getEventId()))
+    TicketEvent ticketEvent = ticketEventRepository.findById(String.valueOf(event.getEventId()))
             .orElseThrow(() -> new RuntimeException("Event not found"));
 
     // Generate tickets for the requested seats
+
+    List<Long> ticketIds = new ArrayList<>();
+
     int startingSeatNumber = ticketEvent.getTotalSeats() + 1;
     for (int i = 0; i < event.getSeatCount(); i++) {
         Ticket ticket = new Ticket();
@@ -60,14 +64,23 @@ public class TicketService {
         ticket.setSeatNumber(startingSeatNumber + i);
         ticket.setPrice(event.getTicketPrice());
         ticketRepository.save(ticket);
+        ticketIds.add(ticket.getId()); 
     }
 
     // Update total seats
     ticketEvent.setTotalSeats(ticketEvent.getTotalSeats() + event.getSeatCount());
     ticketEventRepository.save(ticketEvent);
 
+     TicketReservedEvent reservedEvent = new TicketReservedEvent(
+            ticketIds,   
+            event.getEventId(),
+            event.getUserId(),
+            event.getTicketPrice(),
+            event.getSeatCount()
+    );
+
     // Publish reserved event
-    publishToKafka("ticket.reserved", event);
+    publishToKafka("ticket.reserved", reservedEvent);
 }
 
 
