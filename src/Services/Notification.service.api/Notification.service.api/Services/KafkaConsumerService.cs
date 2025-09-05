@@ -28,7 +28,7 @@ public class KafkaConsumerService : BackgroundService
             "order.successful",
             "order.cancelled",
             "ticketReserve.error",
-            "order-failed",
+            "order.failed",
             "paymentProcessing.failed",
             "ticketCancel.failed",
             "ticketCancel.error",
