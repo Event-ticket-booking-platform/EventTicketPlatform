@@ -17,11 +17,11 @@ import java.time.LocalDateTime;
 @Repository
 public interface TicketRepository extends JpaRepository<Ticket,Long> {
 
-     List<Ticket> findByEventId(Long eventId);
+     List<Ticket> findByEventId(String eventId);
 
-    Optional<Ticket> findByEventIdAndSeatNumber(Long eventId, Integer seatNumber);
+    Optional<Ticket> findByEventIdAndSeatNumber(String eventId, Integer seatNumber);
 
-    List<Ticket> findByEventIdAndReservedFalse(Long eventId);
+    List<Ticket> findByEventIdAndReservedFalse(String eventId);
 
     List<Ticket> findByOrderId(String orderId);
 
