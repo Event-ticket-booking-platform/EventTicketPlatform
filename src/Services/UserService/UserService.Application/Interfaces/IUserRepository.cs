@@ -12,8 +12,6 @@ namespace UserService.Application.Interfaces
         Task AddAsync(User user);
         Task<List<User>> GetAllAsync();
         Task<User?> FindByUsernameOrEmailAsync(string usernameOrEmail);
-
-        // New methods
         Task<User?> GetByIdAsync(Guid id);
         Task<User?> GetByUsernameAsync(string username);
     }

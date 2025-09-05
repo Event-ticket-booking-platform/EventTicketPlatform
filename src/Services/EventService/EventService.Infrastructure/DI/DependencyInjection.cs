@@ -13,18 +13,15 @@ namespace EventService.Infrastructure.DI
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration config)
         {
-            // Bind strongly-typed settings (env vars with __ override these)
             services.Configure<MongoDbSettings>(config.GetSection("MongoDbSettings"));
             services.AddSingleton<IKafkaProducer, KafkaProducer>();
 
-            // IMongoClient as singleton (thread-safe)
             services.AddSingleton<IMongoClient>(sp =>
             {
                 var s = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;
                 return new MongoClient(s.ConnectionString);
             });
 
-            // Expose IMongoDatabase too (built from the DB name)
             services.AddSingleton(sp =>
             {
                 var s = sp.GetRequiredService<IOptions<MongoDbSettings>>().Value;

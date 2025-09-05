@@ -17,7 +17,6 @@ builder.Configuration
     .AddEnvironmentVariables();
 
 
-// Swagger
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(c =>
 {
@@ -60,7 +59,6 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
         };
     });
 
-// Controllers (keep ONLY once)
 builder.Services
     .AddControllers()
     .AddJsonOptions(options =>
@@ -68,14 +66,12 @@ builder.Services
         options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
     });
 
-// App services + infrastructure (this reads ConnectionStrings:DefaultConnection)
 builder.Services.AddScoped<IUserService, UserService.Application.Services.UserService>();
 builder.Services.AddInfrastructure(builder.Configuration);
 builder.Services.AddAuthorization();
 
 var app = builder.Build();
 
-// One-time startup probe (useful while debugging)
 using (var scope = app.Services.CreateScope())
 {
     var db = scope.ServiceProvider.GetRequiredService<UserDbContext>();
@@ -97,7 +93,6 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Debug endpoint to confirm what the app sees
 app.MapGet("/debug/conn", (IConfiguration cfg) =>
     Results.Text(cfg.GetConnectionString("DefaultConnection") ?? "<null>"));
 

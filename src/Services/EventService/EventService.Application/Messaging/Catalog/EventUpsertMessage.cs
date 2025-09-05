@@ -6,7 +6,7 @@ namespace EventService.Application.Messaging.Catalog
         public string Title { get; set; } = null!;
         public string Description { get; set; } = null!;
         public string Location { get; set; } = null!;
-        public string Status { get; set; } = "PUBLISHED";  // DRAFT | PUBLISHED | CANCELLED
+        public string Status { get; set; } = "PUBLISHED";  
         public DateTime StartsAt { get; set; }
         public DateTime EndsAt { get; set; }
         public DateTime UpdatedAt { get; set; }
