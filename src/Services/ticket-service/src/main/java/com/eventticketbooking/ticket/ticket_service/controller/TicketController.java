@@ -72,7 +72,7 @@ public class TicketController {
     public ResponseEntity<String> createEvent(@RequestBody TicketEvent event) {
         try {
             ticketService.createEvent(event);
-            return ResponseEntity.ok("Event created successfully with zero seats!");
+            return ResponseEntity.ok("Event created successfully!");
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body("Failed to create event: " + e.getMessage());

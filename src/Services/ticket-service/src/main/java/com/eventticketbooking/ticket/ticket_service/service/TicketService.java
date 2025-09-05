@@ -44,7 +44,7 @@ public class TicketService {
 
     // Generate tickets for the requested seats
     int startingSeatNumber = ticketEvent.getTotalSeats() + 1;
-    for (int i = 0; i < event.getRequestedSeats(); i++) {
+    for (int i = 0; i < event.getSeatCount(); i++) {
         Ticket ticket = new Ticket();
         ticket.setEventId(ticketEvent.getId());
         ticket.setSeatNumber(startingSeatNumber + i);
@@ -53,7 +53,7 @@ public class TicketService {
     }
 
     // Update total seats
-    ticketEvent.setTotalSeats(ticketEvent.getTotalSeats() + event.getRequestedSeats());
+    ticketEvent.setTotalSeats(ticketEvent.getTotalSeats() + event.getSeatCount());
     ticketEventRepository.save(ticketEvent);
 
     // Publish reserved event
