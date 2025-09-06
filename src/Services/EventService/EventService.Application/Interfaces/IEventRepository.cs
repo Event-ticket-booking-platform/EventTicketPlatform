@@ -13,5 +13,6 @@ namespace EventService.Application.Interfaces
         Task<Event?> GetByIdAsync(string id);
         Task AddAsync(Event evt);
         Task<long> CountAsync();
+        Task<List<Event>> GetByOrganizerAsync(string organizerId);
     }
 }

@@ -30,5 +30,11 @@ namespace EventService.Infrastructure.Repositories
         public async Task AddAsync(Event evt) => await _events.InsertOneAsync(evt);
         public async Task<long> CountAsync() =>
             await _events.CountDocumentsAsync(Builders<Event>.Filter.Empty);
+
+        public async Task<List<Event>> GetByOrganizerAsync(string organizerId)
+        {
+            var filter = Builders<Event>.Filter.Eq(e => e.OrganizerId, organizerId);
+            return await _events.Find(filter).ToListAsync();
+        }
     }
 }

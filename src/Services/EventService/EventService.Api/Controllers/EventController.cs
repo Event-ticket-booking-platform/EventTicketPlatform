@@ -34,6 +34,13 @@ namespace EventService.Api.Controllers
             return Ok(events);
         }
 
+        [HttpGet("by-user/{userId}")]
+        public async Task<ActionResult<List<Event>>> GetByUser(string userId)
+        {
+            var events = await _eventService.GetEventsByUserAsync(userId);
+            return Ok(events);
+        }
+
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetById(string id)
         {
