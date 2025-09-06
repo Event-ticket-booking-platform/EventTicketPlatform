@@ -57,7 +57,7 @@ public class TicketService {
 
     // Generate ticket for the requested seats
     Ticket ticket = new Ticket();
-    ticket.setEventId(ticketEvent.getId());
+    ticket.setEventId(ticketEvent.getEventId());
     ticket.setSeatCount(event.getSeatCount());   // save seat count
     ticket.setPrice(event.getTicketPrice()); // total price
     ticket.setReserved(true);
@@ -139,7 +139,7 @@ public class TicketService {
     @Transactional
     public void createEvent(TicketEvent event) {
         TicketEvent ticketEvent = new TicketEvent();
-        ticketEvent.setId(event.getId());
+        ticketEvent.setEventId(event.getEventId());
         ticketEvent.setTitle(event.getTitle());
         ticketEvent.setDescription(event.getDescription());
         ticketEvent.setLocation(event.getLocation());
